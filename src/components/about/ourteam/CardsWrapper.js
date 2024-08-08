@@ -1,0 +1,24 @@
+import React from "react";
+import Card from "./Card";
+
+const CardsWrapper = ({
+  activeCategory,
+  membersData,
+  setActivePopup,
+  setPopupData,
+}) => {
+  return (
+    <div className="lg:mt-[5.20833333333vw] sm:mt-[60px] mt-[40px] flex flex-wrap lg:gap-x-[1.5625vw] gap-[20px]">
+      {membersData[activeCategory].members.map((member, index) => (
+        <Card
+          setActivePopup={setActivePopup}
+          setPopupData={setPopupData}
+          member={member}
+          index={index}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default CardsWrapper;
