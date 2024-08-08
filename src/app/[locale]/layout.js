@@ -7,9 +7,8 @@ import { getMessages } from "next-intl/server";
 import getStaticMetaData from "@/utils/seo/getStaticMetaData";
 
 export const metadata = getStaticMetaData({
-  title: "Jeddah International College || Home Page",
-  description:
-    "tart your educational journey with us & let us guide you towards your success path.",
+  title: "Durob || Home Page",
+  description: "Experience the Future of Logistics",
   isRobotFollow: false
 });
 
