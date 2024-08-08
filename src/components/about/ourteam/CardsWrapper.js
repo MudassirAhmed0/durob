@@ -5,12 +5,13 @@ const CardsWrapper = ({
   activeCategory,
   membersData,
   setActivePopup,
-  setPopupData,
+  setPopupData
 }) => {
   return (
     <div className="lg:mt-[5.20833333333vw] sm:mt-[60px] mt-[40px] flex flex-wrap lg:gap-x-[1.5625vw] gap-[20px]">
       {membersData[activeCategory].members.map((member, index) => (
         <Card
+          key={index}
           setActivePopup={setActivePopup}
           setPopupData={setPopupData}
           member={member}

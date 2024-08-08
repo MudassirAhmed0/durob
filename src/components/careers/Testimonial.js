@@ -14,8 +14,9 @@ const Testimonial = () => {
           Vision
         </h5>
         <p className="lg:text25 mtext16 mt16 lg:mt-[1.04166666667vw] lg:leading-[1.82291666667vw]">
-          "Working at Duroub Logistics has been an incredible experience. The
-          supportive team and opportunities for growth are unparalleled"
+          &quot;Working at Duroub Logistics has been an incredible experience.
+          The supportive team and opportunities for growth are
+          unparalleled&quot;
         </p>
       </div>
       <div className="lg:w-[28.0208333333vw] lg:h-[39.0625vw] sm:w-[50%] w-full sm:h-[350px] h-[300px] relative">

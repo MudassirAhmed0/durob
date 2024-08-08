@@ -42,8 +42,8 @@ const VissionMission = () => {
             <p className="lg:text22 lg:leading-[1.66666666667vw] mtext16 lg:mt-[1.04166666667vw] mt16">
               To create and execute customized high-value logistics solutions
               for customers by utilizing experienced logistics professionals,
-              advanced technologies, and a deep understanding of our customers'
-              needs
+              advanced technologies, and a deep understanding of our
+              customers&apos; needs
             </p>
           </div>
         </div>
