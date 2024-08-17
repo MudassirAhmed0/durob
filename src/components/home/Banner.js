@@ -2,7 +2,17 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <section className="bg-[#002B87] relative lg:py-[18.0208333333vw] sm:py-[200px] py-[120px]">
+    <section className="bg-[#002B87] relative lg:py-[18.0208333333vw] sm:py-[200px] py-[120px] overflow-hidden">
+      <div className="w-full h-full absolute top-0 left-0">
+        <span className=" w-full h-full absolute top-0 left-0 parallaxBg"></span>
+        {/* <img
+          src="/images/home/logistic.jpg"
+          className="w-full top-0 h-full object-cover fixed "
+        /> */}
+        <span className="bannerOverlay1 w-full h-full absolute top-0 left-0"></span>
+        <span className="bannerOverlay2 w-full h-full absolute top-0 left-0"></span>
+        <span className="bannerOverlay3 w-full h-full absolute top-0 left-0"></span>
+      </div>
       <img
         src="/images/home/pattern.png"
         alt="pattern"

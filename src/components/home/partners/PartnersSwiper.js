@@ -15,15 +15,14 @@ const partners = [
       "/images/home/partners/logos/5.svg",
       "/images/home/partners/logos/6.svg",
       "/images/home/partners/logos/7.svg",
-      "/images/home/partners/logos/8.svg",
       "/images/home/partners/logos/9.svg",
       "/images/home/partners/logos/10.svg",
       "/images/home/partners/logos/11.svg",
       "/images/home/partners/logos/12.svg",
       "/images/home/partners/logos/13.svg",
       "/images/home/partners/logos/14.svg",
-      "/images/home/partners/logos/15.svg",
-    ],
+      "/images/home/partners/logos/15.svg"
+    ]
   },
   {
     partnersLogos: [
@@ -34,20 +33,19 @@ const partners = [
       "/images/home/partners/logos/5.svg",
       "/images/home/partners/logos/6.svg",
       "/images/home/partners/logos/7.svg",
-      "/images/home/partners/logos/8.svg",
       "/images/home/partners/logos/9.svg",
       "/images/home/partners/logos/10.svg",
       "/images/home/partners/logos/11.svg",
       "/images/home/partners/logos/12.svg",
       "/images/home/partners/logos/13.svg",
       "/images/home/partners/logos/14.svg",
-      "/images/home/partners/logos/15.svg",
-    ],
-  },
+      "/images/home/partners/logos/15.svg"
+    ]
+  }
 ];
 const PartnersSwiper = ({ arabic }) => {
   return (
-    <div className="lg:w-[93.75vw] w-[94.699%] ltr:ml-auto rtl:mr-auto lg:mt-[4.47916666667vw] lg:mb-[5.72916666667vw] sm:my-[40px] my-[30px]">
+    <div className="lg:w-[93.75vw] w-[94.699%] mx-auto lg:mt-[4.47916666667vw] lg:mb-[5.72916666667vw] sm:my-[40px] my-[30px]">
       <Swiper
         pagination={true}
         modules={[Pagination]}
