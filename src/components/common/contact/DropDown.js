@@ -8,15 +8,15 @@ const DropDown = ({
 }) => {
   return (
     <ul className={`${showDropDown ? "active" : ""} contact_DropDown`}>
-      {dropDown.map((item, index) => (
+      {dropDown.map((item) => (
         <li
-          key={index}
+          key={item}
           onClick={() => {
             handleDropDown();
-            setDropDownValue(item.item);
+            setDropDownValue(item);
           }}
         >
-          <span className="block">{item.item}</span>
+          <span className="block">{item}</span>
         </li>
       ))}
     </ul>

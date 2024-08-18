@@ -4,27 +4,27 @@ import Link from "next/link";
 import React, { useState } from "react";
 const navLinks = [
   {
-    link: "#",
+    link: "/about",
     text: "about Us",
   },
   {
-    link: "#",
+    link: "/services",
     text: "services",
   },
   {
-    link: "#",
+    link: "/partners",
     text: "Partners",
   },
   {
-    link: "#",
+    link: "/news",
     text: "News",
   },
   {
-    link: "#",
+    link: "/careers",
     text: "Careers",
   },
   {
-    link: "#",
+    link: "/contact-us",
     text: "Contact Us",
   },
 ];
@@ -49,7 +49,7 @@ const Header = ({ blackHeader }) => {
       } absolute w-full top-0 z-[9] lg:px-[6.25vw] lg:pt-[3.02083333333vw] p-[20px] flex items-center lg:gap-x-[9.375vw] justify-between`}
     >
       <Link
-        href="#"
+        href="/"
         className="relative z-[2] lg:w-[18.6979166667vw] lg:h-[5.98958333333vw] block sm:w-[230px] sm:h-[75px] w-[150px] h-[50px]"
       >
         <Image

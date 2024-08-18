@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import ContentWrapper from "../ContentWrapper";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +11,9 @@ import GenderField from "./GenderField";
 import PhoneField from "./PhoneField";
 import UploadFileField from "./UploadFIleField";
 import TextAreaField from "./TextAreaField";
+import { useFormik } from "formik";
+import { contactSchema, contactSecondVarientSchema } from "@/form/schemas";
+
 const contactLinks = [
   {
     img: "/images/icons/contact/phone.svg",
@@ -28,6 +33,77 @@ const contactLinks = [
   },
 ];
 const Contact = ({ secondVarient, arabic, heading, desc }) => {
+  const [subject, setSubject] = useState("");
+  const [gender, setGender] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("")
+  const [file, setFile] = useState("")
+
+  const contactValues = {
+    fullname: "",
+    subject: "",
+    email: "",
+    message_subject: "",
+    message: "",
+  };
+
+  const contactSecondVarientValues = {
+    subject: "",
+    fullname: "",
+    nationality: "",
+    gender: "",
+    email: "",
+    phone: "",
+    file: "",
+  };
+
+  const {
+    values,
+    setValues,
+    resetForm,
+    errors,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    touched,
+    setFieldTouched,
+  } = useFormik({
+    initialValues: secondVarient ? contactSecondVarientValues : contactValues,
+    validationSchema: secondVarient
+      ? contactSecondVarientSchema
+      : contactSchema,
+    onSubmit: (values) => {
+      console.log("values: ", values);
+      resetForm();
+      setSubject("");
+      setGender("")
+      setFile("")
+      setPhoneNumber("")
+    },
+  });
+
+  // console.log("values", values);
+  console.log("error", errors);
+  // console.log("touched", touched);
+
+  useEffect(() => {
+    setValues((values) => ({ ...values, subject }));
+  }, [setValues, subject]);
+
+  useEffect(() => {
+    setValues((values) => ({ ...values, gender }));
+  }, [setValues, gender]);
+
+  useEffect(() => {
+    setValues((values) => ({ ...values, phone: phoneNumber }));
+  }, [setValues, phoneNumber]);
+
+  useEffect(() => {
+    if (file) {
+      setValues((values) => ({ ...values, file }));
+      setFieldTouched("file", true)
+    }
+  }, [setValues, file, setFieldTouched]);
+
   return (
     <section
       className={`${
@@ -52,10 +128,10 @@ const Contact = ({ secondVarient, arabic, heading, desc }) => {
             desc={desc}
             classes={`lg:w-[36.9791666667vw] ${secondVarient ? "white" : ""}`}
           />
-          {secondVarient || (
+          {secondVarient && (
             <ul className="lg:mt-[2.08333333333vw] sm:mt-[30px] mt-[20px] flex flex-col flex-wrap lg:gap-y-[1.04166666667vw] gap-y-[15px] ">
               {contactLinks.map((contactLink, index) => (
-                <li key={index}>
+                <li key={contactLink.text}>
                   <Link
                     href={`${contactLink.link}`}
                     target={`${contactLink.taget ? "_blank" : "_self"}`}
@@ -64,7 +140,7 @@ const Contact = ({ secondVarient, arabic, heading, desc }) => {
                     <div className="relative lg:min-w-[2.08333333333vw] sm:min-w-[30px] min-w-[20px] lg:size-[2.08333333333vw] sm:size-[30px] size-[20px]">
                       <Image fill alt="social-icon" src={contactLink.img} />
                     </div>
-                    <span className="lg:text24 mtext18">
+                    <span className="lg:text24 mtext18 text-white">
                       {contactLink.text}
                     </span>
                   </Link>
@@ -74,22 +150,106 @@ const Contact = ({ secondVarient, arabic, heading, desc }) => {
           )}
         </div>
         <form
+          onSubmit={handleSubmit}
           className={`${
             secondVarient
               ? "v2 lg:w-[41.4583333333vw] lg:px-[1.30208333333vw] !py-[unset] text-[#DFDFDF]"
               : "lg:w-[46.9270833333vw] lg:px-[2.70833333333vw] lg:py-[3.125vw] bg-[#94d4ff1a] border30 text-[#002B87B2]"
-          } w-full sm:p-[40px] p-[10px] flex flex-col lg:gap-y-[2.08333333333vw] sm:gap-y-[30px] gap-y-[20px] lg:text24 mtext18 capitalize`}
+          } w-full sm:p-[40px] p-[10px] flex flex-col lg:gap-y-[2.08333333333vw] sm:gap-y-[30px] gap-y-[20px] lg:text24 mtext18`}
         >
-          <InputField />
-          <DropDownField />
+          <DropDownField
+            setValue={setSubject}
+            value={subject}
+            handleChange={handleChange}
+            id="subject"
+            name="subject"
+            placeholder="Subject"
+            error={errors.subject}
+            touched={touched?.subject}
+            secondVarient={secondVarient}
+          />
+          <InputField
+            name="fullname"
+            placeholder="Full Name"
+            id="fullname"
+            type="text"
+            value={values.fullname}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            autoComplete="off"
+            error={errors.fullname}
+            touched={touched?.fullname}
+            secondVarient={secondVarient}
+          />
           {secondVarient && (
-            <>
-              <GenderField />
-              <PhoneField />
-              <UploadFileField />
-            </>
+            <InputField
+              name="nationality"
+              placeholder="Nationality"
+              id="nationality"
+              type="text"
+              value={values.nationality}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              autoComplete="off"
+              error={errors.nationality}
+              touched={touched?.nationality}
+              secondVarient={secondVarient}
+            />
           )}
-          <TextAreaField />
+          {secondVarient && (
+            <GenderField
+              gender={gender}
+              setGender={setGender}
+              error={errors.gender}
+              secondVarient
+              touched={touched?.gender}
+            />
+          )}
+          <InputField
+            name="email"
+            placeholder="Email"
+            id="email"
+            type="text"
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            autoComplete="off"
+            error={errors.email}
+            touched={touched?.email}
+            secondVarient={secondVarient}
+          />
+
+          {secondVarient && <PhoneField setPhoneNumber={setPhoneNumber} touched={touched?.phone} error={errors.phone} secondVarient />}
+          {secondVarient && <UploadFileField file={file} setFile={setFile} touched={touched?.file} error={errors.file} secondVarient />}
+
+          {!secondVarient && (
+            <InputField
+              name="message_subject"
+              placeholder="Message Subject"
+              id="message_subject"
+              type="text"
+              value={values.message_subject}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              autoComplete="off"
+              error={errors.message_subject}
+              touched={touched?.message_subject}
+            />
+          )}
+
+          {!secondVarient && (
+            <TextAreaField
+              value={values.message}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              name="message"
+              id="message"
+              placeholder="Your message ..."
+              autoComplete="off"
+              error={errors.message}
+              touched={touched?.message}
+            />
+          )}
           <SubmitBtn arabic={arabic} />
         </form>
       </div>

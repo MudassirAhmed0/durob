@@ -1,38 +1,50 @@
 "use client";
 import React, { useState } from "react";
 import DropDown from "./DropDown";
-const dropDown = [
-  { item: "+94" },
-  { item: "+95" },
-  { item: "+96" },
-  { item: "+97" },
-  { item: "+98" },
-  { item: "+99" },
-  { item: "+100" },
-  { item: "+101" },
-  { item: "+102" },
-  { item: "+103" },
-  { item: "+104" },
-  { item: "+105" },
-  { item: "+106" },
-  { item: "+107" },
-  { item: "+108" },
-  { item: "+109" },
-  { item: "+110" },
-  { item: "+111" },
-  { item: "+112" },
-  { item: "+113" },
+import clsx from "clsx";
+const countryCodes = [
+  "+94",
+  "+95",
+  "+96",
+  "+97",
+  "+98",
+  "+99",
+  "+100",
+  "+101",
+  "+102",
+  "+103",
+  "+104",
+  "+105",
+  "+106",
+  "+107",
+  "+108",
+  "+109",
+  "+110",
+  "+111",
+  "+112",
+  "+113",
 ];
 
-const PhoneField = ({ arabic }) => {
+const PhoneField = ({ arabic, setPhoneNumber, phoneNumber, touched, error, secondVarient }) => {
   const [showDropDown, setShowDropDown] = useState(false);
-  const [dropDownValue, setDropDownValue] = useState("+ 966");
+  const [dropDownValue, setDropDownValue] = useState("+966");
   const handleDropDown = () => {
     setShowDropDown(!showDropDown);
   };
   const handleInputChange = (event) => {
-    setDropDownValue(event.target.value);
+    setPhoneNumber(dropDownValue + event.target.value)
   };
+  
+  const handleCouteryCodeSelect = (countryCode) => {
+    setDropDownValue(countryCode)
+    setPhoneNumber(prev => {
+      let value = String(prev)
+      const replaceTo = countryCodes.find(code => value.startsWith(code))
+      const replaceWith = countryCode
+      return value.replace(replaceTo, replaceWith)
+    })
+  }
+  
   return (
     <div className="w-full lg:h-[2.55208333333vw] h-[39px] inputField">
       <div className="flex lg:gap-x-[1.25vw] gap-x-[15px] size-full">
@@ -52,7 +64,6 @@ const PhoneField = ({ arabic }) => {
               id="+ 966"
               type="phone"
               value={dropDownValue}
-              onChange={handleInputChange}
               className="outline-none bg-transparent w-full caret-transparent cursor-pointer"
             />
             <svg
@@ -73,20 +84,26 @@ const PhoneField = ({ arabic }) => {
           </div>
           <DropDown
             showDropDown={showDropDown}
-            dropDown={dropDown}
+            dropDown={countryCodes}
             handleDropDown={handleDropDown}
-            setDropDownValue={setDropDownValue}
+            setDropDownValue={handleCouteryCodeSelect}
           />
         </div>
-        <label htmlFor="Phone number" className={` border-b size-full block`}>
+        <label htmlFor="phone" className={` border-b size-full block`}>
           <input
-            id="Phone number"
-            type="phone"
+            id="phone"
+            type="number"
             placeholder="Phone number"
-            className="outline-none bg-transparent w-full"
+            onChange={handleInputChange}
+            className={clsx("outline-none bg-transparent w-full", secondVarient ? "placeholder:text-blue-400": "")}
           />
         </label>
       </div>
+      {
+        touched && error && (
+          <p className={clsx("text-xs mt-1 font-semibold", secondVarient ? "text-red-400" : "text-red-600")}>{error}</p>
+        )
+      }
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Services = () => {
           desc="Comprehensive logistics solutions tailored to meet diverse client needs. We provide transportation, warehousing, cross-border transport, 4PL & control tower management, freight forwarding, value-added services, and direct store delivery"
         />
         <div className="lg:pb-[0.625vw] lg:pt-[unset] pt-[20px]">
-          <LinkBtn text="explore more" />
+          <LinkBtn link="/services" text="All services" />
         </div>
       </div>
       <ServicesSwiper />

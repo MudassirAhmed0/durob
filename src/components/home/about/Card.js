@@ -4,7 +4,7 @@ import ImageComponent from "@/components/common/ImageComponent";
 
 const Card = ({ aboutCard }) => {
   return (
-    <div className="about_Card lg:w-[31.25vw] lg:h-[23.2291666667vw] sm:w-[48.5%] w-full h-[300px] border20 relative flex justify-center items-end lg:pb-[1.875vw] pb-[20px] overflow-hidden">
+    <div className="about_Card lg:h-[23.2291666667vw] w-full h-[300px] border20 relative flex justify-center items-end lg:pb-[1.875vw] pb-[20px] overflow-hidden">
       <ImageComponent
         alt="card-img"
         src={aboutCard.img}

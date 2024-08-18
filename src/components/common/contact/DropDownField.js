@@ -1,35 +1,33 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DropDown from "./DropDown";
-const dropDown = [
-  { item: "General inquiry" },
-  { item: "Complaint" },
-  { item: "Business request" },
-];
-const DropDownField = () => {
+import clsx from "clsx"
+
+const dropDown = [ "General Inquiry", "Complaint", "Business Request"];
+
+const DropDownField = ({ handleChange, name, id, placeholder, error, touched, value, setValue, secondVarient } ) => {
   const [showDropDown, setShowDropDown] = useState(false);
-  const [dropDownValue, setDropDownValue] = useState("Subject");
+
   const handleDropDown = () => {
     setShowDropDown(!showDropDown);
   };
-  const handleInputChange = (event) => {
-    setDropDownValue(event.target.value);
-  };
+
   return (
     <div className="w-full lg:h-[2.55208333333vw] h-[39px] relative inputField dropDownct">
       <label
-        onClick={() => {
-          handleDropDown();
-        }}
-        htmlFor="Subject"
+        onClick={handleDropDown}
+        htmlFor={name}
         className={`  border-b lg:px-[1.5625vw] sm:px-[20px] px-[10px] size-full flex justify-between items-start cursor-pointer`}
       >
         <input
-          id="Subject"
+          id={id}
+          name={name}
           type="text"
-          value={dropDownValue}
-          onChange={handleInputChange}
-          className="outline-none bg-transparent w-full caret-transparent cursor-pointer"
+          value={value}
+          onChange={handleChange}
+          placeholder={placeholder}
+          autoComplete="off"
+          className={clsx("outline-none bg-transparent w-full caret-transparent cursor-pointer placeholder:text-[#002b8756]", secondVarient ? "placeholder:text-blue-400" : "")}
         />
         <svg
           className={`${
@@ -47,11 +45,16 @@ const DropDownField = () => {
           />
         </svg>
       </label>
+      {
+        touched && error && (
+          <p className={clsx("text-xs mt-1 font-semibold", secondVarient ? "text-red-400" : "text-red-600")}>{error}</p>
+        )
+      }
       <DropDown
         showDropDown={showDropDown}
         dropDown={dropDown}
         handleDropDown={handleDropDown}
-        setDropDownValue={setDropDownValue}
+        setDropDownValue={setValue}
       />
     </div>
   );
