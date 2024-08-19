@@ -5,6 +5,8 @@ import Image from "next/image";
 const Card = ({ setActivePopup, setPopupData, member, index }) => {
   return (
     <div
+      data-aos="fade"
+      data-aos-delay={index * 100}
       onClick={() => {
         setActivePopup(true);
         setPopupData(member);

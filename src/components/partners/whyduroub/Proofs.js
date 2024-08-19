@@ -26,7 +26,7 @@ const Proofs = () => {
   return (
     <div className="lg:mt-[3.4375vw] sm:mt-[40px] mt-[30px] flex items-stretch flex-wrap justify-center lg:gap-[2.60416666667vw] sm:gap-[30px] gap-[20px]">
       {proofs.map((proof, index) => (
-        <Proof key={index} proof={proof} />
+        <Proof key={index} proof={proof} index={index} />
       ))}
     </div>
   );

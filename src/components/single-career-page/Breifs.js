@@ -30,7 +30,7 @@ const Breifs = () => {
   return (
     <div className="flex flex-wrap lg:gap-[1.5625vw] gap-[20px] justify-between">
       {breifs.map((breif, index) => (
-        <Breif key={index} breif={breif} />
+        <Breif key={index} breif={breif} index={index} />
       ))}
     </div>
   );

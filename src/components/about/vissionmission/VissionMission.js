@@ -3,7 +3,10 @@ import React from "react";
 
 const VissionMission = () => {
   return (
-    <div className="py180 container1680 flex flex-wrap justify-center items-stretch lg:gap-[1.92708333333vw] gap-[20px]">
+    <div
+      data-aos="fade"
+      className="py180 container1680 flex flex-wrap justify-center items-stretch lg:gap-[1.92708333333vw] gap-[20px]"
+    >
       <div className="lg:w-[35.7291666667vw] sm:w-[47%] w-full border20 vsms_Card relative lg:py-[3.125vw] sm:py-[40px] py-[30px]">
         <img
           src="/images/about/vsms/pattern.png"

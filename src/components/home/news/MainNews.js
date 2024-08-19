@@ -6,6 +6,7 @@ import LinkBtnV2 from "@/components/common/LinkBtnV2";
 const MainNews = () => {
   return (
     <Link
+      data-aos="fade"
       href="/single-news-page"
       className="group lg:w-[40.3645833333vw] w-full"
     >

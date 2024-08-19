@@ -4,7 +4,10 @@ import Image from "next/image";
 
 const BreadCrumbs = ({ breadCrumbs }) => {
   return (
-    <div className="flex lg:gap-x-[0.52083333333vw] gap-x-[8px] items-center">
+    <div
+      data-aos="fade"
+      className="flex lg:gap-x-[0.52083333333vw] gap-x-[8px] items-center"
+    >
       <Link
         href="#"
         className="relative block lg:size-[0.9375vw] sm:size-[15px] size-[12px] opacity_Hover"

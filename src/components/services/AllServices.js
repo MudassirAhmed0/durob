@@ -84,7 +84,10 @@ const AllServices = () => {
   return (
     <section>
       <div>
-        <div className="w-full bg-[#002B87] sticky top-0 overflow-auto scrollbar-hide z-10 flex items-stretch whitespace-nowrap lg:whitespace-normal">
+        <div
+          data-aos="fade"
+          className="w-full bg-[#002B87] sticky top-0 overflow-auto scrollbar-hide z-10 flex items-stretch whitespace-nowrap lg:whitespace-normal"
+        >
           {services.map((service) => (
             <button
               key={service.id}
@@ -106,7 +109,12 @@ const AllServices = () => {
         </div>
         <div className="py180 flex flex-col lg:gap-y-[10.4166666667vw] sm:gap-y-[180px] gap-y-[90px]">
           {services.map((service, index) => (
-            <div key={service.id} id={service.id} className="relative">
+            <div
+              data-aos="fade"
+              key={service.id}
+              id={service.id}
+              className="relative"
+            >
               <img
                 src="/images/services/container/pattern1.png"
                 alt="pattern"
@@ -123,14 +131,23 @@ const AllServices = () => {
                 </div>
                 <div className="lg:w-[39.1666666667vw] w-full">
                   <div>
-                    <h5 className="text70 !f600 text-[#002B87] relative before:absolute before:lrf1 before:lg:top-[-0.78125vw] before:top-[-8px] before:content-[''] before:lg:h-[0.26041666666vw] before:h-[3px] before:lg:w-[2.96875vw] before:w-[12%] before:bg-[#60A1E2]">
+                    <h5
+                      data-aos="fade-up"
+                      className="text70 !f600 text-[#002B87] relative before:absolute before:lrf1 before:lg:top-[-0.78125vw] before:top-[-8px] before:content-[''] before:lg:h-[0.26041666666vw] before:h-[3px] before:lg:w-[2.96875vw] before:w-[12%] before:bg-[#60A1E2]"
+                    >
                       {service.header}
                     </h5>
-                    <p className="lg:text26 mtext16 mt16 lg:mt-[1.04166666667vw]">
+                    <p
+                      data-aos="fade-down"
+                      className="lg:text26 mtext16 mt16 lg:mt-[1.04166666667vw]"
+                    >
                       {service.description}
                     </p>
                   </div>
-                  <ul className="lg:mt-[3.125vw] sm:mt-[40px] mt-[30px] flex flex-wrap lg:gap-[6.04166666667vw] sm:gap-[40px] gap-[30px]">
+                  <ul
+                    data-aos="fade"
+                    className="lg:mt-[3.125vw] sm:mt-[40px] mt-[30px] flex flex-wrap lg:gap-[6.04166666667vw] sm:gap-[40px] gap-[30px]"
+                  >
                     <li>
                       <div className="lg:size-[3.4375vw] sm:size-[56px] size-[46px] border20 bg-[#94D4FF26] flex justify-center items-center">
                         <div className="relative lg:size-[2.39583333333vw] size-[76%]">

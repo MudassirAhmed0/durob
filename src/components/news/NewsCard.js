@@ -3,9 +3,11 @@ import ImageComponent from "../common/ImageComponent";
 import LinkBtnV2 from "../common/LinkBtnV2";
 import Link from "next/link";
 
-const NewsCard = ({ news }) => {
+const NewsCard = ({ news, index }) => {
   return (
     <Link
+      data-aos="fade"
+      data-aos-delay={index * 100}
       href="/single-news-page"
       className="group lg:w-[28.0729166667vw] sm:w-[47%] w-full flex flex-col"
     >

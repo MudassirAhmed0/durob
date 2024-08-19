@@ -18,7 +18,10 @@ const Banner = () => {
         alt="pattern"
         className="absolute lrf1 bottom-0 w-full flipped"
       />
-      <span className="text64 text-white text-center block lg:w-[69.0625vw] container1680 relative z-[2]">
+      <span
+        data-aos="fade-up"
+        className="text64 text-white text-center block lg:w-[69.0625vw] container1680 relative z-[2]"
+      >
         Duroub logistics is a fully integrated logistics cold chain solutions
         provider offering end to end logistics services across the kingdom
       </span>

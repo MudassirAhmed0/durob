@@ -3,10 +3,16 @@ import React from "react";
 const Content = () => {
   return (
     <div className="lg:w-[29.4791666667vw]">
-      <h2 className="lg:text40 mtext28 f700 capitalize text-[#002B87]">
+      <h2
+        data-aos="fade-up"
+        className="lg:text40 mtext28 f700 capitalize text-[#002B87]"
+      >
         Job Brief
       </h2>
-      <p className="lg:text22 mtext16 mt16 text-[#3B3B3B] text-opacity-[0.9]">
+      <p
+        data-aos="fade-down"
+        className="lg:text22 mtext16 mt16 text-[#3B3B3B] text-opacity-[0.9]"
+      >
         Lorem ipsum dolor sit amet consectetur. Diam at elementum quisque et
         nascetur. In non nullam quam elementum dolor lacinia. Turpis lacus
         bibendum est tempus. Congue gravida eget aenean molestie ac augue. Nunc

@@ -25,7 +25,7 @@ const BackGrounds = ({ video, bannerSource, overlay, fromAbout }) => {
         } atwh_Full lrf1`}
       ></span>
       {fromAbout && (
-        <div className="atwh_Full lrf1">
+        <div data-aos="fade" className="atwh_Full lrf1">
           <img
             src="/images/about/hero-pattern.png"
             alt="pattern"

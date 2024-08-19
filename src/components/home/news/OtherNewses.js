@@ -3,26 +3,28 @@ import LinkBtnV2 from "@/components/common/LinkBtnV2";
 const newses = [
   {
     date: "09 May 2023",
-    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ..."
+    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ...",
   },
   {
     date: "09 May 2023",
-    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ..."
+    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ...",
   },
   {
     date: "09 May 2023",
-    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ..."
+    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ...",
   },
   {
     date: "09 May 2023",
-    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ..."
-  }
+    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ...",
+  },
 ];
 const OtherNewses = () => {
   return (
     <div className="flex flex-col lg:w-[44.4270833333vw] w-full lg:gap-y-[1.25vw] gap-y-[15px]">
       {newses.map((news, index) => (
         <div
+          data-aos="fade"
+          data-aos-delay={index * 100}
           key={index}
           className="group hover:bg-[#94d4ff26] transition500 cursor-pointer flex flex-wrap gap-[15px] justify-between items-center  border15 lg:px-[1.66666666667vw] sm:p-[20px] p-[25px] lg:py-[1.90104166667vw] bg-[#e7e7e733]"
         >

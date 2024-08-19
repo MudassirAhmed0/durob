@@ -29,7 +29,10 @@ const ServicesSwiper = ({ arabic }) => {
     );
   }, []);
   return (
-    <div className="lg:w-[93.75vw] w-[94.699%] ltr:ml-auto rtl:mr-auto lg:mt-[3.125vw] sm:mt-[40px] mt-[30px]">
+    <div
+      data-aos="fade"
+      className="lg:w-[93.75vw] w-[94.699%] ltr:ml-auto rtl:mr-auto lg:mt-[3.125vw] sm:mt-[40px] mt-[30px]"
+    >
       <Swiper
         spaceBetween={swiperGap}
         className="w-full"

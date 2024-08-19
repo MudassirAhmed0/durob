@@ -150,7 +150,11 @@ const Contact = ({ secondVarient, arabic, heading, desc, fromContactPage }) => {
             <>
               <ul className="lg:mt-[2.08333333333vw] sm:mt-[30px] mt-[20px] flex flex-col flex-wrap lg:gap-y-[1.04166666667vw] gap-y-[15px] ">
                 {contactLinks.map((contactLink, index) => (
-                  <li key={contactLink.text}>
+                  <li
+                    data-aos="fade"
+                    data-aos-delay={index * 100}
+                    key={contactLink.text}
+                  >
                     <Link
                       href={`${contactLink.link}`}
                       target={`${contactLink.taget ? "_blank" : "_self"}`}
@@ -168,8 +172,13 @@ const Contact = ({ secondVarient, arabic, heading, desc, fromContactPage }) => {
               </ul>
               {fromContactPage && (
                 <div className="flex justify-between items-center flex-wrap gap-[15px] lg:mt-[2.65625vw] sm:mt-[30px] mt-[20px] lg:pt-[2.65625vw] sm:pt-[30px] pt-[20px] border-t border-[#4964BF4D]">
-                  <span className="lg:text24 mtext18 f600">Our Accounts</span>
-                  <ul className="flex flex-wrap  lg:gap-[0.9375vw] gap-[18px] items-center">
+                  <span data-aos="fade-up" className="lg:text24 mtext18 f600">
+                    Our Accounts
+                  </span>
+                  <ul
+                    data-aos="fade"
+                    className="flex flex-wrap  lg:gap-[0.9375vw] gap-[18px] items-center"
+                  >
                     {socialLinks.map((socialLink, index) => (
                       <li key={index}>
                         <Link
@@ -187,6 +196,7 @@ const Contact = ({ secondVarient, arabic, heading, desc, fromContactPage }) => {
           )}
         </div>
         <form
+          data-aos="fade"
           onSubmit={handleSubmit}
           className={`${
             secondVarient
