@@ -1,35 +1,37 @@
 "use client";
+import useAos from "@/hooks/useAos";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 const navLinks = [
   {
     link: "/about",
-    text: "about Us",
+    text: "about Us"
   },
   {
     link: "/services",
-    text: "services",
+    text: "services"
   },
   {
     link: "/partners",
-    text: "Partners",
+    text: "Partners"
   },
   {
     link: "/news",
-    text: "News",
+    text: "News"
   },
   {
     link: "/careers",
-    text: "Careers",
+    text: "Careers"
   },
   {
     link: "/contact-us",
-    text: "Contact Us",
-  },
+    text: "Contact Us"
+  }
 ];
 
 const Header = ({ blackHeader }) => {
+  useAos();
   const [showDropDown, setShowDropDown] = useState(false);
   const handleDropDown = () => {
     setShowDropDown(!showDropDown);
