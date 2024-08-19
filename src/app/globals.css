@@ -32,7 +32,7 @@ html {
 }
 @layer components {
   .container1680 {
-    @apply lg:w-[87.5vw] w-[90.699%] mx-[auto];
+    @apply lg:w-[87.5vw] w-[89.769%] mx-[auto];
   }
   .text16 {
     @apply text-[0.83333333333vw] leading-[1.25vw];
@@ -250,7 +250,7 @@ html {
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     @apply bottom-[0px];
   }
-  .list {
+  /* .list {
     @apply lg:text22 mtext16;
   }
   .ltr .list {
@@ -261,6 +261,28 @@ html {
   }
   .ltr .list li {
     @apply lg:pl-[1.14583333333vw] pl-[15px];
+  } */
+  ul.defaultList {
+    @apply list-disc;
+  }
+  ol.defaultList {
+    @apply list-decimal;
+  }
+  ol.defaultList li::marker {
+    color: inherit;
+    font-size: inherit;
+  }
+  ul.defaultList li::marker {
+    color: inherit;
+    font-size: initial;
+  }
+  .ltr ul.defaultList,
+  .ltr ol.defaultList {
+    @apply lg:pl-[1.66666666667vw] pl-[25px];
+  }
+  .rtl ul.defaultList,
+  .rtl ol.defaultList {
+    @apply lg:pr-[1.66666666667vw] pr-[25px];
   }
 }
 .bannerOverlay1 {
@@ -516,7 +538,6 @@ header.blackHeader .langSwitcher {
 @media (min-width: 1024px) {
 }
 
-
 /* Hide arrows from input type number */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -526,6 +547,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }

@@ -15,6 +15,7 @@ const ContactUsPage = () => {
       <Contact
         heading="Drop Us a Line"
         desc="Reach out for inquiries and support. We offer specialized logistics services to meet your unique needs"
+        fromContactPage
       />
     </>
   );

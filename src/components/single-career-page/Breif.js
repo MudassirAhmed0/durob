@@ -8,7 +8,7 @@ const Breif = ({ breif }) => {
       </span>
       <ul
         dangerouslySetInnerHTML={{ __html: breif.points }}
-        className="list mt16"
+        className="text-[#3B3B3B] text-opacity-[0.9] lg:text22 mtext16 defaultList mt16"
       ></ul>
     </div>
   );

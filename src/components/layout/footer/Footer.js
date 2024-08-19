@@ -3,35 +3,35 @@ import Link from "next/link";
 import React from "react";
 const navLinks = [
   {
-    link: "#",
+    link: "/about",
     text: "about Us",
   },
   {
-    link: "#",
+    link: "/services",
     text: "services",
   },
   {
-    link: "#",
+    link: "/partners",
     text: "Partners",
   },
   {
-    link: "#",
+    link: "/news",
     text: "News",
   },
   {
-    link: "#",
+    link: "/careers",
     text: "Careers",
   },
   {
-    link: "#",
+    link: "/contact-us",
     text: "Contact Us",
   },
   {
-    link: "#",
+    link: "/terms",
     text: "terms & conditions",
   },
   {
-    link: "#",
+    link: "/privacy-policy",
     text: "privacy policy",
   },
 ];

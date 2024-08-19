@@ -68,7 +68,7 @@ const Header = ({ blackHeader }) => {
       <nav className="text-[#FFFFFF]">
         <ul className="sideBar px-[20px] lg:px-[unset] absolute top-0 lrf1 lg:static h-[100vh] lg:h-[unset] w-full lg:w-[unset] lg:text28 mtext20 capitalize flex flex-col lg:flex-row gap-y-[30px] lg:gap-x-[1.66666666667vw] place-content-center lg:items-center">
           {navLinks.map((navLink, index) => (
-            <li key={index}>
+            <li key={index} onClick={toggleSidebar}>
               <Link href={`${navLink.link}`}>{navLink.text}</Link>
             </li>
           ))}

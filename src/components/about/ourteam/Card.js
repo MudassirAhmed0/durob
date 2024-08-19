@@ -10,7 +10,7 @@ const Card = ({ setActivePopup, setPopupData, member, index }) => {
         setPopupData(member);
       }}
       key={index}
-      className="group cursor-pointer relative lg:w-[28.125vw] lg:h-[28.3854166667vw] w-full sm:h-[450px] h-[300px] bg-[#F8F8F8] border20 overflow-hidden flex items-end"
+      className="group cursor-pointer relative lg:w-[28.125vw] lg:h-[28.3854166667vw] w-full h-[450px] bg-[#F8F8F8] border20 overflow-hidden flex items-end"
     >
       <div className="atwh_Full lrf1 flipped">
         {/* <img
