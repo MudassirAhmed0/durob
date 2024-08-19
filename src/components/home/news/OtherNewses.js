@@ -3,20 +3,20 @@ import LinkBtnV2 from "@/components/common/LinkBtnV2";
 const newses = [
   {
     date: "09 May 2023",
-    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ...",
+    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ..."
   },
   {
     date: "09 May 2023",
-    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ...",
+    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ..."
   },
   {
     date: "09 May 2023",
-    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ...",
+    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ..."
   },
   {
     date: "09 May 2023",
-    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ...",
-  },
+    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ..."
+  }
 ];
 const OtherNewses = () => {
   return (
@@ -32,7 +32,7 @@ const OtherNewses = () => {
             </span>
             <span className="lg:text22 mtext18">{news.desc}</span>
           </div>
-          <LinkBtnV2 text={"read more"} />
+          <LinkBtnV2 text={"read more"} link={"/single-news-page"} />
         </div>
       ))}
     </div>

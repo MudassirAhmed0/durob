@@ -5,24 +5,24 @@ import Link from "next/link";
 const openings = [
   {
     location: "Jeddah",
-    name: "PMO Specialist",
+    name: "PMO Specialist"
   },
   {
     location: "Jeddah",
-    name: "Procurement Professional",
+    name: "Procurement Professional"
   },
   {
     location: "Jeddah",
-    name: "Senior Public Relations & External Communication Officer",
+    name: "Senior Public Relations & External Communication Officer"
   },
   {
     location: "Jeddah",
-    name: "PMO Specialist",
+    name: "PMO Specialist"
   },
   {
     location: "Jeddah",
-    name: "Procurement Professional",
-  },
+    name: "Procurement Professional"
+  }
 ];
 const JobOpenings = ({ arabic }) => {
   return (
@@ -33,7 +33,7 @@ const JobOpenings = ({ arabic }) => {
           {openings.map((opening, index) => (
             <Link
               key={index}
-              href="#"
+              href="/single-career-page"
               className="group w-full bg-[#94d4ff1a] border10 lg:px-[2.60416666667vw] lg:py-[2.21354166667vw] sm:p-[40px] p-[30px] flex flex-wrap justify-between items-end lg:gap-[3.75vw] sm:gap-[30px] gap-[20px]"
             >
               <div>

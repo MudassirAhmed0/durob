@@ -14,7 +14,7 @@ const News = () => {
             heading="Latest News"
             desc="Stay updated with our latest achievements and industry news"
           />
-          <LinkBtn text="All news" />
+          <LinkBtn text="All news" link={"/news"} />
         </div>
         <div className="lg:mt-[2.5vw] sm:mt-[30px] mt-[20px] flex items-start flex-wrap lg:gap-[2.70833333333vw] sm:gap-[40px] gap-[30px]">
           <MainNews />
