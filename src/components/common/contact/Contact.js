@@ -82,7 +82,7 @@ const Contact = ({ secondVarient, arabic, heading, desc }) => {
   });
 
   // console.log("values", values);
-  console.log("error", errors);
+  // console.log("error", errors);
   // console.log("touched", touched);
 
   useEffect(() => {

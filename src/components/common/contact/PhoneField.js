@@ -94,6 +94,7 @@ const PhoneField = ({ arabic, setPhoneNumber, phoneNumber, touched, error, secon
             id="phone"
             type="number"
             placeholder="Phone number"
+            autoComplete="off"
             onChange={handleInputChange}
             className={clsx("outline-none bg-transparent w-full", secondVarient ? "placeholder:text-blue-400": "")}
           />

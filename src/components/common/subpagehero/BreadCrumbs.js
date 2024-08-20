@@ -12,7 +12,7 @@ const BreadCrumbs = ({ breadCrumbs }) => {
         <Image fill alt="home-icon" src="/images/icons/home.svg" />
       </Link>
       {breadCrumbs.map((breadCrumb, index) => (
-        <>
+        <div key={index}>
           <img
             src="/images/icons/bread-chevron.svg"
             alt="chevron"
@@ -30,7 +30,7 @@ const BreadCrumbs = ({ breadCrumbs }) => {
               {breadCrumb.text}
             </span>
           )}
-        </>
+        </div>
       ))}
     </div>
   );
