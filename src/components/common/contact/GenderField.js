@@ -15,7 +15,6 @@ const GenderField = ({ setGender, touched, error, secondVarient }) => {
             htmlFor="male"
             className="text-[#94D4FF] flex items-center lg:gap-x-[0.36458333333vw] gap-x-[10px]"
           >
-            <span>Male</span>
             <input
               name="gender"
               type="radio"
@@ -24,6 +23,7 @@ const GenderField = ({ setGender, touched, error, secondVarient }) => {
               onChange={handleChange}
               className="appearance-none lg:size-[0.67708333333vw] sm:size-[10px] size-[10px] rounded-full border-2 border-white bg-[#D6D6D6]"
             />
+            <span>Male</span>
           </label>
         </div>
         <div className="InputField">
@@ -31,7 +31,6 @@ const GenderField = ({ setGender, touched, error, secondVarient }) => {
             htmlFor="female"
             className="text-[#94D4FF] flex items-center lg:gap-x-[0.36458333333vw] gap-x-[10px]"
           >
-            <span>Female</span>
             <input
               name="gender"
               type="radio"
@@ -40,6 +39,7 @@ const GenderField = ({ setGender, touched, error, secondVarient }) => {
               onChange={handleChange}
               className="appearance-none lg:size-[0.67708333333vw] sm:size-[10px] size-[10px] rounded-full border-2 border-white bg-[#D6D6D6]"
             />
+            <span>Female</span>
           </label>
         </div>
       </div>
