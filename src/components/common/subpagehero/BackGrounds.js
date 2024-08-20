@@ -36,7 +36,7 @@ const BackGrounds = ({ video, bannerSource, overlay, fromAbout }) => {
               fill
               src="/images/about/about-person-hero.png"
               alt="person-img"
-              className="object-cover"
+              className="object-contain"
             />
           </div>
         </div>

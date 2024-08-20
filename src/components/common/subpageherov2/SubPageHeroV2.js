@@ -8,7 +8,7 @@ const SubPageHeroV2 = ({ heading, desc, breadCrumbs, tagImg, tagText }) => {
       <img
         src="/images/herov2-pattern.png"
         alt="pattern"
-        className="absolute lrf2 top-0 flipped"
+        className="absolute lrf2 top-[-5%] lg:top-0 flipped lg:w-[53.8541666667vw] sm:w-[80%] w-full"
       />
       <div className="container1680 relative z-[2]">
         <div className="lg:w-[50.5208333333vw] flex flex-col items-start">

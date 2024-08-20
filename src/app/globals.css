@@ -11,7 +11,7 @@
 }
 @font-face {
   font-family: "Proxima-Nova";
-  src: url("/fonts/Proxima-Nova/proximanova_bold.otf");
+  src: url("/fonts/Proxima-Nova/Proxima_Nova_Semibold.otf");
   font-display: block;
   font-weight: 600;
   font-style: normal;
@@ -165,10 +165,10 @@ html {
    */
   /* FORM  */
   form .contact_DropDown {
-    @apply opacity-0 max-h-0 z-[-9] pointer-events-none overflow-hidden transition500 absolute top-[94%] lrf1 w-full border20 lg:p-[1.5625vw] p-[20px] text-white lg:text24 mtext18 flex flex-col lg:gap-y-[0.78125vw] gap-y-[12px];
+    @apply opacity-0 max-h-0 z-[-9] pointer-events-none overflow-hidden transition500 absolute sm:top-[94%] top-[110%] lrf1 w-full lg:border20 rounded-[10px] lg:p-[1.5625vw] p-[20px] text-white lg:text24 mtext18 flex flex-col lg:gap-y-[0.78125vw] gap-y-[12px];
   }
   form .contact_DropDown.active {
-    @apply opacity-[1] lg:max-h-[12.5vw] max-h-[300px] z-[9] pointer-events-auto overflow-auto;
+    @apply opacity-[1] lg:max-h-[12.5vw] sm:max-h-[300px] max-h-[200px] z-[9] pointer-events-auto overflow-auto;
   }
   form .contact_DropDown {
     @apply bg-[#002B87];
@@ -189,10 +189,12 @@ html {
     border: none;
     padding-bottom: unset;
   }
-  form .inputField label {
+  form .inputField label,
+  form .inputField textarea {
     @apply border-[#002B8780];
   }
-  form.v2 .inputField label {
+  form.v2 .inputField label,
+  form.v2 .inputField textarea {
     @apply border-[#94D4FF];
   }
   form.v2 .inputField.dropDownct {
@@ -331,7 +333,7 @@ header.blackHeader .headerWhite-logo {
   display: none;
 }
 header.blackHeader nav {
-  color: #3b3b3b;
+  @apply lg:text-[#3b3b3b] text-[#fff];
 }
 header.blackHeader .langSwitcher ul.dropDown li {
   color: white;
@@ -351,6 +353,17 @@ header.blackHeader .langSwitcher {
     ),
     #fff;
 }
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hideScroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hideScroll::-webkit-scrollbar {
+  display: none;
+}
+
 .about_HeroOverlay {
   background: linear-gradient(
     231deg,

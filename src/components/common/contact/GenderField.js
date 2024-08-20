@@ -46,7 +46,7 @@ const GenderField = ({ setGender, touched, error, secondVarient }) => {
       {touched && error && (
         <p
           className={clsx(
-            "text-xs mt-2 font-semibold",
+            "text-xs mt-2 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
             secondVarient ? "text-red-400" : "text-red-600"
           )}
         >

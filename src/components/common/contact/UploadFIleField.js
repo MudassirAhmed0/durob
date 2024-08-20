@@ -25,16 +25,13 @@ const UploadFileField = ({ file, setFile, touched, error, secondVarient }) => {
         ) : (
           <>
             <span className="text-[#94D4FF]">Upload your CV</span>
-            <span className="text-[#94D4FF]">
-              PDF, JPG, JPEG, PNG (max 2 mbs)
-            </span>
           </>
         )}
       </label>
       {touched && error && (
         <p
           className={clsx(
-            "text-xs -mt-6 font-semibold",
+            "text-xs -mt-6 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
             secondVarient ? "text-red-400" : "text-red-600"
           )}
         >

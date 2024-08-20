@@ -25,30 +25,37 @@ const countryCodes = [
   "+113",
 ];
 
-const PhoneField = ({ arabic, setPhoneNumber, phoneNumber, touched, error, secondVarient }) => {
+const PhoneField = ({
+  arabic,
+  setPhoneNumber,
+  phoneNumber,
+  touched,
+  error,
+  secondVarient,
+}) => {
   const [showDropDown, setShowDropDown] = useState(false);
   const [dropDownValue, setDropDownValue] = useState("+966");
   const handleDropDown = () => {
     setShowDropDown(!showDropDown);
   };
   const handleInputChange = (event) => {
-    setPhoneNumber(dropDownValue + event.target.value)
+    setPhoneNumber(dropDownValue + event.target.value);
   };
-  
+
   const handleCouteryCodeSelect = (countryCode) => {
-    setDropDownValue(countryCode)
-    setPhoneNumber(prev => {
-      let value = String(prev)
-      const replaceTo = countryCodes.find(code => value.startsWith(code))
-      const replaceWith = countryCode
-      return value.replace(replaceTo, replaceWith)
-    })
-  }
-  
+    setDropDownValue(countryCode);
+    setPhoneNumber((prev) => {
+      let value = String(prev);
+      const replaceTo = countryCodes.find((code) => value.startsWith(code));
+      const replaceWith = countryCode;
+      return value.replace(replaceTo, replaceWith);
+    });
+  };
+
   return (
     <div className="w-full lg:h-[2.55208333333vw] h-[39px] inputField">
       <div className="flex lg:gap-x-[1.25vw] gap-x-[15px] size-full">
-        <div className="relative lg:min-w-[6.51041666667vw] lg:w-[6.51041666667vw] w-[25%]">
+        <div className="relative lg:min-w-[6.51041666667vw] lg:w-[6.51041666667vw] w-[45%]">
           <div
             onClick={() => {
               handleDropDown();
@@ -64,7 +71,7 @@ const PhoneField = ({ arabic, setPhoneNumber, phoneNumber, touched, error, secon
               id="+ 966"
               type="phone"
               value={dropDownValue}
-              className="outline-none bg-transparent w-full caret-transparent cursor-pointer"
+              className="outline-none bg-transparent w-full caret-transparent cursor-pointer text-[#94D4FF] placeholder:text-[#94D4FF]"
             />
             <svg
               className={`${
@@ -83,6 +90,7 @@ const PhoneField = ({ arabic, setPhoneNumber, phoneNumber, touched, error, secon
             </svg>
           </div>
           <DropDown
+            fromPhoneField
             showDropDown={showDropDown}
             dropDown={countryCodes}
             handleDropDown={handleDropDown}
@@ -95,15 +103,23 @@ const PhoneField = ({ arabic, setPhoneNumber, phoneNumber, touched, error, secon
             type="number"
             placeholder="Phone number"
             onChange={handleInputChange}
-            className={clsx("outline-none bg-transparent w-full", secondVarient ? "placeholder:text-blue-400": "")}
+            className={clsx(
+              "outline-none bg-transparent w-full",
+              secondVarient ? "placeholder:text-[#DFDFDF]" : ""
+            )}
           />
         </label>
       </div>
-      {
-        touched && error && (
-          <p className={clsx("text-xs mt-1 font-semibold", secondVarient ? "text-red-400" : "text-red-600")}>{error}</p>
-        )
-      }
+      {touched && error && (
+        <p
+          className={clsx(
+            "text-xs mt-1 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
+            secondVarient ? "text-red-400" : "text-red-600"
+          )}
+        >
+          {error}
+        </p>
+      )}
     </div>
   );
 };
