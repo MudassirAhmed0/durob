@@ -1,13 +1,13 @@
 import { getClient } from "@/lib/client";
-import { topNavQuery } from "@/lib/queries/layout/topNavQuery";
+import { footerQuery } from "@/lib/queries/layout/footerQuery";
 
-const getTopNavData = async (isAr) => {
+const getFooterData = async (isAr) => {
   const variables = {
     site: isAr ? "arabic" : "default"
   };
   try {
     const { data } = await getClient().query({
-      query: topNavQuery(),
+      query: footerQuery(),
       variables
     });
     return data;
@@ -16,4 +16,4 @@ const getTopNavData = async (isAr) => {
   }
 };
 
-export default getTopNavData;
+export default getFooterData;
