@@ -3,7 +3,7 @@ import { topNavQuery } from "@/lib/queries/layout/topNavQuery";
 
 const getTopNavData = async (isAr) => {
   const variables = {
-    site: isAr ? "arabic" : "english"
+    site: isAr ? "arabic" : "default"
   };
   try {
     const { data } = await getClient().query({

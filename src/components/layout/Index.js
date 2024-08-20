@@ -7,15 +7,11 @@ import getTopNavData from "@/lib/data-hooks/layout/getTopNavData";
 const Layout = async ({ children, arabic, blackHeader }) => {
   const mainNavData = await getMainNavData(arabic);
   const topNavData = await getTopNavData(arabic);
+  console.log(mainNavData?.nav?.tree);
   return (
     <>
       <div className={arabic ? "rtl" : "ltr"}>
-        <Header
-          blackHeader={blackHeader}
-          arabic={arabic}
-          mainNavData={mainNavData?.nav?.tree}
-          topNavData={topNavData?.nav?.tree}
-        />
+        <Header blackHeader={blackHeader} data={mainNavData?.nav?.tree} />
         <main>{children}</main>
         <Footer arabic={arabic} />
       </div>
