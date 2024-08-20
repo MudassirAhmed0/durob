@@ -250,7 +250,7 @@ const PhoneField = ({
   return (
     <div className="w-full lg:h-[2.55208333333vw] h-[39px] inputField phoneField">
       <div className="flex lg:gap-x-[1.25vw] gap-x-[15px] size-full">
-        <div className="relative lg:min-w-[7.51041666667vw] lg:w-[7.51041666667vw] w-[45%]">
+        <div className="relative lg:min-w-[7.51041666667vw] lg:w-[7.51041666667vw] w-[52%]">
           <Select
             options={countryCodeOptions}
             value={selectedCountryCode}

@@ -237,6 +237,9 @@ html {
   form .phoneField .css-1dimb5e-singleValue {
     color: #94d4ff !important;
   }
+  form .phoneField .css-1xc3v61-indicatorContainer {
+    padding: unset !important;
+  }
   form .phoneField .css-1u9des2-indicatorSeparator {
     display: none !important;
   }
