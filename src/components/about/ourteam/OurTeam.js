@@ -86,7 +86,7 @@ const OurTeam = ({ arabic }) => {
       <div className="container1680 py180">
         <div className="flex flex-wrap justify-between items-end sm:gap-[40px] gap-[30px]">
           <ContentWrapper heading="Our Team" />
-          <div className="lg:w-[38%] sm:w-[60%] w-full lg:pb-[0.41666666666vw] pb-[4px] lg:text25 mtext18 f600 text-[#3D81D399] flex whitespace-nowrap overflow-x-auto hideScroll lg:justify-end lg:gap-[1.5625vw] gap-[20px]">
+          <div className="lg:w-[unset] w-full lg:pb-[0.41666666666vw] pb-[4px] lg:text25 mtext18 f600 text-[#3D81D399] flex whitespace-nowrap overflow-x-auto hideScroll lg:justify-end lg:gap-[1.5625vw] gap-[20px]">
             {membersData.map((category, index) => (
               <button
                 onClick={() => {
