@@ -209,7 +209,7 @@ const countryCodeOptions = [
   { value: "+994", label: "+994" },
   { value: "+995", label: "+995" },
   { value: "+996", label: "+996" },
-  { value: "+998", label: "+998" }
+  { value: "+998", label: "+998" },
 ];
 const PhoneField = ({
   arabic,
@@ -217,7 +217,7 @@ const PhoneField = ({
   phoneNumber,
   touched,
   error,
-  secondVarient
+  secondVarient,
 }) => {
   // const [showDropDown, setShowDropDown] = useState(false);
   // const [dropDownValue, setDropDownValue] = useState("+966");
@@ -230,7 +230,7 @@ const PhoneField = ({
 
   const [selectedCountryCode, setSelectedCountryCode] = useState({
     value: "+966",
-    label: "+966"
+    label: "+966",
   });
 
   const handleChange = (option) => {
@@ -248,7 +248,7 @@ const PhoneField = ({
   // };
 
   return (
-    <div className="w-full lg:h-[2.55208333333vw] h-[39px] inputField">
+    <div className="w-full lg:h-[2.55208333333vw] h-[39px] inputField phoneField">
       <div className="flex lg:gap-x-[1.25vw] gap-x-[15px] size-full">
         <div className="relative lg:min-w-[7.51041666667vw] lg:w-[7.51041666667vw] w-[45%]">
           <Select

@@ -227,6 +227,25 @@ html {
   .genderInputField .InputField label input[type="radio"]:checked {
     background-color: hsl(172, 67%, 45%);
   }
+  form .phoneField .css-13cymwt-control,
+  form .phoneField .css-t3ipsp-control {
+    background: transparent !important;
+    border: unset !important;
+    border-bottom: 1px solid #94d4ff !important;
+    box-shadow: unset !important;
+  }
+  form .phoneField .css-1dimb5e-singleValue {
+    color: #94d4ff !important;
+  }
+  form .phoneField .css-1u9des2-indicatorSeparator {
+    display: none !important;
+  }
+  form .phoneField .css-t3ipsp-control .css-tj5bde-Svg {
+    transform: scaleY(-1);
+  }
+  form .phoneField .css-tj5bde-Svg path {
+    fill: #94d4ff !important;
+  }
   /* FORM  */
 
   header nav ul li a,
@@ -501,7 +520,17 @@ header.blackHeader .langSwitcher {
 
 /* LightBox CSS End */
 
+@media (min-width: 1024px) {
+  form .phoneField .css-tj5bde-Svg {
+    width: 1.25vw !important;
+    height: 1.25vw !important;
+  }
+}
 @media (max-width: 1024px) {
+  form .phoneField .css-tj5bde-Svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
   /* HAMBURGER  */
   .menu {
     position: relative;
@@ -548,9 +577,6 @@ header.blackHeader .langSwitcher {
 
   /* HAMBURGER  */
 }
-@media (min-width: 1024px) {
-}
-
 /* Hide arrows from input type number */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
