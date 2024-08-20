@@ -8,7 +8,12 @@ const SubPageHeroV2 = ({ heading, desc, breadCrumbs, tagImg, tagText }) => {
       <img
         src="/images/herov2-pattern.png"
         alt="pattern"
-        className="absolute lrf2 top-[-5%] lg:top-0 flipped lg:w-[53.8541666667vw] sm:w-[80%] w-full"
+        className="hidden lg:block absolute lrf2 top-[-5%] lg:top-0 flipped lg:w-[53.8541666667vw] w-[90%] "
+      />
+      <img
+        src="/images/herov2-pattern-mob.svg"
+        alt="pattern"
+        className="lg:hidden block absolute lrf2 top-[-6%] lg:top-0 flipped w-[90%] "
       />
       <div className="container1680 relative z-[2]">
         <div className="lg:w-[50.5208333333vw] flex flex-col items-start">
@@ -28,7 +33,7 @@ const SubPageHeroV2 = ({ heading, desc, breadCrumbs, tagImg, tagText }) => {
               </span>
             </div>
           )}
-          <div className="lg:mt-[1.04166666667vw] mt16">
+          <div className="lg:mt-[1.04166666667vw] mt-[40px]">
             <h1 data-aos="fade-up" className="text-[#002B87] text70 f600">
               {heading}
             </h1>
