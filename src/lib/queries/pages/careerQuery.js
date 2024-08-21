@@ -1,6 +1,6 @@
 const { gql } = require("@apollo/client");
 
-export const aboutQuery = () => {
+export const careerQuery = () => {
   const query = gql`
     query Page($site: String, $slug: String!) {
       page: entry(slug: $slug, site: $site, collection: "pages") {
@@ -18,7 +18,8 @@ export const aboutQuery = () => {
         date
         last_modified
         locale
-        ... on Entry_Pages_Aboutus {
+        ... on Entry_Pages_Career {
+          title
           hero_banner {
             title
             description
@@ -26,55 +27,37 @@ export const aboutQuery = () => {
               src(width: 1200, height: 628)
             }
           }
-          vision {
+          testimony_section {
             title
             description
-            icon {
-              id
+            image {
+              src(width: 1200, height: 628)
             }
           }
-          mission {
-            title
-            description
-            icon {
-              id
-            }
-          }
-          our_team_section {
-            section_title
-            categories {
-              title_heading
-              id
-            }
-          }
-          values_section {
+          jobs_section {
             title_heading
-            short_description
-            values {
-              title
-              description
-              icon {
+            jobs {
+              ... on Entry_Jobs_Job {
+                title
+                city
+                job_br
+                responsibility {
+                  points
+                }
+                requirement {
+                  points
+                }
                 id
+                url
+                date
+                published
+                uri
               }
-            }
-          }
-          our_operation_section {
-            title_heading
-            short_description
-            images {
-              src(width: 700, height: 628, webp: true)
-            }
-          }
-          form_section {
-            title_heading
-            short_description
-            linked_form {
-              handle
             }
           }
           seo_group {
             seo_image {
-              id
+              src(width: 1200, height: 628)
             }
             seo_title
             seo_description

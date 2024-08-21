@@ -7,6 +7,7 @@ import getFooterData from "@/lib/data-hooks/layout/getFooterData";
 const Layout = async ({ children, arabic, blackHeader }) => {
   const mainNavData = await getMainNavData(arabic);
   const footerData = await getFooterData(arabic);
+  console.log(footerData, "chut");
   return (
     <>
       <div className={arabic ? "rtl" : "ltr"}>
@@ -15,10 +16,7 @@ const Layout = async ({ children, arabic, blackHeader }) => {
         <Footer
           arabic={arabic}
           data={footerData?.FooterData}
-          navigation={[
-            ...footerData?.nav?.tree,
-            ...footerData?.copyrightNav?.tree
-          ]}
+          navigation={footerData?.nav?.tree}
         />
       </div>
     </>

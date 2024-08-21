@@ -16,30 +16,21 @@ export const footerQuery = () => {
           }
         }
       }
-      copyrightNav: nav(handle: "copyright_navigation") {
-        handle
-        title
-        max_depth
-        expects_root
-        tree(site: $site) {
-          page {
-            entry_id
-            title
-            url
-          }
-        }
-      }
       FooterData: globalSet(handle: "footer_data", site: $site) {
         ... on GlobalSet_FooterData {
-          white_logo {
-            path: url
+          website_logos {
+            dark {
+              src: url
+            }
+            white {
+              src: url
+            }
           }
           social_media_contacts {
             social_platforms {
-              platform_name
               platform_link
               platform_icon {
-                path: url
+                src: url
               }
             }
           }

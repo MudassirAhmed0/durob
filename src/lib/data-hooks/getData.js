@@ -1,37 +1,34 @@
 import getPagesData from "./getPagesData";
-import getAboutData from "./pages/getAboutData";
-import getAdministrativeData from "./pages/getAdministrativeData";
 import getHomeData from "./pages/getHomeData";
+import getAboutData from "./pages/getAboutData";
+import getPartnersData from "./pages/getPartnersData";
+import getNewsData from "./pages/getNewsData";
+import getServiceData from "./pages/getServiceData";
+import getCareerData from "./pages/getCareerData";
+import getContactData from "./pages/getContactData";
+import gerPrivacyData from "./pages/gerPrivacyData";
 
-const getData = async (slug, isAr, current_page) => {
+const getData = async (slug, isAr) => {
   const pagesData = await getPagesData(isAr);
   const pages = pagesData?.pages?.data;
   const handleData = async (blueprint) => {
     switch (blueprint) {
       case "home":
         return await getHomeData(slug, isAr);
-      case "about":
+      case "aboutus":
         return await getAboutData(slug, isAr);
-      case "administrative_departments":
-        return await getAdministrativeData(slug, isAr);
-      //   case "about":
-      //     return await getAboutData(slug, isAr);
-      //   case "leadership":
-      //     return await getLeadershipData(slug, isAr);
-      //   case "career":
-      //     return await getCareerData(slug, isAr);
-      //   case "products":
-      //     return await getProductPageData(slug, isAr);
-      //   case "sustainability":
-      //     return await getSustainabilityData(slug, isAr);
-      //   case "contactus":
-      //     return await getContactData(slug, isAr);
-      //   case "currentopp":
-      //     return await getCurrentOpportunitiesData(slug, isAr, current_page);
-      //   case "news":
-      //     return await getNewsData(slug, isAr, current_page);
-      //   case "page":
-      //     return await getPrivacy(slug, isAr);
+      case "partners":
+        return await getPartnersData(slug, isAr);
+      case "news":
+        return await getNewsData(slug, isAr);
+      case "service":
+        return await getServiceData(slug, isAr);
+      case "career":
+        return await getCareerData(slug, isAr);
+      case "contactus":
+        return await getContactData(slug, isAr);
+      case "page":
+        return await gerPrivacyData(slug, isAr);
     }
   };
 

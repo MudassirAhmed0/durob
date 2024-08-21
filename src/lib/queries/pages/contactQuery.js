@@ -1,6 +1,6 @@
 const { gql } = require("@apollo/client");
 
-export const aboutQuery = () => {
+export const contactQuery = () => {
   const query = gql`
     query Page($site: String, $slug: String!) {
       page: entry(slug: $slug, site: $site, collection: "pages") {
@@ -18,7 +18,8 @@ export const aboutQuery = () => {
         date
         last_modified
         locale
-        ... on Entry_Pages_Aboutus {
+        ... on Entry_Pages_Contactus {
+          title
           hero_banner {
             title
             description
@@ -26,55 +27,18 @@ export const aboutQuery = () => {
               src(width: 1200, height: 628)
             }
           }
-          vision {
-            title
-            description
-            icon {
-              id
-            }
-          }
-          mission {
-            title
-            description
-            icon {
-              id
-            }
-          }
-          our_team_section {
-            section_title
-            categories {
-              title_heading
-              id
-            }
-          }
-          values_section {
-            title_heading
-            short_description
-            values {
-              title
-              description
-              icon {
-                id
-              }
-            }
-          }
-          our_operation_section {
-            title_heading
-            short_description
-            images {
-              src(width: 700, height: 628, webp: true)
-            }
-          }
           form_section {
             title_heading
-            short_description
             linked_form {
+              honeypot
+              rules
               handle
             }
           }
+          sm_title_section
           seo_group {
             seo_image {
-              id
+              src(width: 1200, height: 628)
             }
             seo_title
             seo_description
@@ -83,7 +47,6 @@ export const aboutQuery = () => {
         }
       }
       fallbackSEO: globalSet(handle: "global_seo", site: $site) {
-        title
         ... on GlobalSet_GlobalSeo {
           seo_title
           seo_image {

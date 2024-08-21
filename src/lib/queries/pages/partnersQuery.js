@@ -1,6 +1,6 @@
 const { gql } = require("@apollo/client");
 
-export const homeQuery = () => {
+export const partnersQuery = () => {
   const query = gql`
     query Page($site: String, $slug: String!) {
       page: entry(slug: $slug, site: $site, collection: "pages") {
@@ -18,42 +18,24 @@ export const homeQuery = () => {
         date
         last_modified
         locale
-        ... on Entry_Pages_Home {
+        ... on Entry_Pages_Partners {
           title
-          video_banner {
+          hero_banner {
             title
-            video_link
-          }
-          about_section {
-            title_heading
             description
-            link_text
-            link
-            external_link
-            blocks {
-              title
-              description
-              image {
-                src(width: 500, height: 300, webp: true)
-              }
+            image {
+              src(width: 1200, height: 628, webp: true)
             }
           }
-          services_section_wrapper {
+          why_section {
             title_heading
             description
-            link_text
-            link
-            external_link
-            service_slider {
+            cards {
               title_heading
-              image {
-                src(width: 500, height: 300, webp: true)
+              icon {
+                id
               }
             }
-          }
-          operation_section {
-            title_heading
-            description
           }
           partners_section {
             title_heading
@@ -62,19 +44,15 @@ export const homeQuery = () => {
               src: url
             }
           }
-          mid_banner_section {
-            content
-            image {
-              src(width: 500, height: 300, webp: true)
+          contact_us_section {
+            title_heading
+            description
+            link_text
+            link
+            external_link
+            linked_form {
+              handle
             }
-          }
-          news_section {
-            title_heading
-            description
-          }
-          contact_us_form_section {
-            title_heading
-            description
           }
           seo_group {
             seo_image {
@@ -83,24 +61,6 @@ export const homeQuery = () => {
             seo_title
             seo_description
             seo_keywords
-          }
-        }
-      }
-      recentNews: entries(
-        collection: "posts"
-        sort: "order"
-        limit: 4
-        site: $site
-      ) {
-        data {
-          title
-          published
-          status
-          slug
-          ... on Entry_Posts_Post {
-            title
-            date(format: "d F Y")
-            content
           }
         }
       }

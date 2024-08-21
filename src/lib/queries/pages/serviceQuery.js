@@ -1,6 +1,6 @@
 const { gql } = require("@apollo/client");
 
-export const aboutQuery = () => {
+export const serviceQuery = () => {
   const query = gql`
     query Page($site: String, $slug: String!) {
       page: entry(slug: $slug, site: $site, collection: "pages") {
@@ -18,7 +18,8 @@ export const aboutQuery = () => {
         date
         last_modified
         locale
-        ... on Entry_Pages_Aboutus {
+        ... on Entry_Pages_Service {
+          title
           hero_banner {
             title
             description
@@ -26,43 +27,20 @@ export const aboutQuery = () => {
               src(width: 1200, height: 628)
             }
           }
-          vision {
-            title
-            description
-            icon {
-              id
-            }
-          }
-          mission {
-            title
-            description
-            icon {
-              id
-            }
-          }
-          our_team_section {
-            section_title
-            categories {
-              title_heading
-              id
-            }
-          }
-          values_section {
-            title_heading
-            short_description
-            values {
+          services_section {
+            s {
               title
               description
-              icon {
-                id
+              image {
+                src(width: 1200, height: 628)
               }
-            }
-          }
-          our_operation_section {
-            title_heading
-            short_description
-            images {
-              src(width: 700, height: 628, webp: true)
+              features {
+                icon {
+                  src: url
+                }
+                caption
+                caption_details
+              }
             }
           }
           form_section {
@@ -74,7 +52,7 @@ export const aboutQuery = () => {
           }
           seo_group {
             seo_image {
-              id
+              src(width: 1200, height: 628)
             }
             seo_title
             seo_description

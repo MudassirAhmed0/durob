@@ -3,7 +3,7 @@ import { mainNavQuery } from "@/lib/queries/layout/mainNavQuery";
 
 const getMainNavData = async (isAr) => {
   const variables = {
-    site: isAr ? "arabic" : "default"
+    site: isAr ? "arabic" : "english"
   };
   try {
     const { data } = await getClient().query({

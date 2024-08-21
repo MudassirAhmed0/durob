@@ -1,14 +1,14 @@
 import { getClient } from "@/lib/client";
-import { aboutQuery } from "@/lib/queries/pages/aboutQuery";
+import { careerQuery } from "@/lib/queries/pages/careerQuery";
 
-const getAboutData = async (slug, isAr) => {
+const getCareerData = async (slug, isAr) => {
   const variables = {
     site: isAr ? "arabic" : "english",
     slug
   };
   try {
     const { data } = await getClient().query({
-      query: aboutQuery(),
+      query: careerQuery(),
       variables
     });
     return data;
@@ -17,4 +17,4 @@ const getAboutData = async (slug, isAr) => {
   }
 };
 
-export default getAboutData;
+export default getCareerData;
