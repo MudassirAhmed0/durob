@@ -8,7 +8,7 @@ export const revalidate = 5;
 
 export default async function Index({ params: { locale } }) {
   const isAr = locale == "ar";
-  const data = await getData("home", isAr);
+  // const data = await getData("home", isAr);
   return (
     <>
       <Layout arabic={isAr}>

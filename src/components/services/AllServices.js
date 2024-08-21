@@ -13,57 +13,57 @@ const services = [
     header: "Transportation",
     description:
       "We offer efficient and reliable delivery solutions, ensuring that your goods are transported safely and on time. Our extensive fleet and experienced drivers guarantee seamless logistics operations.",
-    img: "/images/services/container/banners/1.jpg",
+    img: "/images/services/container/banners/1.jpg"
   },
   {
     id: "warehousing",
     header: "Warehousing",
     description:
       "Our multi-temperature warehousing solutions ensure the safety and quality of your products, from -25°C to +25°C. Our facilities are equipped with the latest technology to maintain optimal storage conditions",
-    img: "/images/services/container/banners/07.png",
+    img: "/images/services/container/banners/07.png"
   },
   {
     id: "cross-border-transport",
     header: "Cross Border Transport",
     description:
       "We facilitate seamless international logistics, ensuring that your goods cross borders efficiently and without delays. Our expertise in customs regulations and cross-border documentation ensures smooth operations",
-    img: "/images/services/container/banners/01.png",
+    img: "/images/services/container/banners/01.png"
   },
   {
     id: "4pl-&control-tower-management",
     header: "4PL & Control\n\nTower Management",
     description:
       "Our 4PL and control tower management services provide comprehensive oversight of your supply chain, ensuring real-time visibility and optimized operations. We manage your logistics, so you can focus on your core business",
-    img: "/images/services/container/banners/02.png",
+    img: "/images/services/container/banners/02.png"
   },
   {
     id: "freight-forwarding",
     header: "Freight Forwarding",
     description:
       "Our freight forwarding services include air, sea, and land transportation, ensuring your goods reach their destination efficiently. We handle all aspects of logistics, from documentation to delivery",
-    img: "/images/services/container/banners/03.png",
+    img: "/images/services/container/banners/03.png"
   },
   {
     id: "direct-store-delivery",
     header: "Direct Store Delivery",
     description:
       "Our direct store delivery services ensure timely and efficient delivery of products to retail outlets. We manage the entire process, from warehousing to final delivery, ensuring your products are always in stock",
-    img: "/images/services/container/banners/04.png",
+    img: "/images/services/container/banners/04.png"
   },
   {
     id: "import-export",
     header: "Import/Export",
     description:
       "Lorem ipsum dolor sit amet consectetur. Diam at elementum quisque et nascetur. In non nullam quam elementum dolor lacinia. Turpis lacus bibendum est tempus. Congue gravida eget aenean molestie ac augue.",
-    img: "/images/services/container/banners/05.png",
+    img: "/images/services/container/banners/05.png"
   },
   {
     id: "value-added-services",
     header: "Value Added Services",
     description:
       "Lorem ipsum dolor sit amet consectetur. Diam at elementum quisque et nascetur. In non nullam quam elementum dolor lacinia. Turpis lacus bibendum est tempus. Congue gravida eget aenean molestie ac augue.",
-    img: "/images/services/container/banners/06.png",
-  },
+    img: "/images/services/container/banners/06.png"
+  }
 ];
 
 const AllServices = () => {
@@ -72,27 +72,53 @@ const AllServices = () => {
   const [activeHeader, setActiveHeader] = useState(services[0]);
 
   useEffect(() => {
+    const headerHeight = headerRef.current.offsetHeight + window.innerWidth * 1;
     const updateCurrentHeader = () => {
       services.map((item) => {
         if (
-          document.getElementById(item.id)?.getBoundingClientRect().top <= 140
+          document.getElementById(item.id)?.getBoundingClientRect().top <=
+          headerHeight
         ) {
           setActiveHeader(item);
-          router.push(`#${item.id}`, { scroll: false });
-          // const leftOffset = document.getElementById(
-          //   `${item.id}-active`
-          // )?.offsetLeft;
-          // const top = document.getElementById(item.id)?.offsetTop;
-          // headerRef.current?.scroll({
-          //   left: leftOffset,
-          //   top: top,
-          //   behavior: "smooth",
-          // });
+          // router.push(`#${item.id}`, { scroll: false });
+          // setTimeout(() => {
+          //   const leftOffset = document.getElementById(
+          //     `${item.id}-active`
+          //   )?.offsetLeft;
+          //   const top = document.getElementById(item.id)?.offsetTop;
+          //   headerRef.current?.scroll({
+          //     left: leftOffset,
+          //     top: top,
+          //     behavior: "smooth"
+          //   });
+          // }, 1200);
         }
       });
     };
+
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1); // Get the ID from the hash
+      const element = document.getElementById(hash);
+
+      if (element) {
+        const leftOffset = document.getElementById(
+          `${hash}-active`
+        )?.offsetLeft;
+        const top = element.offsetTop;
+
+        headerRef.current?.scroll({
+          left: leftOffset,
+          top: top,
+          behavior: "smooth"
+        });
+      }
+    };
     window.addEventListener("scroll", updateCurrentHeader);
-    return () => window.removeEventListener("scroll", updateCurrentHeader);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => {
+      window.removeEventListener("scroll", updateCurrentHeader);
+      window.removeEventListener("hashchange", handleHashChange);
+    };
   }, [router]);
 
   return (
@@ -113,7 +139,7 @@ const AllServices = () => {
               }
               // onClick={()=> document.getElementById(service.id)?.scrollIntoView({behavior: "smooth"})}
               className={clsx(
-                "lg:text22 md:mtext18 text-[12px] flex items-center capitalize text-center border-[#FFFFFF1A] ltr:border-r rtl:border-l lg:px-[2.1875vw] lg:py-[0.88541666666vw] p-[15px] relative before:absolute before:lrf1",
+                "lg:text22 md:mtext18 whitespace-nowrap lg:whitespace-normal text-[12px] flex items-center capitalize text-center border-[#FFFFFF1A] ltr:border-r rtl:border-l lg:px-[2.1875vw] lg:py-[0.88541666666vw] p-[15px] relative before:absolute before:lrf1",
                 activeHeader.id === service.id
                   ? "text-white before:bottom-0 before:content-[''] before:lg:h-[0.26041666666vw] before:h-[3px] before:w-full before:bg-[#94D4FF]"
                   : "text-[#94D4FF]"

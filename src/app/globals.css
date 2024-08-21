@@ -195,16 +195,16 @@ html {
   }
   form.v2 .inputField label,
   form.v2 .inputField textarea {
-    @apply border-[#94D4FF];
+    @apply border-[#DFDFDF];
   }
   form.v2 .inputField.dropDownct {
-    @apply text-[#94D4FF];
+    @apply text-[#DFDFDF];
   }
   form .inputField .dropDownImg path {
     @apply fill-[#4964BF];
   }
   form.v2 .inputField .dropDownImg path {
-    @apply fill-[#94D4FF];
+    @apply fill-[#DFDFDF];
   }
   form .submit_Btn {
     @apply text-[#002B87];
@@ -233,6 +233,7 @@ html {
     border: unset !important;
     border-bottom: 1px solid #94d4ff !important;
     box-shadow: unset !important;
+    border-radius: unset !important;
   }
   form .phoneField .css-1dimb5e-singleValue {
     color: #94d4ff !important;
@@ -249,6 +250,18 @@ html {
   form .phoneField .css-tj5bde-Svg path {
     fill: #94d4ff !important;
   }
+
+  form .phoneField .css-qr46ko {
+    color: #0f0d0f;
+  }
+  form .phoneField .css-d7l1ni-option {
+    background-color: #002b87 !important;
+    color: #fff;
+  }
+  form .phoneField .css-1cfo1cf input {
+    color: #fff;
+  }
+
   /* FORM  */
 
   header nav ul li a,
