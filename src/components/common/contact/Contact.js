@@ -99,7 +99,7 @@ const Contact = ({ secondVarient, arabic, heading, desc, fromContactPage }) => {
     },
   });
 
-  console.log("values", values);
+  // console.log("values", values);
   // console.log("error", errors);
   // console.log("touched", touched);
 

@@ -3,13 +3,13 @@ import Contact from "../common/contact/Contact";
 import SubPageHero from "../common/subpagehero/SubPageHero";
 const breadCrumbs = [{ text: "Contact Us" }];
 
-const ContactUsPage = () => {
+const ContactUsPage = ({data}) => {
   return (
     <>
       <SubPageHero
-        heading="Get in Touch"
+        heading={data?.hero_banner?.title || "Get in Touch"}
         adjustContent={"lg:pb-[3.90625vw] lg:!h-[36.3020833333vw] !h-[70vh]"}
-        bannerSource={"/images/contact/hero.jpg"}
+        bannerSource={data?.hero_banner?.image?.src || "/images/contact/hero.jpg"}
         breadCrumbs={breadCrumbs}
       />
       <Contact

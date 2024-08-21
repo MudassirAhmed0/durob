@@ -3,7 +3,8 @@ import SubPageHeroV2 from "../common/subpageherov2/SubPageHeroV2";
 import PrivacyTermsContainer from "../common/PrivacyTermsContainer";
 const breadCrumbs = [{ text: "Privacy Policy" }];
 
-const PrivacyPolicyPage = () => {
+const PrivacyPolicyPage = ({data}) => {
+  
   return (
     <>
       {" "}

@@ -8,19 +8,19 @@ import Banner from "./Banner";
 import Partners from "./partners/Partners";
 import Contact from "../common/contact/Contact";
 
-const HomePage = () => {
+const HomePage = ({data}) => {
   return (
     <>
-      <Hero />
-      <About />
-      <Services />
-      <Operations />
-      <News />
+      <Hero data={data?.video_banner} />
+      <About data={data?.about_section} />
+      <Services data={data?.services_section_wrapper} />
+      <Operations data={data?.operation_section} />
+      <News data={data?.news_section} />
       <Partners />
-      <Banner />
+      <Banner data={data?.mid_banner_section} />
       <Contact
-        heading="Get in Touch"
-        desc="Reach out for inquiries and support"
+        heading={data?.contact_us_form_section?.title_heading || "Get in Touch"}
+        desc={data?.contact_us_form_section?.description || "Reach out for inquiries and support"}
       />
     </>
   );

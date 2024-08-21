@@ -13,10 +13,10 @@ const Value = ({ arabic, value, values, index }) => {
       )}
       <div className="relative z-[2]">
         <h6 className="relative z-[7] bg-[#002B87] lg:pt-[2.60416666667vw] sm:pt-[40px] pt-[30px] lg:text30 mtext20 f600 text-[#94D4FF] capitalize">
-          {value.heading}
+          {value?.title || value.heading}
         </h6>
         <p className="group-hover:lg:translate-y-0 group-hover:lg:opacity-[1] lg:opacity-[0] lg:translate-y-[-150%] transition500 lg:text22 mtext16 text-[#FFF] lg:pt-[0.52083333333vw] pt-[8px]">
-          {value.desc}
+          {value?.description || value.desc}
         </p>
       </div>
       <div

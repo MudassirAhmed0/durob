@@ -43,7 +43,7 @@ const Header = ({ blackHeader, data }) => {
       </Link>
       <nav className="text-[#FFFFFF]">
         <ul className="sideBar px-[20px] lg:px-[unset] absolute top-0 lrf1 lg:static h-[100vh] lg:h-[unset] w-full lg:w-[unset] lg:text28 mtext20 capitalize flex flex-col lg:flex-row gap-y-[30px] lg:gap-x-[1.66666666667vw] place-content-center lg:items-center">
-          {data.map(({ page }, index) => (
+          {data?.map(({ page }, index) => (
             <li key={index} onClick={toggleSidebar}>
               <Link className="whitespace-nowrap" href={`${page.url}`}>
                 {page.title}

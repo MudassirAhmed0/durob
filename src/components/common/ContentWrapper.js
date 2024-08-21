@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 
 const ContentWrapper = ({
   headingClasses,
@@ -19,14 +20,14 @@ const ContentWrapper = ({
         {heading}
       </Tag>
       {desc && (
-        <p
+        <div
           data-aos="fade-down"
           className={`${
             descClasses ? descClasses : "lg:text28 mtext18"
           } mt16 desc`}
         >
-          {desc}
-        </p>
+          {parse(desc)}
+        </div>
       )}
     </div>
   );

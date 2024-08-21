@@ -11,6 +11,12 @@ const nextConfig = {
         hostname: "duroub-cms.s3.eu-central-1.amazonaws.com",
         port: "",
         pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "duroub-cms.brackets-tech.com",
+        port: "",
+        pathname: "/**"
       }
     ]
   }

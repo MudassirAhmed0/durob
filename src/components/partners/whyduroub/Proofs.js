@@ -1,6 +1,6 @@
 import React from "react";
 import Proof from "./Proof";
-const proofs = [
+const dummyProofs = [
   {
     text: "Flexibility",
     img: "/images/partners/why/1.svg",
@@ -22,7 +22,10 @@ const proofs = [
     img: "/images/partners/why/5.svg",
   },
 ];
-const Proofs = () => {
+const Proofs = ({cards}) => {
+
+  const proofs = cards ?? dummyProofs
+
   return (
     <div className="lg:mt-[3.4375vw] sm:mt-[40px] mt-[30px] flex items-stretch flex-wrap justify-center lg:gap-[2.60416666667vw] sm:gap-[30px] gap-[20px]">
       {proofs.map((proof, index) => (

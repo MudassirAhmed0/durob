@@ -3,7 +3,7 @@ import ImageComponent from "@/components/common/ImageComponent";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-const servicesCards = [
+const dummyCards = [
   {
     heading: "Transportation, distribution & last mile",
     img: "/images/home/services/card/1.jpg",
@@ -21,13 +21,16 @@ const servicesCards = [
     img: "/images/home/services/card/4.jpeg",
   },
 ];
-const ServicesSwiper = ({ arabic }) => {
+const ServicesSwiper = ({ arabic, cards }) => {
   const [swiperGap, setSwiperGap] = useState(0);
   useEffect(() => {
     setSwiperGap(
       window.innerWidth > 1024 ? (window.innerWidth / 100) * 1.5625 : 16
     );
   }, []);
+
+  const servicesCards = cards ?? dummyCards
+
   return (
     <div
       data-aos="fade"
@@ -61,12 +64,12 @@ const ServicesSwiper = ({ arabic }) => {
             <div className="w-full h-full flex justify-center items-end lg:pb-[2.13541666667vw] pb-[20px]">
               <ImageComponent
                 alt="card-img"
-                src={servicesCard.img}
+                src={servicesCard?.image?.src || servicesCard.img}
                 className="object-cover z-[-1]"
               />
               <div className="relative z-[2] flex flex-col w-[84.172%]">
                 <span className="lg:text40 mtext28 f600 text-white">
-                  {servicesCard.heading}
+                  {servicesCard.title_heading || servicesCard.heading}
                 </span>
               </div>
             </div>

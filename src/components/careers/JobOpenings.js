@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import LinkBtnV2 from "../common/LinkBtnV2";
 import Link from "next/link";
-const openings = [
+const dummyOpenings = [
   {
     location: "Jeddah",
     name: "PMO Specialist",
@@ -24,12 +24,14 @@ const openings = [
     name: "Procurement Professional",
   },
 ];
-const JobOpenings = ({ arabic }) => {
+const JobOpenings = ({ data, arabic }) => {
+
+  const openings = data?.jobs ? data.jobs : dummyOpenings
   return (
     <section>
       <div className="container1680 py180">
         <h2 data-aos="fade-up" className="text67 text-[#002B87] text-center">
-          Job Openings{" "}
+          {data?.title || "Job Openings"}
         </h2>
         <div className="flex flex-col items-center lg:gap-y-[1.5625vw] gap-y-[20px] lg:w-[72.65625vw] w-full mx-auto lg:mt-[4.16666666667vw] sm:mt-[50px] mt-[40px]">
           {openings.map((opening, index) => (
@@ -37,7 +39,7 @@ const JobOpenings = ({ arabic }) => {
               data-aos="fade"
               data-aos-delay={index * 100}
               key={index}
-              href="/single-career-page"
+              href={opening?.url || "/single-career-page"}
               className="group w-full bg-[#94d4ff1a] border10 lg:px-[2.60416666667vw] lg:py-[2.21354166667vw] sm:p-[40px] p-[30px] flex flex-wrap justify-between items-end lg:gap-[3.75vw] sm:gap-[30px] gap-[20px]"
             >
               <div className="w-full lg:w-[80%]">
@@ -46,11 +48,11 @@ const JobOpenings = ({ arabic }) => {
                     <Image fill alt="icon" src="/images/icons/careers.svg" />
                   </div>
                   <span className="lg:text18 mtext14 text-[#002B87]">
-                    {opening.location}
+                    {opening?.city || opening.location}
                   </span>
                 </div>
                 <span className="lg:text25 mtext18 text-[#0F0D0F] capitalize block lg:mt-[0.52083333333vw] mt-[6px]">
-                  {opening.name}
+                  {opening?.title || opening.name}
                 </span>
               </div>
               <LinkBtnV2 text={"Apply Now"} tag={"button"} />

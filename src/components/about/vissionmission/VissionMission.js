@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React from "react";
 
-const VissionMission = () => {
+const VissionMission = ({vision, mission}) => {
+
   return (
     <div
       data-aos="fade"
@@ -19,11 +20,10 @@ const VissionMission = () => {
           </div>
           <div className="lg:mt-[3.125vw] sm:mt-[40px] mt-[30px]">
             <h5 className="text70 text-[#002B87] relative before:absolute before:left-[50%] before:translate-x-[-50%] before:lg:top-[-0.78125vw] before:top-[-8px] before:content-[''] before:lg:h-[0.26041666666vw] before:h-[3px] before:lg:w-[2.96875vw] before:w-[12%] before:bg-[#60A1E2]">
-              Vision
+              {vision?.title || "Vision"}
             </h5>
             <p className="lg:text22 lg:leading-[1.66666666667vw] mtext16 lg:mt-[1.04166666667vw] mt16">
-              To be the most preferred end-to-end temperature-controlled
-              logistics solutions provider in the Middle East
+              {vision?.description || "To be the most preferred end-to-end temperature-controlled logistics solutions provider in the Middle East"}
             </p>
           </div>
         </div>
@@ -40,13 +40,10 @@ const VissionMission = () => {
           </div>
           <div className="lg:mt-[3.125vw] sm:mt-[40px] mt-[30px]">
             <h5 className="text70 text-[#002B87] relative before:absolute before:left-[50%] before:translate-x-[-50%] before:lg:top-[-0.78125vw] before:top-[-8px] before:content-[''] before:lg:h-[0.26041666666vw] before:h-[3px] before:lg:w-[2.96875vw] before:w-[12%] before:bg-[#60A1E2]">
-              Mission
+              {mission?.title || "Mission"}
             </h5>
             <p className="lg:text22 lg:leading-[1.66666666667vw] mtext16 lg:mt-[1.04166666667vw] mt16">
-              To create and execute customized high-value logistics solutions
-              for customers by utilizing experienced logistics professionals,
-              advanced technologies, and a deep understanding of our
-              customers&apos; needs
+              {mission?.description || "To create and execute customized high-value logistics solutions for customers by utilizing experienced logistics professionals, advanced technologies, and a deep understanding of our customers&apos; needs"}
             </p>
           </div>
         </div>

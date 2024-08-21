@@ -1,6 +1,6 @@
 import React from "react";
-
-const Banner = () => {
+import parse from "html-react-parser"
+const Banner = (data) => {
   return (
     <section className="bg-[#002B87] relative lg:py-[18.0208333333vw] sm:py-[200px] py-[120px] overflow-hidden">
       <div className="w-full h-full absolute top-0 left-0">
@@ -22,8 +22,7 @@ const Banner = () => {
         data-aos="fade-up"
         className="text64 text-white text-center block lg:w-[69.0625vw] container1680 relative z-[2]"
       >
-        Duroub logistics is a fully integrated logistics cold chain solutions
-        provider offering end to end logistics services across the kingdom
+        {data?.content ? parse(data.content) : "Duroub logistics is a fully integrated logistics cold chain solutions provider offering end to end logistics services across the kingdom"}
       </span>
     </section>
   );

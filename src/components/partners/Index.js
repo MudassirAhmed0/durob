@@ -5,18 +5,20 @@ import Partners from "./partners/Partners";
 import Contact from "../common/contact/Contact";
 
 const breadCrumbs = [{ text: "partners" }];
-const PartnersPage = () => {
+const PartnersPage = ({data}) => {
+  console.log("data", data);
+
   return (
     <>
       <SubPageHero
-        heading="Our Partners"
-        desc="At Duroub Logistics, we pride ourselves on building strong, collaborative relationships with our clients. Our commitment to excellence ensures that we consistently deliver top-notch logistics solutions that meet the diverse needs of our clients. By partnering with us, businesses can achieve their logistics goals efficiently and effectively"
+        heading={data?.hero_banner?.title || "Our Partners"}
+        desc={data?.hero_banner?.description || "At Duroub Logistics, we pride ourselves on building strong, collaborative relationships with our clients. Our commitment to excellence ensures that we consistently deliver top-notch logistics solutions that meet the diverse needs of our clients. By partnering with us, businesses can achieve their logistics goals efficiently and effectively"}
         adjustContent={"lg:pb-[8.125vw]"}
-        bannerSource={"/images/partners/hero.jpg"}
+        bannerSource={data?.hero_banner?.image?.src || "/images/partners/hero.jpg"}
         breadCrumbs={breadCrumbs}
       />
-      <WhyDuroub />
-      <Partners />
+      <WhyDuroub data={data?.why_section} />
+      <Partners data={data?.partners_section} />
       <Contact
         heading="Partner with Us"
         desc="Reach out for inquiries and support"

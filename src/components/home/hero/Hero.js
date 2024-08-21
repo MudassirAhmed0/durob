@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import BackGrounds from "./BackGrounds";
 import PlayVideo from "./PlayVideo";
 import MyLightBox from "@/components/common/MyLightBox/Index";
-const Hero = () => {
+const Hero = ({data}) => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [showLightBox, setShowLightBox] = useState(false);
   const [showNow, setShowNow] = useState(false);
@@ -28,6 +28,8 @@ const Hero = () => {
   const skipSection = () => {
     window.scroll(0, window.innerHeight);
   };
+  const idStart = String(data?.video_link).indexOf("v=")+2
+  const videoId = data?.video_link?.slice(idStart, idStart+11)
   return (
     <>
       <section className="h-screen w-full relative flex items-end py180 pt-[unset]">
@@ -37,7 +39,7 @@ const Hero = () => {
             data-aos="fade-up"
             className="text90 lg:w-[55.9895833333vw] w-full !uppercase text-white"
           >
-            Experience the <br /> Future of Logistics
+            {data?.title}
           </h1>
           <PlayVideo handleOpen={handleOpen} setSlideIndex={setSlideIndex} />
         </div>
@@ -61,7 +63,7 @@ const Hero = () => {
           //   }
           // ]}
           // sources={[{ source: "/videos/college-life-hero.mp4", type: "video" }]}
-          sources={[{ source: "pQHswXwWRGE", type: "youtube" }]}
+          sources={[{ source: videoId , type: "youtube" }]}
         />
       )}
     </>

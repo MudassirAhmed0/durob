@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "./Logo";
-const partnersLogos = [
+const dummyLogos = [
   "/images/home/partners/logos/1.svg",
   "/images/home/partners/logos/2.svg",
   "/images/home/partners/logos/3.svg",
@@ -17,7 +17,10 @@ const partnersLogos = [
   "/images/home/partners/logos/14.svg",
   "/images/home/partners/logos/15.svg",
 ];
-const PartnersLogos = ({ arabic }) => {
+const PartnersLogos = ({ partners ,arabic }) => {
+
+  const partnersLogos = partners ?? dummyLogos
+  
   return (
     <div className="w-full lg:mt-[4.16666666667vw] sm:mt-[40px] mt-[30px]">
       <div className="flex items-center flex-wrap lg:gap-[2.60416666667vw] sm:gap-[30px] gap-[20px] w-full">

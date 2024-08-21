@@ -1,7 +1,7 @@
-import Image from "next/image";
+
 import React from "react";
 import Value from "./Value";
-const values = [
+const dummyValues = [
   {
     heading: "Civility",
     desc: "We treat everyone with respect and courtesy.",
@@ -38,7 +38,9 @@ const values = [
     img: "/images/about/values/7.svg",
   },
 ];
-const Values = ({ arabic }) => {
+const Values = ({ arabic, data }) => {
+  const values = data ?? dummyValues
+
   return (
     <div className="flex items-stretch flex-wrap bg-[#002B87] lg:h-[27.7604166667vw] w-full">
       {values.map((value, index) => (
