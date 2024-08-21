@@ -73,6 +73,7 @@ const AllServices = () => {
 
   useEffect(() => {
     const headerHeight = headerRef.current.offsetHeight + window.innerWidth * 1;
+    const isMobile = window.innerWidth < 768;
     const updateCurrentHeader = () => {
       services.map((item) => {
         if (
@@ -80,44 +81,47 @@ const AllServices = () => {
           headerHeight
         ) {
           setActiveHeader(item);
-          // router.push(`#${item.id}`, { scroll: false });
-          // setTimeout(() => {
-          //   const leftOffset = document.getElementById(
-          //     `${item.id}-active`
-          //   )?.offsetLeft;
-          //   const top = document.getElementById(item.id)?.offsetTop;
-          //   headerRef.current?.scroll({
-          //     left: leftOffset,
-          //     top: top,
-          //     behavior: "smooth"
-          //   });
-          // }, 1200);
+          if (isMobile) {
+            setTimeout(() => {
+              const leftOffset = document.getElementById(
+                `${item.id}-active`
+              )?.offsetLeft;
+              const top = document.getElementById(item.id)?.offsetTop;
+              headerRef.current?.scroll({
+                left: leftOffset,
+                // top: top,
+                behavior: "smooth"
+              });
+            }, 1000);
+          } else {
+            router.push(`#${item.id}`, { scroll: false });
+          }
         }
       });
     };
 
-    const handleHashChange = () => {
-      const hash = window.location.hash.substring(1); // Get the ID from the hash
-      const element = document.getElementById(hash);
+    // const handleHashChange = () => {
+    //   const hash = window.location.hash.substring(1); // Get the ID from the hash
+    //   const element = document.getElementById(hash);
 
-      if (element) {
-        const leftOffset = document.getElementById(
-          `${hash}-active`
-        )?.offsetLeft;
-        const top = element.offsetTop;
+    //   if (element) {
+    //     const leftOffset = document.getElementById(
+    //       `${hash}-active`
+    //     )?.offsetLeft;
+    //     const top = element.offsetTop;
 
-        headerRef.current?.scroll({
-          left: leftOffset,
-          top: top,
-          behavior: "smooth"
-        });
-      }
-    };
+    //     headerRef.current?.scroll({
+    //       left: leftOffset,
+    //       top: top,
+    //       behavior: "smooth"
+    //     });
+    //   }
+    // };
     window.addEventListener("scroll", updateCurrentHeader);
-    window.addEventListener("hashchange", handleHashChange);
+    // window.addEventListener("hashchange", handleHashChange);
     return () => {
       window.removeEventListener("scroll", updateCurrentHeader);
-      window.removeEventListener("hashchange", handleHashChange);
+      // window.removeEventListener("hashchange", handleHashChange);
     };
   }, [router]);
 
