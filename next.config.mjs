@@ -8,9 +8,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "jic-cms.brackets-tech.com",
+        hostname: "duroub-cms.s3.eu-central-1.amazonaws.com",
         port: "",
-        pathname: "/img/asset/**"
+        pathname: "/**"
       }
     ]
   }

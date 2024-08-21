@@ -67,7 +67,7 @@ const Footer = ({ arabic, navigation, data }) => {
           href="#"
           className="relative z-[2] lg:w-[19.21875vw] lg:h-[6.19791666667vw] block sm:w-[250px] sm:h-[80px] w-[170px] h-[55px]"
         >
-          <Image fill alt="logo" src={data?.website_logos?.dark?.url} />
+          <Image fill alt="logo" src={data?.website_logos?.dark?.src} />
         </Link>
         <div className="flex flex-wrap lg:gap-[2.03125vw] sm:gap-[80px] gap-[40px] items-start">
           <nav className="lg:w-[unset] sm:w-[58%] flex flex-wrap flex-col lg:flex-row lg:gap-[1.5625vw] gap-[10px] sm:gap-[15px] items-start">

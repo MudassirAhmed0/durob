@@ -5,6 +5,8 @@ import "swiper/css/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import getStaticMetaData from "@/utils/seo/getStaticMetaData";
+import Loading from "./loading";
+import { Suspense } from "react";
 
 export const metadata = getStaticMetaData({
   title: "Durob || Home Page",
@@ -21,7 +23,7 @@ export default async function LocaleLayout({ children, params: { locale } }) {
     <html lang={locale} dir={locale == "ar" ? "rtl" : "ltr"}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <Suspense fallback={<Loading />}>{children}</Suspense>
         </NextIntlClientProvider>
       </body>
     </html>
