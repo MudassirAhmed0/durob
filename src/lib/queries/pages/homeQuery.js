@@ -75,6 +75,18 @@ export const homeQuery = () => {
           contact_us_form_section {
             title_heading
             description
+            linked_form {
+              handle
+              title
+              honeypot
+              fields {
+                display
+                type
+                handle
+                width
+                config
+              }
+            }
           }
           seo_group {
             seo_image {
@@ -96,10 +108,17 @@ export const homeQuery = () => {
           title
           published
           status
+
           slug
           ... on Entry_Posts_Post {
             title
             date(format: "d F Y")
+            image {
+              src(width: 1200, height: 628)
+            }
+            thumbnail: image {
+              src(width: 1200, height: 628)
+            }
             content
           }
         }

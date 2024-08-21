@@ -52,6 +52,15 @@ export const partnersQuery = () => {
             external_link
             linked_form {
               handle
+              title
+              honeypot
+              fields {
+                display
+                type
+                handle
+                width
+                config
+              }
             }
           }
           seo_group {

@@ -70,6 +70,15 @@ export const aboutQuery = () => {
             short_description
             linked_form {
               handle
+              title
+              honeypot
+              fields {
+                display
+                type
+                handle
+                width
+                config
+              }
             }
           }
           seo_group {

@@ -55,6 +55,22 @@ export const careerQuery = () => {
               }
             }
           }
+          formlink_section {
+            title_heading
+            desc
+            linked_form {
+              handle
+              title
+              honeypot
+              fields {
+                display
+                type
+                handle
+                width
+                config
+              }
+            }
+          }
           seo_group {
             seo_image {
               src(width: 1200, height: 628)

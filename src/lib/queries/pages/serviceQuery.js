@@ -28,7 +28,7 @@ export const serviceQuery = () => {
             }
           }
           services_section {
-            s {
+            services: s {
               title
               description
               image {

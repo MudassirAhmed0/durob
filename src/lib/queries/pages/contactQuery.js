@@ -30,9 +30,16 @@ export const contactQuery = () => {
           form_section {
             title_heading
             linked_form {
-              honeypot
-              rules
               handle
+              title
+              honeypot
+              fields {
+                display
+                type
+                handle
+                width
+                config
+              }
             }
           }
           sm_title_section
