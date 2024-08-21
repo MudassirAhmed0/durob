@@ -3,7 +3,7 @@ import { pagesQuery } from "../queries/pagesQuery.js";
 
 const getPagesData = async (isAr) => {
   const variables = {
-    site: isAr ? "arabic" : "english"
+    site: isAr ? "arabic" : "default"
   };
   try {
     const { data } = await getClient().query({

@@ -32,11 +32,29 @@ const contactLinks = [
     taget: true,
   },
 ];
-const Contact = ({ secondVarient, arabic, heading, desc }) => {
+const socialLinks = [
+  {
+    img: "/images/icons/social-footer/fb.svg",
+    link: "https://www.facebook.com/",
+  },
+  {
+    img: "/images/icons/social-footer/twitter.svg",
+    link: "https://www.twitter.com/",
+  },
+  {
+    img: "/images/icons/social-footer/insta.svg",
+    link: "https://www.instagram.com/",
+  },
+  {
+    img: "/images/icons/social-footer/linked.svg",
+    link: "https://www.linkedin.com/",
+  },
+];
+const Contact = ({ secondVarient, arabic, heading, desc, fromContactPage }) => {
   const [subject, setSubject] = useState("");
   const [gender, setGender] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("")
-  const [file, setFile] = useState("")
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [file, setFile] = useState("");
 
   const contactValues = {
     fullname: "",
@@ -75,13 +93,13 @@ const Contact = ({ secondVarient, arabic, heading, desc }) => {
       console.log("values: ", values);
       resetForm();
       setSubject("");
-      setGender("")
-      setFile("")
-      setPhoneNumber("")
+      setGender("");
+      setFile("");
+      setPhoneNumber("");
     },
   });
 
-  // console.log("values", values);
+  console.log("values", values);
   // console.log("error", errors);
   // console.log("touched", touched);
 
@@ -100,7 +118,7 @@ const Contact = ({ secondVarient, arabic, heading, desc }) => {
   useEffect(() => {
     if (file) {
       setValues((values) => ({ ...values, file }));
-      setFieldTouched("file", true)
+      setFieldTouched("file", true);
     }
   }, [setValues, file, setFieldTouched]);
 
@@ -128,28 +146,57 @@ const Contact = ({ secondVarient, arabic, heading, desc }) => {
             desc={desc}
             classes={`lg:w-[36.9791666667vw] ${secondVarient ? "white" : ""}`}
           />
-          {secondVarient && (
-            <ul className="lg:mt-[2.08333333333vw] sm:mt-[30px] mt-[20px] flex flex-col flex-wrap lg:gap-y-[1.04166666667vw] gap-y-[15px] ">
-              {contactLinks.map((contactLink, index) => (
-                <li key={contactLink.text}>
-                  <Link
-                    href={`${contactLink.link}`}
-                    target={`${contactLink.taget ? "_blank" : "_self"}`}
-                    className="opacity_Hover flex lg:gap-x-[0.52083333333vw] gap-x-[6px] items-start"
+          {secondVarient || (
+            <>
+              <ul className="lg:mt-[2.08333333333vw] sm:mt-[30px] mt-[20px] flex flex-col flex-wrap lg:gap-y-[1.04166666667vw] gap-y-[15px] ">
+                {contactLinks.map((contactLink, index) => (
+                  <li
+                    data-aos="fade"
+                    data-aos-delay={index * 100}
+                    key={contactLink.text}
                   >
-                    <div className="relative lg:min-w-[2.08333333333vw] sm:min-w-[30px] min-w-[20px] lg:size-[2.08333333333vw] sm:size-[30px] size-[20px]">
-                      <Image fill alt="social-icon" src={contactLink.img} />
-                    </div>
-                    <span className="lg:text24 mtext18 text-white">
-                      {contactLink.text}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+                    <Link
+                      href={`${contactLink.link}`}
+                      target={`${contactLink.taget ? "_blank" : "_self"}`}
+                      className="opacity_Hover flex lg:gap-x-[0.52083333333vw] gap-x-[6px] items-start"
+                    >
+                      <div className="relative lg:min-w-[2.08333333333vw] sm:min-w-[30px] min-w-[20px] lg:size-[2.08333333333vw] sm:size-[30px] size-[20px]">
+                        <Image fill alt="social-icon" src={contactLink.img} />
+                      </div>
+                      <span className="lg:text24 mtext18">
+                        {contactLink.text}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              {fromContactPage && (
+                <div className="flex justify-between items-center flex-wrap gap-[15px] lg:mt-[2.65625vw] sm:mt-[30px] mt-[20px] lg:pt-[2.65625vw] sm:pt-[30px] pt-[20px] border-t border-[#4964BF4D]">
+                  <span data-aos="fade-up" className="lg:text24 mtext18 f600">
+                    Our Accounts
+                  </span>
+                  <ul
+                    data-aos="fade"
+                    className="flex flex-wrap  lg:gap-[0.9375vw] gap-[18px] items-center"
+                  >
+                    {socialLinks.map((socialLink, index) => (
+                      <li key={index}>
+                        <Link
+                          href={`${socialLink.link}`}
+                          className="opacity_Hover relative block lg:size-[1.35416666667vw] size-[18px]"
+                        >
+                          <Image fill alt="social-icon" src={socialLink.img} />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </>
           )}
         </div>
         <form
+          data-aos="fade"
           onSubmit={handleSubmit}
           className={`${
             secondVarient
@@ -219,8 +266,23 @@ const Contact = ({ secondVarient, arabic, heading, desc }) => {
             secondVarient={secondVarient}
           />
 
-          {secondVarient && <PhoneField setPhoneNumber={setPhoneNumber} touched={touched?.phone} error={errors.phone} secondVarient />}
-          {secondVarient && <UploadFileField file={file} setFile={setFile} touched={touched?.file} error={errors.file} secondVarient />}
+          {secondVarient && (
+            <PhoneField
+              setPhoneNumber={setPhoneNumber}
+              touched={touched?.phone}
+              error={errors.phone}
+              secondVarient
+            />
+          )}
+          {secondVarient && (
+            <UploadFileField
+              file={file}
+              setFile={setFile}
+              touched={touched?.file}
+              error={errors.file}
+              secondVarient
+            />
+          )}
 
           {!secondVarient && (
             <InputField

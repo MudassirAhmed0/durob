@@ -5,9 +5,16 @@ const DropDown = ({
   dropDown,
   handleDropDown,
   setDropDownValue,
+  fromPhoneField,
 }) => {
   return (
-    <ul className={`${showDropDown ? "active" : ""} contact_DropDown`}>
+    <ul
+      className={`${showDropDown ? "active" : ""} contact_DropDown ${
+        fromPhoneField
+          ? "!lg:p-[1.5625vw] !p-[10px]"
+          : "lg:p-[1.5625vw] p-[20px]"
+      }`}
+    >
       {dropDown.map((item) => (
         <li
           key={item}

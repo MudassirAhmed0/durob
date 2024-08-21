@@ -7,7 +7,7 @@ const UploadFileField = ({ file, setFile, touched, error, secondVarient }) => {
     <>
       <label
         htmlFor="file"
-        className="opacity_Hover cursor-pointer flex flex-col justify-center items-center lg:gap-y-[0.52083333333vw] gap-y-[10px] border-dashed border border20 border-[#94D4FF] w-full lg:py-[2.52604166667vw] lg:px-[1.04166666667vw] sm:p-[30px] p-[20px]"
+        className="opacity_Hover cursor-pointer flex flex-col text-center justify-center items-center lg:gap-y-[0.52083333333vw] gap-y-[10px] border-dashed border border20 border-[#94D4FF] w-full lg:py-[2.52604166667vw] lg:px-[1.04166666667vw] sm:p-[30px] p-[20px]"
       >
         <input
           type="file"
@@ -25,16 +25,13 @@ const UploadFileField = ({ file, setFile, touched, error, secondVarient }) => {
         ) : (
           <>
             <span className="text-[#94D4FF]">Upload your CV</span>
-            <span className="text-[#94D4FF]">
-              PDF, JPG, JPEG, PNG (max 2 mbs)
-            </span>
           </>
         )}
       </label>
       {touched && error && (
         <p
           className={clsx(
-            "text-xs -mt-6 font-semibold",
+            "text-xs -mt-6 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
             secondVarient ? "text-red-400" : "text-red-600"
           )}
         >

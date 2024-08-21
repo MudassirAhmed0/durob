@@ -28,8 +28,13 @@ const SubPageHero = ({
         <div className="lg:w-[51.7708333333vw]">
           <BreadCrumbs breadCrumbs={breadCrumbs} />
           <div className="lg:mt-[1.04166666667vw] mt16">
-            <h1 className="text-[#94D4FF] text90">{heading}</h1>
-            <p className="lg:text30 mtext18 lg:mt-[1.5625vw] mt16 text-[#DFDFDF]">
+            <h1 data-aos="fade-up" className="text-[#94D4FF] text90">
+              {heading}
+            </h1>
+            <p
+              data-aos="fade-down"
+              className="lg:text30 mtext18 lg:mt-[1.5625vw] mt16 text-[#DFDFDF]"
+            >
               {desc}
             </p>
           </div>

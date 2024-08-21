@@ -1,35 +1,11 @@
 "use client";
+import UseAos from "@/hooks/useAos";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-const navLinks = [
-  {
-    link: "/about",
-    text: "about Us",
-  },
-  {
-    link: "/services",
-    text: "services",
-  },
-  {
-    link: "/partners",
-    text: "Partners",
-  },
-  {
-    link: "/news",
-    text: "News",
-  },
-  {
-    link: "/careers",
-    text: "Careers",
-  },
-  {
-    link: "/contact-us",
-    text: "Contact Us",
-  },
-];
 
-const Header = ({ blackHeader }) => {
+const Header = ({ blackHeader, data }) => {
+  UseAos();
   const [showDropDown, setShowDropDown] = useState(false);
   const handleDropDown = () => {
     setShowDropDown(!showDropDown);
@@ -67,9 +43,11 @@ const Header = ({ blackHeader }) => {
       </Link>
       <nav className="text-[#FFFFFF]">
         <ul className="sideBar px-[20px] lg:px-[unset] absolute top-0 lrf1 lg:static h-[100vh] lg:h-[unset] w-full lg:w-[unset] lg:text28 mtext20 capitalize flex flex-col lg:flex-row gap-y-[30px] lg:gap-x-[1.66666666667vw] place-content-center lg:items-center">
-          {navLinks.map((navLink, index) => (
-            <li key={index}>
-              <Link href={`${navLink.link}`}>{navLink.text}</Link>
+          {data.map(({ page }, index) => (
+            <li key={index} onClick={toggleSidebar}>
+              <Link className="whitespace-nowrap" href={`${page.url}`}>
+                {page.title}
+              </Link>
             </li>
           ))}
         </ul>

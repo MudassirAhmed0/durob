@@ -26,7 +26,10 @@ const ExcellenceOperation = () => {
             classes="lg:w-[31.6145833333vw] white"
             descClasses={"lg:text26 mtext16"}
           />
-          <div className="lg:w-[44.84375vw] w-full lg:pt-[12.7083333333vw] flex justify-center lg:justify-end flex-wrap lg:gap-[1.35416666667vw] gap-[20px]">
+          <div
+            data-aos="fade"
+            className="lg:w-[44.84375vw] w-full lg:pt-[12.7083333333vw] flex justify-center lg:justify-end flex-wrap lg:gap-[1.35416666667vw] gap-[20px]"
+          >
             {partnersLogos.map((partnersLogo, index) => (
               <div
                 key={index}

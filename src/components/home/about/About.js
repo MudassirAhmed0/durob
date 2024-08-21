@@ -13,7 +13,7 @@ const About = () => {
           heading="About Duroub Logistics"
           desc="Duroub Logistics is a premier provider of integrated logistics and cold chain solutions across Saudi Arabia. We offer end-to-end services, ensuring efficiency and reliability at every stage"
         />
-        <div className="lg:mt-[2.39583333333vw] mt-[20px]">
+        <div className="lg:mt-[2.39583333333vw] mt-[20px]" data-aos="fade">
           <LinkBtn text="explore more" />
         </div>
 

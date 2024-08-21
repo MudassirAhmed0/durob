@@ -23,6 +23,8 @@ const OtherNewses = () => {
     <div className="flex flex-col lg:w-[44.4270833333vw] w-full lg:gap-y-[1.25vw] gap-y-[15px]">
       {newses.map((news, index) => (
         <div
+          data-aos="fade"
+          data-aos-delay={index * 100}
           key={index}
           className="group hover:bg-[#94d4ff26] transition500 cursor-pointer flex flex-wrap gap-[15px] justify-between items-center  border15 lg:px-[1.66666666667vw] sm:p-[20px] p-[25px] lg:py-[1.90104166667vw] bg-[#e7e7e733]"
         >
@@ -32,7 +34,7 @@ const OtherNewses = () => {
             </span>
             <span className="lg:text22 mtext18">{news.desc}</span>
           </div>
-          <LinkBtnV2 text={"read more"} />
+          <LinkBtnV2 text={"read more"} link={"/single-news-page"} />
         </div>
       ))}
     </div>

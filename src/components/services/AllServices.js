@@ -5,6 +5,7 @@ import ImageComponent from "../common/ImageComponent";
 import Image from "next/image";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const services = [
   {
@@ -69,7 +70,7 @@ const AllServices = () => {
   const router = useRouter();
   const headerRef = useRef(null);
   const [activeHeader, setActiveHeader] = useState(services[0]);
-  
+
   useEffect(() => {
     const updateCurrentHeader = () => {
       services.map((item) => {
@@ -77,10 +78,16 @@ const AllServices = () => {
           document.getElementById(item.id)?.getBoundingClientRect().top <= 140
         ) {
           setActiveHeader(item);
-          router.push(`#${item.id}`, {scroll: false});
-          // const left = document.getElementById(`${item.id}-active`)?.offsetLeft;
-          // const top = document.getElementById(item.id)?.offsetTop
-          // headerRef.current?.scroll({left, top: 0, behavior: "smooth"})
+          router.push(`#${item.id}`, { scroll: false });
+          // const leftOffset = document.getElementById(
+          //   `${item.id}-active`
+          // )?.offsetLeft;
+          // const top = document.getElementById(item.id)?.offsetTop;
+          // headerRef.current?.scroll({
+          //   left: leftOffset,
+          //   top: top,
+          //   behavior: "smooth",
+          // });
         }
       });
     };
@@ -91,13 +98,20 @@ const AllServices = () => {
   return (
     <section>
       <div>
-        <div ref={headerRef} className="w-full bg-[#002B87] sticky top-0 overflow-auto scrollbar-hide z-10 flex items-stretch ">
+        <div
+          ref={headerRef}
+          className="w-full bg-[#002B87] sticky top-0 overflow-auto scrollbar-hide z-10 flex items-stretch "
+        >
           {services.map((service) => (
-            <a
+            <Link
               href={`#${service.id}`}
               key={service.id}
-              id={ service.id === activeHeader.id ? `${service.id}-active` : `${service.id}-inactive`}
-              onClick={()=> document.getElementById(service.id)?.scrollIntoView({behavior: "smooth"})}
+              id={
+                service.id === activeHeader.id
+                  ? `${service.id}-active`
+                  : `${service.id}-inactive`
+              }
+              // onClick={()=> document.getElementById(service.id)?.scrollIntoView({behavior: "smooth"})}
               className={clsx(
                 "lg:text22 md:mtext18 text-[12px] flex items-center capitalize text-center border-[#FFFFFF1A] ltr:border-r rtl:border-l lg:px-[2.1875vw] lg:py-[0.88541666666vw] p-[15px] relative before:absolute before:lrf1",
                 activeHeader.id === service.id
@@ -106,7 +120,7 @@ const AllServices = () => {
               )}
             >
               {service.header}
-            </a>
+            </Link>
           ))}
         </div>
         <div className="py180 flex flex-col lg:gap-y-[10.4166666667vw] sm:gap-y-[180px] gap-y-[90px]">
@@ -114,7 +128,7 @@ const AllServices = () => {
             <div
               key={service.id}
               id={service.id}
-              className="relative scroll-mt-[8vw]"
+              className="relative scroll-mt-[20vw] lg:scroll-mt-[8vw]"
             >
               <img
                 src="/images/services/container/pattern1.png"

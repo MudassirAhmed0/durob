@@ -10,16 +10,25 @@ const Testimonial = () => {
         className="absolute bottom-0 lrf1 flipped w-full pointer-events-none"
       />
       <div className="lg:w-[31.5625vw] text-[#FFFFFF] lg:pt-[8.54166666667vw]">
-        <h5 className="text60 relative before:absolute before:lrf1 before:lg:top-[-0.78125vw] before:top-[-8px] before:content-[''] before:lg:h-[0.26041666666vw] before:h-[3px] before:lg:w-[2.96875vw] before:w-[12%] before:bg-[#94D4FF]">
+        <h5
+          data-aos="fade-up"
+          className="text60 relative before:absolute before:lrf1 before:lg:top-[-0.78125vw] before:top-[-8px] before:content-[''] before:lg:h-[0.26041666666vw] before:h-[3px] before:lg:w-[2.96875vw] before:w-[12%] before:bg-[#94D4FF]"
+        >
           Vision
         </h5>
-        <p className="lg:text25 mtext16 mt16 lg:mt-[1.04166666667vw] lg:leading-[1.82291666667vw]">
+        <p
+          data-aos="fade-down"
+          className="lg:text25 mtext16 mt16 lg:mt-[1.04166666667vw] lg:leading-[1.82291666667vw]"
+        >
           &quot;Working at Duroub Logistics has been an incredible experience.
           The supportive team and opportunities for growth are
           unparalleled&quot;
         </p>
       </div>
-      <div className="lg:w-[28.0208333333vw] lg:h-[39.0625vw] sm:w-[50%] w-full sm:h-[350px] h-[300px] relative">
+      <div
+        data-aos="fade"
+        className="lg:w-[28.0208333333vw] lg:h-[39.0625vw] sm:w-[50%] w-full sm:h-[350px] h-[300px] relative"
+      >
         <Image
           fill
           alt="person"

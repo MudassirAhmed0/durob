@@ -1,11 +1,21 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import DropDown from "./DropDown";
-import clsx from "clsx"
+import clsx from "clsx";
 
-const dropDown = [ "General Inquiry", "Complaint", "Business Request"];
+const dropDown = ["General Inquiry", "Complaint", "Business Request"];
 
-const DropDownField = ({ handleChange, name, id, placeholder, error, touched, value, setValue, secondVarient } ) => {
+const DropDownField = ({
+  handleChange,
+  name,
+  id,
+  placeholder,
+  error,
+  touched,
+  value,
+  setValue,
+  secondVarient,
+}) => {
   const [showDropDown, setShowDropDown] = useState(false);
 
   const handleDropDown = () => {
@@ -27,7 +37,10 @@ const DropDownField = ({ handleChange, name, id, placeholder, error, touched, va
           onChange={handleChange}
           placeholder={placeholder}
           autoComplete="off"
-          className={clsx("outline-none bg-transparent w-full caret-transparent cursor-pointer placeholder:text-[#002b8756]", secondVarient ? "placeholder:text-blue-400" : "")}
+          className={clsx(
+            "outline-none bg-transparent w-full caret-transparent cursor-pointer placeholder:text-[#002b8756]",
+            secondVarient ? "placeholder:text-[#94D4FF]" : ""
+          )}
         />
         <svg
           className={`${
@@ -45,11 +58,16 @@ const DropDownField = ({ handleChange, name, id, placeholder, error, touched, va
           />
         </svg>
       </label>
-      {
-        touched && error && (
-          <p className={clsx("text-xs mt-1 font-semibold", secondVarient ? "text-red-400" : "text-red-600")}>{error}</p>
-        )
-      }
+      {touched && error && (
+        <p
+          className={clsx(
+            "text-xs mt-1 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
+            secondVarient ? "text-red-400" : "text-red-600"
+          )}
+        >
+          {error}
+        </p>
+      )}
       <DropDown
         showDropDown={showDropDown}
         dropDown={dropDown}

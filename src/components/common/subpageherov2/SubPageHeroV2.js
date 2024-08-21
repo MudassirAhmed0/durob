@@ -8,13 +8,21 @@ const SubPageHeroV2 = ({ heading, desc, breadCrumbs, tagImg, tagText }) => {
       <img
         src="/images/herov2-pattern.png"
         alt="pattern"
-        className="absolute lrf2 top-0 flipped"
+        className="hidden lg:block absolute lrf2 top-[-5%] lg:top-0 flipped lg:w-[53.8541666667vw] w-[90%] "
+      />
+      <img
+        src="/images/herov2-pattern-mob.svg"
+        alt="pattern"
+        className="lg:hidden block absolute lrf2 top-[-6%] lg:top-0 flipped w-[90%] "
       />
       <div className="container1680 relative z-[2]">
         <div className="lg:w-[50.5208333333vw] flex flex-col items-start">
           <BreadCrumbs breadCrumbs={breadCrumbs} />
           {tagText && (
-            <div className="bg-[#94D4FF] border10 lg:px-[0.68072916666vw] lg:py-[0.67708333333vw] p-[8px] flex items-center lg:gap-x-[0.52083333333vw] gap-x-[8px] lg:mt-[1.5625vw] mt-[20px]">
+            <div
+              data-aos="fade"
+              className="bg-[#94D4FF] border10 lg:px-[0.68072916666vw] lg:py-[0.67708333333vw] p-[8px] flex items-center lg:gap-x-[0.52083333333vw] gap-x-[8px] lg:mt-[1.5625vw] mt-[20px]"
+            >
               {tagImg && (
                 <div className=" relative lg:size-[1.04166666667vw] sm:size-[15px] size-[12px]">
                   <Image fill alt="icon" src={tagImg} />
@@ -25,10 +33,15 @@ const SubPageHeroV2 = ({ heading, desc, breadCrumbs, tagImg, tagText }) => {
               </span>
             </div>
           )}
-          <div className="lg:mt-[1.04166666667vw] mt16">
-            <h1 className="text-[#002B87] text70 f600">{heading}</h1>
+          <div className="lg:mt-[1.04166666667vw] mt-[40px]">
+            <h1 data-aos="fade-up" className="text-[#002B87] text70 f600">
+              {heading}
+            </h1>
             {desc && (
-              <p className="lg:text30 mtext18 lg:mt-[1.5625vw] mt16 text-[#DFDFDF]">
+              <p
+                data-aos="fade-down"
+                className="lg:text30 mtext18 lg:mt-[1.5625vw] mt16 text-[#DFDFDF]"
+              >
                 {desc}
               </p>
             )}

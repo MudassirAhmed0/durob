@@ -3,7 +3,7 @@ import { aboutQuery } from "@/lib/queries/pages/aboutQuery";
 
 const getAboutData = async (slug, isAr) => {
   const variables = {
-    site: isAr ? "arabic" : "english",
+    site: isAr ? "arabic" : "default",
     slug
   };
   try {

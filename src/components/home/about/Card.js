@@ -2,9 +2,13 @@ import React from "react";
 import Image from "next/image";
 import ImageComponent from "@/components/common/ImageComponent";
 
-const Card = ({ aboutCard }) => {
+const Card = ({ aboutCard, index }) => {
   return (
-    <div className="about_Card lg:h-[23.2291666667vw] w-full h-[300px] border20 relative flex justify-center items-end lg:pb-[1.875vw] pb-[20px] overflow-hidden">
+    <div
+      data-aos="fade"
+      data-aos-delay={index * 100}
+      className="about_Card lg:h-[23.2291666667vw] w-full h-[300px] border20 relative flex justify-center items-end lg:pb-[1.875vw] pb-[20px] overflow-hidden"
+    >
       <ImageComponent
         alt="card-img"
         src={aboutCard.img}

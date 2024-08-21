@@ -11,7 +11,7 @@
 }
 @font-face {
   font-family: "Proxima-Nova";
-  src: url("/fonts/Proxima-Nova/proximanova_bold.otf");
+  src: url("/fonts/Proxima-Nova/Proxima_Nova_Semibold.otf");
   font-display: block;
   font-weight: 600;
   font-style: normal;
@@ -32,7 +32,7 @@ html {
 }
 @layer components {
   .container1680 {
-    @apply lg:w-[87.5vw] w-[90.699%] mx-[auto];
+    @apply lg:w-[87.5vw] w-[89.769%] mx-[auto];
   }
   .text16 {
     @apply text-[0.83333333333vw] leading-[1.25vw];
@@ -165,10 +165,10 @@ html {
    */
   /* FORM  */
   form .contact_DropDown {
-    @apply opacity-0 max-h-0 z-[-9] pointer-events-none overflow-hidden transition500 absolute top-[94%] lrf1 w-full border20 lg:p-[1.5625vw] p-[20px] text-white lg:text24 mtext18 flex flex-col lg:gap-y-[0.78125vw] gap-y-[12px];
+    @apply opacity-0 max-h-0 z-[-9] pointer-events-none overflow-hidden transition500 absolute sm:top-[94%] top-[110%] lrf1 w-full lg:border20 rounded-[10px] lg:p-[1.5625vw] p-[20px] text-white lg:text24 mtext18 flex flex-col lg:gap-y-[0.78125vw] gap-y-[12px];
   }
   form .contact_DropDown.active {
-    @apply opacity-[1] lg:max-h-[12.5vw] max-h-[300px] z-[9] pointer-events-auto overflow-auto;
+    @apply opacity-[1] lg:max-h-[12.5vw] sm:max-h-[300px] max-h-[200px] z-[9] pointer-events-auto overflow-auto;
   }
   form .contact_DropDown {
     @apply bg-[#002B87];
@@ -189,10 +189,12 @@ html {
     border: none;
     padding-bottom: unset;
   }
-  form .inputField label {
+  form .inputField label,
+  form .inputField textarea {
     @apply border-[#002B8780];
   }
-  form.v2 .inputField label {
+  form.v2 .inputField label,
+  form.v2 .inputField textarea {
     @apply border-[#94D4FF];
   }
   form.v2 .inputField.dropDownct {
@@ -225,6 +227,28 @@ html {
   .genderInputField .InputField label input[type="radio"]:checked {
     background-color: hsl(172, 67%, 45%);
   }
+  form .phoneField .css-13cymwt-control,
+  form .phoneField .css-t3ipsp-control {
+    background: transparent !important;
+    border: unset !important;
+    border-bottom: 1px solid #94d4ff !important;
+    box-shadow: unset !important;
+  }
+  form .phoneField .css-1dimb5e-singleValue {
+    color: #94d4ff !important;
+  }
+  form .phoneField .css-1xc3v61-indicatorContainer {
+    padding: unset !important;
+  }
+  form .phoneField .css-1u9des2-indicatorSeparator {
+    display: none !important;
+  }
+  form .phoneField .css-t3ipsp-control .css-tj5bde-Svg {
+    transform: scaleY(-1);
+  }
+  form .phoneField .css-tj5bde-Svg path {
+    fill: #94d4ff !important;
+  }
   /* FORM  */
 
   header nav ul li a,
@@ -250,7 +274,7 @@ html {
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     @apply bottom-[0px];
   }
-  .list {
+  /* .list {
     @apply lg:text22 mtext16;
   }
   .ltr .list {
@@ -261,6 +285,28 @@ html {
   }
   .ltr .list li {
     @apply lg:pl-[1.14583333333vw] pl-[15px];
+  } */
+  ul.defaultList {
+    @apply list-disc;
+  }
+  ol.defaultList {
+    @apply list-decimal;
+  }
+  ol.defaultList li::marker {
+    color: inherit;
+    font-size: inherit;
+  }
+  ul.defaultList li::marker {
+    color: inherit;
+    font-size: initial;
+  }
+  .ltr ul.defaultList,
+  .ltr ol.defaultList {
+    @apply lg:pl-[1.66666666667vw] pl-[25px];
+  }
+  .rtl ul.defaultList,
+  .rtl ol.defaultList {
+    @apply lg:pr-[1.66666666667vw] pr-[25px];
   }
 }
 .bannerOverlay1 {
@@ -309,7 +355,7 @@ header.blackHeader .headerWhite-logo {
   display: none;
 }
 header.blackHeader nav {
-  color: #3b3b3b;
+  @apply lg:text-[#3b3b3b] text-[#fff];
 }
 header.blackHeader .langSwitcher ul.dropDown li {
   color: white;
@@ -329,6 +375,17 @@ header.blackHeader .langSwitcher {
     ),
     #fff;
 }
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hideScroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hideScroll::-webkit-scrollbar {
+  display: none;
+}
+
 .about_HeroOverlay {
   background: linear-gradient(
     231deg,
@@ -466,7 +523,17 @@ header.blackHeader .langSwitcher {
 
 /* LightBox CSS End */
 
+@media (min-width: 1024px) {
+  form .phoneField .css-tj5bde-Svg {
+    width: 1.25vw !important;
+    height: 1.25vw !important;
+  }
+}
 @media (max-width: 1024px) {
+  form .phoneField .css-tj5bde-Svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
   /* HAMBURGER  */
   .menu {
     position: relative;
@@ -513,10 +580,6 @@ header.blackHeader .langSwitcher {
 
   /* HAMBURGER  */
 }
-@media (min-width: 1024px) {
-}
-
-
 /* Hide arrows from input type number */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -526,6 +589,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }

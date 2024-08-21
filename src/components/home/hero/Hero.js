@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import BackGrounds from "./BackGrounds";
 import PlayVideo from "./PlayVideo";
 import MyLightBox from "@/components/common/MyLightBox/Index";
-
 const Hero = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [showLightBox, setShowLightBox] = useState(false);
@@ -34,7 +33,10 @@ const Hero = () => {
       <section className="h-screen w-full relative flex items-end py180 pt-[unset]">
         <BackGrounds />
         <div className="container1680 relative z-[2] flex flex-wrap items-end justify-between gap-[30px]">
-          <h1 className="text90 lg:w-[55.9895833333vw] w-full !uppercase text-white">
+          <h1
+            data-aos="fade-up"
+            className="text90 lg:w-[55.9895833333vw] w-full !uppercase text-white"
+          >
             Experience the <br /> Future of Logistics
           </h1>
           <PlayVideo handleOpen={handleOpen} setSlideIndex={setSlideIndex} />

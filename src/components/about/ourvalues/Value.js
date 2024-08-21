@@ -3,7 +3,11 @@ import Image from "next/image";
 
 const Value = ({ arabic, value, values, index }) => {
   return (
-    <div className="group cursor-pointer relative overflow-hidden lg:w-[14.285%] sm:w-[49.999%] w-full lg:h-full lg:pb-[2.60416666667vw] sm:pb-[30vw] pb-[40vw] lg:px-[1.5625vw] px-[20px] flex justify-center items-start">
+    <div
+      data-aos="fade"
+      data-aos-delay={index * 100}
+      className="group cursor-pointer relative overflow-hidden lg:w-[14.285%] sm:w-[49.999%] w-full lg:h-full lg:pb-[2.60416666667vw] sm:pb-[30vw] pb-[40vw] lg:px-[1.5625vw] px-[20px] flex justify-center items-start"
+    >
       {index !== values.length - 1 && (
         <span className="absolute lg:top-0 bottom-0 w-full h-[1px] lg:w-[1px] lg:h-full lrf2 bg-[#FFFFFF1A]"></span>
       )}

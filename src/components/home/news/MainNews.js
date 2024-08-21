@@ -5,7 +5,11 @@ import LinkBtnV2 from "@/components/common/LinkBtnV2";
 
 const MainNews = () => {
   return (
-    <Link href="#" className="group lg:w-[40.3645833333vw] w-full">
+    <Link
+      data-aos="fade"
+      href="/single-news-page"
+      className="group lg:w-[40.3645833333vw] w-full"
+    >
       <div className="relative w-full lg:h-[26.1458333333vw] sm:h-[400px] h-[300px] border15 overflow-hidden">
         <ImageComponent
           alt={"banner-img"}

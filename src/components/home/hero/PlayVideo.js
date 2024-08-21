@@ -4,6 +4,7 @@ import Image from "next/image";
 const PlayVideo = ({ handleOpen, setSlideIndex }) => {
   return (
     <button
+      data-aos="fade"
       onClick={() => {
         handleOpen();
         setSlideIndex(0);

@@ -3,7 +3,7 @@ import { administrativeQuery } from "@/lib/queries/pages/administrativeQuery";
 
 const getAdministrativeData = async (slug, isAr) => {
   const variables = {
-    site: isAr ? "arabic" : "english",
+    site: isAr ? "arabic" : "default",
     slug
   };
   try {

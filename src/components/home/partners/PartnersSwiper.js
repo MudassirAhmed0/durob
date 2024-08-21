@@ -45,9 +45,14 @@ const partners = [
 ];
 const PartnersSwiper = ({ arabic }) => {
   return (
-    <div className="lg:w-[93.75vw] w-[94.699%] mx-auto lg:mt-[4.47916666667vw] lg:mb-[5.72916666667vw] sm:my-[40px] my-[30px]">
+    <div
+      data-aos="fade"
+      className="lg:w-[93.75vw] w-[94.699%] mx-auto lg:mt-[4.47916666667vw] lg:mb-[5.72916666667vw] sm:my-[40px] my-[30px]"
+    >
       <Swiper
-        pagination={true}
+        pagination={{
+          clickable: true
+        }}
         modules={[Pagination]}
         className="mySwiper partnersSwiper lg:pb-[4.27083333333vw] sm:pb-[40px] pb-[30px]"
       >

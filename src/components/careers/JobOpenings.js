@@ -28,15 +28,19 @@ const JobOpenings = ({ arabic }) => {
   return (
     <section>
       <div className="container1680 py180">
-        <h2 className="text67 text-[#002B87] text-center">Job Openings </h2>
+        <h2 data-aos="fade-up" className="text67 text-[#002B87] text-center">
+          Job Openings{" "}
+        </h2>
         <div className="flex flex-col items-center lg:gap-y-[1.5625vw] gap-y-[20px] lg:w-[72.65625vw] w-full mx-auto lg:mt-[4.16666666667vw] sm:mt-[50px] mt-[40px]">
           {openings.map((opening, index) => (
             <Link
+              data-aos="fade"
+              data-aos-delay={index * 100}
               key={index}
-              href="#"
+              href="/single-career-page"
               className="group w-full bg-[#94d4ff1a] border10 lg:px-[2.60416666667vw] lg:py-[2.21354166667vw] sm:p-[40px] p-[30px] flex flex-wrap justify-between items-end lg:gap-[3.75vw] sm:gap-[30px] gap-[20px]"
             >
-              <div>
+              <div className="w-full lg:w-[80%]">
                 <div className=" flex items-center lg:gap-x-[0.26041666666vw] gap-x-[4px]">
                   <div className=" relative lg:size-[0.72916666666vw] sm:size-[13px] size-[12px]">
                     <Image fill alt="icon" src="/images/icons/careers.svg" />
@@ -52,7 +56,10 @@ const JobOpenings = ({ arabic }) => {
               <LinkBtnV2 text={"Apply Now"} tag={"button"} />
             </Link>
           ))}
-          <button className="mt16 lg:mt-[1.04166666667vw] flex items-center lg:gap-x-[0.52083333333vw] gap-x-[6px] group">
+          <button
+            data-aos="fade"
+            className="mt16 lg:mt-[1.04166666667vw] flex items-center lg:gap-x-[0.52083333333vw] gap-x-[6px] group"
+          >
             <span className="lg:text30 mtext20 f600 text-[#002B87] capitalize">
               Load More
             </span>

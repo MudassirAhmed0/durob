@@ -1,5 +1,8 @@
+"use client";
 import ContentWrapper from "@/components/common/ContentWrapper";
 import ImageComponent from "@/components/common/ImageComponent";
+import Lottie from "react-lottie-player";
+import map from "../../../../public/json/MapV2/MapV2.json";
 import React from "react";
 
 const Operations = () => {
@@ -13,7 +16,14 @@ const Operations = () => {
             <span className="operation_Overlay3 atwh_Full lrf1"></span>
           </div>
           <div className="atwh_Full lrf1 flipped">
-            <ImageComponent src="/images/home/operations/map.svg" alt="map" />
+            {/* <ImageComponent src="/images/home/operations/map.svg" alt="map" /> */}
+            <Lottie
+              loop
+              animationData={map}
+              play
+              className="
+              w-full h-full"
+            />
             <img
               src="/images/home/operations/pattern.png"
               alt="pattern"

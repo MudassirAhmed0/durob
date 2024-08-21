@@ -3,57 +3,57 @@ import Link from "next/link";
 import React from "react";
 const navLinks = [
   {
-    link: "#",
-    text: "about Us",
+    link: "/about",
+    text: "about Us"
   },
   {
-    link: "#",
-    text: "services",
+    link: "/services",
+    text: "services"
   },
   {
-    link: "#",
-    text: "Partners",
+    link: "/partners",
+    text: "Partners"
   },
   {
-    link: "#",
-    text: "News",
+    link: "/news",
+    text: "News"
   },
   {
-    link: "#",
-    text: "Careers",
+    link: "/careers",
+    text: "Careers"
   },
   {
-    link: "#",
-    text: "Contact Us",
+    link: "/contact-us",
+    text: "Contact Us"
   },
   {
-    link: "#",
-    text: "terms & conditions",
+    link: "/terms",
+    text: "terms & conditions"
   },
   {
-    link: "#",
-    text: "privacy policy",
-  },
+    link: "/privacy-policy",
+    text: "privacy policy"
+  }
 ];
 const socialLinks = [
   {
     img: "/images/icons/social-footer/fb.svg",
-    link: "https://www.facebook.com/",
+    link: "https://www.facebook.com/"
   },
   {
     img: "/images/icons/social-footer/twitter.svg",
-    link: "https://www.twitter.com/",
+    link: "https://www.twitter.com/"
   },
   {
     img: "/images/icons/social-footer/insta.svg",
-    link: "https://www.instagram.com/",
+    link: "https://www.instagram.com/"
   },
   {
     img: "/images/icons/social-footer/linked.svg",
-    link: "https://www.linkedin.com/",
-  },
+    link: "https://www.linkedin.com/"
+  }
 ];
-const Footer = ({ arabic }) => {
+const Footer = ({ arabic, navigation }) => {
   return (
     <footer className="relative bg-[#002b8705]">
       <img
@@ -74,9 +74,9 @@ const Footer = ({ arabic }) => {
               Company
             </h6>
             <ul className="lg:w-[28.0729166667vw] w-[95%] lg:text24 mtext18 capitalize flex flex-wrap lg:gap-x-[1.5625vw] lg:gap-y-[0.78125vw] gap-[12px] sm:gap-[15px] items-center">
-              {navLinks.map((navLink, index) => (
+              {navigation?.map(({ page }, index) => (
                 <li key={index}>
-                  <Link href={`${navLink.link}`}>{navLink.text}</Link>
+                  <Link href={`${page.url}`}>{page.title}</Link>
                 </li>
               ))}
             </ul>
