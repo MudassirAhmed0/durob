@@ -10,8 +10,10 @@ const InputField = ({ secondVarient, ...rest }) => {
       >
         <input
           className={clsx(
-            "outline-none bg-transparent w-full placeholder:text-[#002b8756]",
-            secondVarient ? "placeholder:text-[#DFDFDF]" : ""
+            "outline-none bg-transparent w-full ",
+            secondVarient
+              ? "placeholder:text-[#DFDFDF] text-[#DFDFDF]"
+              : "placeholder:text-[#002b8756] text-[#002b8756]"
           )}
           {...rest}
         />
@@ -19,7 +21,7 @@ const InputField = ({ secondVarient, ...rest }) => {
       {rest.touched && rest.error && (
         <p
           className={clsx(
-            "text-xs mt-1 font-semibold",
+            "text-xs mt-1 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
             secondVarient ? "text-red-400" : "text-red-600"
           )}
         >

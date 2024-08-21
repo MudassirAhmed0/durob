@@ -38,8 +38,10 @@ const DropDownField = ({
           placeholder={placeholder}
           autoComplete="off"
           className={clsx(
-            "outline-none bg-transparent w-full caret-transparent cursor-pointer placeholder:text-[#002b8756]",
-            secondVarient ? "placeholder:text-[#94D4FF]" : ""
+            "outline-none bg-transparent w-full caret-transparent cursor-pointer ",
+            secondVarient
+              ? "placeholder:text-[#94D4FF] text-[#94D4FF]"
+              : "placeholder:text-[#002b8756] text-[#002b8756]"
           )}
         />
         <svg

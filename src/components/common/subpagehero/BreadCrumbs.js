@@ -15,7 +15,10 @@ const BreadCrumbs = ({ breadCrumbs }) => {
         <Image fill alt="home-icon" src="/images/icons/home.svg" />
       </Link>
       {breadCrumbs.map((breadCrumb, index) => (
-        <div key={index}>
+        <div
+          key={index}
+          className="flex lg:gap-x-[0.52083333333vw] gap-x-[8px] items-center"
+        >
           <img
             src="/images/icons/bread-chevron.svg"
             alt="chevron"

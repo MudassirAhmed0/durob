@@ -244,7 +244,9 @@ const PhoneField = ({
     setDropDownValue(countryCode);
     setPhoneNumber((prev) => {
       let value = String(prev.value);
-      const replaceTo = countryCodes.find((code) => value.startsWith(code.value));
+      const replaceTo = countryCodes.find((code) =>
+        value.startsWith(code.value)
+      );
       const replaceWith = countryCode.value;
       return value.replace(replaceTo, replaceWith);
     });
@@ -273,7 +275,9 @@ const PhoneField = ({
             onChange={handleInputChange}
             className={clsx(
               "outline-none bg-transparent w-full",
-              secondVarient ? "placeholder:text-[#DFDFDF]" : ""
+              secondVarient
+                ? "placeholder:text-[#DFDFDF] text-[#DFDFDF]"
+                : "placeholder:text-[#002b8756] text-[#002b8756]"
             )}
           />
         </label>
