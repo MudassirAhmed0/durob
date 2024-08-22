@@ -350,7 +350,7 @@ html {
   );
 }
 .parallaxBg {
-  background-image: url(/images/home/logistic.jpg);
+  background-image: var(--bg-url);
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;

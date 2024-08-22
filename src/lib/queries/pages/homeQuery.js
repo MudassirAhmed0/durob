@@ -47,7 +47,7 @@ export const homeQuery = () => {
             service_slider {
               title_heading
               image {
-                src(width: 500, height: 300, webp: true)
+                src(width: 518, height: 499, webp: true)
               }
             }
           }
@@ -65,7 +65,7 @@ export const homeQuery = () => {
           mid_banner_section {
             content
             image {
-              src(width: 500, height: 300, webp: true)
+              src(width: 1920, height: 902, webp: true)
             }
           }
           news_section {
@@ -101,7 +101,7 @@ export const homeQuery = () => {
       recentNews: entries(
         collection: "posts"
         sort: "order"
-        limit: 4
+        limit: 5
         site: $site
       ) {
         data {
@@ -114,10 +114,10 @@ export const homeQuery = () => {
             title
             date(format: "d F Y")
             image {
-              src(width: 1200, height: 628)
+              src(width: 852, height: 759)
             }
             thumbnail: image {
-              src(width: 1200, height: 628)
+              src(width: 775, height: 502)
             }
             content
           }

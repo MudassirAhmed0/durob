@@ -23,7 +23,7 @@ export const aboutQuery = () => {
             title
             description
             image {
-              src(width: 1200, height: 628)
+              src(width: 1920, height: 1080)
             }
           }
           vision {
@@ -31,6 +31,7 @@ export const aboutQuery = () => {
             description
             icon {
               id
+              permalink
             }
           }
           mission {
@@ -38,6 +39,7 @@ export const aboutQuery = () => {
             description
             icon {
               id
+              permalink
             }
           }
           our_team_section {
@@ -55,6 +57,7 @@ export const aboutQuery = () => {
               description
               icon {
                 id
+                permalink
               }
             }
           }

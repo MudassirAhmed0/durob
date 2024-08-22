@@ -1,18 +1,19 @@
+"use client";
 import ContentWrapper from "@/components/common/ContentWrapper";
 import React from "react";
 import PartnersSwiper from "./PartnersSwiper";
 
-const Partners = () => {
+const Partners = ({ data }) => {
   return (
     <div>
       <div className="container1680">
         <ContentWrapper
-          heading="Partnering for Excellence"
-          desc="We collaborate with industry leaders to deliver top-tier logistics solutions. Our partners trust us to provide reliable, efficient, and innovative services that meet their diverse needs"
+          heading={data?.title_heading}
+          desc={data?.description}
           classes="lg:w-[57.7083333333vw] text-center mx-[auto]"
         />
       </div>
-      <PartnersSwiper />
+      <PartnersSwiper data={data?.images} />
     </div>
   );
 };

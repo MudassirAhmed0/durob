@@ -12,7 +12,11 @@ export default async function Index({ params: { locale } }) {
   return (
     <>
       <Layout arabic={isAr}>
-        <HomePage arabic={isAr} data={data?.page} />
+        <HomePage
+          arabic={isAr}
+          data={data?.page}
+          recentNews={data?.recentNews.data}
+        />
       </Layout>
     </>
   );

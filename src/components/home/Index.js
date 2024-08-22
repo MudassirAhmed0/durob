@@ -8,15 +8,15 @@ import Banner from "./Banner";
 import Partners from "./partners/Partners";
 import Contact from "../common/contact/Contact";
 
-const HomePage = ({ data }) => {
+const HomePage = ({ data, recentNews }) => {
   return (
     <>
       <Hero data={data?.video_banner} />
       <About data={data?.about_section} />
       <Services data={data?.services_section_wrapper} />
       <Operations data={data?.operation_section} />
-      <News data={data?.news_section} />
-      <Partners />
+      <News data={data?.news_section} recentNews={recentNews} />
+      <Partners data={data?.partners_section} />
       <Banner data={data?.mid_banner_section} />
       <Contact
         heading={data?.contact_us_form_section?.title_heading}
