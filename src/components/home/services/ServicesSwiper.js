@@ -3,24 +3,7 @@ import ImageComponent from "@/components/common/ImageComponent";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-const dummyCards = [
-  {
-    heading: "Transportation, distribution & last mile",
-    img: "/images/home/services/card/1.jpg",
-  },
-  {
-    heading: "Warehousing multi temperature",
-    img: "/images/home/services/card/2.jpg",
-  },
-  {
-    heading: "Cross border transport",
-    img: "/images/home/services/card/3.jpg",
-  },
-  {
-    heading: "4PL & Control tower",
-    img: "/images/home/services/card/4.jpeg",
-  },
-];
+
 const ServicesSwiper = ({ arabic, cards }) => {
   const [swiperGap, setSwiperGap] = useState(0);
   useEffect(() => {
@@ -29,7 +12,7 @@ const ServicesSwiper = ({ arabic, cards }) => {
     );
   }, []);
 
-  const servicesCards = cards ?? dummyCards
+  const servicesCards = cards ?? dummyCards;
 
   return (
     <div
@@ -64,12 +47,12 @@ const ServicesSwiper = ({ arabic, cards }) => {
             <div className="w-full h-full flex justify-center items-end lg:pb-[2.13541666667vw] pb-[20px]">
               <ImageComponent
                 alt="card-img"
-                src={servicesCard?.image?.src || servicesCard.img}
+                src={servicesCard?.image?.src}
                 className="object-cover z-[-1]"
               />
               <div className="relative z-[2] flex flex-col w-[84.172%]">
                 <span className="lg:text40 mtext28 f600 text-white">
-                  {servicesCard.title_heading || servicesCard.heading}
+                  {servicesCard.title_heading}
                 </span>
               </div>
             </div>

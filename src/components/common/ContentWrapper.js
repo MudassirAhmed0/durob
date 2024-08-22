@@ -1,5 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
+import { checkIfExist } from "@/utils/checkIfExist";
 
 const ContentWrapper = ({
   headingClasses,
@@ -7,7 +8,7 @@ const ContentWrapper = ({
   classes,
   heading,
   desc,
-  tag: Tag = "h2",
+  tag: Tag = "h2"
 }) => {
   return (
     <div className={`${classes ? classes : "lg:w-[51.7708333333vw]"}`}>
@@ -25,9 +26,8 @@ const ContentWrapper = ({
           className={`${
             descClasses ? descClasses : "lg:text28 mtext18"
           } mt16 desc`}
-        >
-          {parse(desc)}
-        </div>
+          dangerouslySetInnerHTML={{ __html: checkIfExist(desc) }}
+        ></div>
       )}
     </div>
   );

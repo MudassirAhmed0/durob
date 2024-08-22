@@ -8,7 +8,7 @@ import Banner from "./Banner";
 import Partners from "./partners/Partners";
 import Contact from "../common/contact/Contact";
 
-const HomePage = ({data}) => {
+const HomePage = ({ data }) => {
   return (
     <>
       <Hero data={data?.video_banner} />
@@ -19,8 +19,8 @@ const HomePage = ({data}) => {
       <Partners />
       <Banner data={data?.mid_banner_section} />
       <Contact
-        heading={data?.contact_us_form_section?.title_heading || "Get in Touch"}
-        desc={data?.contact_us_form_section?.description || "Reach out for inquiries and support"}
+        heading={data?.contact_us_form_section?.title_heading}
+        desc={data?.contact_us_form_section?.description}
       />
     </>
   );

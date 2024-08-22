@@ -34,7 +34,7 @@ export const homeQuery = () => {
               title
               description
               image {
-                src(width: 500, height: 300, webp: true)
+                src(width: 600, height: 446, webp: true)
               }
             }
           }

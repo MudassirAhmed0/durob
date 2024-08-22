@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import ImageComponent from "@/components/common/ImageComponent";
-import parse from "html-react-parser"
+import parse from "html-react-parser";
+import { checkIfExist } from "@/utils/checkIfExist";
 
 const Card = ({ aboutCard, index }) => {
   return (
@@ -12,14 +13,17 @@ const Card = ({ aboutCard, index }) => {
     >
       <ImageComponent
         alt="card-img"
-        src={aboutCard.image ? aboutCard.image.src : aboutCard.img}
+        src={aboutCard.image.src}
         className="object-cover z-[-1]"
       />
       <div className="relative z-[2] flex flex-col w-[91%]">
-        <span className="text50 text-[#94D4FF]">{aboutCard?.title ? aboutCard.title : aboutCard.numbes}</span>
-        <span className="lg:text25 mtext18 text-white lg:mt-[0.20833333333vw] mt-[4px]">
-          {aboutCard?.description ? parse(aboutCard.description) : aboutCard.desc}
-        </span>
+        <span className="text50 text-[#94D4FF]">{aboutCard?.title}</span>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: checkIfExist(aboutCard.description)
+          }}
+          className="lg:text25 mtext18 text-white lg:mt-[0.20833333333vw] mt-[4px]"
+        ></div>
       </div>
     </div>
   );
