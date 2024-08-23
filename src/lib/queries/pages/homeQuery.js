@@ -23,6 +23,8 @@ export const homeQuery = () => {
           video_banner {
             title
             video_link
+            extra_video
+            play_button_text
           }
           about_section {
             title_heading

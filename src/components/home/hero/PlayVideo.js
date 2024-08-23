@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-const PlayVideo = ({ handleOpen, setSlideIndex }) => {
+const PlayVideo = ({ handleOpen, setSlideIndex, label }) => {
   return (
     <button
       data-aos="fade"
@@ -14,7 +14,7 @@ const PlayVideo = ({ handleOpen, setSlideIndex }) => {
       <div className="relative lg:size-[2.5vw] sm:size-[30px] size-[30px] flipped">
         <Image fill alt="play" src="/images/icons/play-gif.gif" />
       </div>
-      <span className="lg:text28 mtext18 text-white f700">Play video</span>
+      <span className="lg:text28 mtext18 text-white f700">{label}</span>
     </button>
   );
 };

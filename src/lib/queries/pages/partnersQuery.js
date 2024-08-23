@@ -34,6 +34,7 @@ export const partnersQuery = () => {
               title_heading
               icon {
                 id
+                permalink
               }
             }
           }

@@ -21,8 +21,8 @@ const partners = [
       "/images/home/partners/logos/12.svg",
       "/images/home/partners/logos/13.svg",
       "/images/home/partners/logos/14.svg",
-      "/images/home/partners/logos/15.svg",
-    ],
+      "/images/home/partners/logos/15.svg"
+    ]
   },
   {
     partnersLogos: [
@@ -39,9 +39,9 @@ const partners = [
       "/images/home/partners/logos/12.svg",
       "/images/home/partners/logos/13.svg",
       "/images/home/partners/logos/14.svg",
-      "/images/home/partners/logos/15.svg",
-    ],
-  },
+      "/images/home/partners/logos/15.svg"
+    ]
+  }
 ];
 function chunkArray(array, chunkSize) {
   // If chunkSize is less than or equal to 0, return an empty array.
@@ -65,7 +65,6 @@ function chunkArray(array, chunkSize) {
 
 const PartnersSwiper = ({ arabic, data }) => {
   const chunkedSwiperImages = chunkArray(data, 14);
-  console.log(chunkedSwiperImages);
   return (
     <div
       data-aos="fade"
@@ -73,7 +72,7 @@ const PartnersSwiper = ({ arabic, data }) => {
     >
       <Swiper
         pagination={{
-          clickable: true,
+          clickable: true
         }}
         modules={[Pagination]}
         className="mySwiper partnersSwiper lg:pb-[4.27083333333vw] sm:pb-[40px] pb-[30px]"

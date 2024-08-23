@@ -2,36 +2,13 @@ import Image from "next/image";
 import React from "react";
 import LinkBtnV2 from "../common/LinkBtnV2";
 import Link from "next/link";
-const dummyOpenings = [
-  {
-    location: "Jeddah",
-    name: "PMO Specialist",
-  },
-  {
-    location: "Jeddah",
-    name: "Procurement Professional",
-  },
-  {
-    location: "Jeddah",
-    name: "Senior Public Relations & External Communication Officer",
-  },
-  {
-    location: "Jeddah",
-    name: "PMO Specialist",
-  },
-  {
-    location: "Jeddah",
-    name: "Procurement Professional",
-  },
-];
 const JobOpenings = ({ data, arabic }) => {
-
-  const openings = data?.jobs ? data.jobs : dummyOpenings
+  const openings = data?.jobs;
   return (
     <section>
       <div className="container1680 py180">
         <h2 data-aos="fade-up" className="text67 text-[#002B87] text-center">
-          {data?.title || "Job Openings"}
+          {data?.title}
         </h2>
         <div className="flex flex-col items-center lg:gap-y-[1.5625vw] gap-y-[20px] lg:w-[72.65625vw] w-full mx-auto lg:mt-[4.16666666667vw] sm:mt-[50px] mt-[40px]">
           {openings.map((opening, index) => (
@@ -39,7 +16,7 @@ const JobOpenings = ({ data, arabic }) => {
               data-aos="fade"
               data-aos-delay={index * 100}
               key={index}
-              href={opening?.url || "/single-career-page"}
+              href={opening?.url}
               className="group w-full bg-[#94d4ff1a] border10 lg:px-[2.60416666667vw] lg:py-[2.21354166667vw] sm:p-[40px] p-[30px] flex flex-wrap justify-between items-end lg:gap-[3.75vw] sm:gap-[30px] gap-[20px]"
             >
               <div className="w-full lg:w-[80%]">
@@ -48,17 +25,17 @@ const JobOpenings = ({ data, arabic }) => {
                     <Image fill alt="icon" src="/images/icons/careers.svg" />
                   </div>
                   <span className="lg:text18 mtext14 text-[#002B87]">
-                    {opening?.city || opening.location}
+                    {opening?.city}
                   </span>
                 </div>
                 <span className="lg:text25 mtext18 text-[#0F0D0F] capitalize block lg:mt-[0.52083333333vw] mt-[6px]">
-                  {opening?.title || opening.name}
+                  {opening?.title}
                 </span>
               </div>
               <LinkBtnV2 text={"Apply Now"} tag={"button"} />
             </Link>
           ))}
-          <button
+          {/* <button
             data-aos="fade"
             className="mt16 lg:mt-[1.04166666667vw] flex items-center lg:gap-x-[0.52083333333vw] gap-x-[6px] group"
           >
@@ -78,7 +55,7 @@ const JobOpenings = ({ data, arabic }) => {
                 src="/images/icons/loadmore-chevron.svg"
               />
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
     </section>

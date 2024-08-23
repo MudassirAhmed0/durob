@@ -5,7 +5,6 @@ const axiosRequest = async (config) => {
     const data = await axios.request(config);
     return data;
   } catch (error) {
-    console.log("errrror:: " + error);
     return error;
   }
 };

@@ -1,45 +1,6 @@
-"use client";
 import React from "react";
 import Value from "./Value";
-const dummyValues = [
-  {
-    heading: "Civility",
-    desc: "We treat everyone with respect and courtesy.",
-    img: "/images/about/values/1.svg",
-  },
-  {
-    heading: "Trustworthiness",
-    desc: "Building reliable and honest relationships",
-    img: "/images/about/values/2.svg",
-  },
-  {
-    heading: "Diversity",
-    desc: "Embracing a wide range of perspectives",
-    img: "/images/about/values/3.svg",
-  },
-  {
-    heading: "Excellence",
-    desc: "Striving for the highest standards in all we do",
-    img: "/images/about/values/4.svg",
-  },
-  {
-    heading: "Creativity",
-    desc: "Fostering innovation and unique solutions",
-    img: "/images/about/values/5.svg",
-  },
-  {
-    heading: "Sustainability",
-    desc: "Committed to environmentally friendly practices",
-    img: "/images/about/values/6.svg",
-  },
-  {
-    heading: "Community Building",
-    desc: "Supporting and engaging with our communities",
-    img: "/images/about/values/7.svg",
-  },
-];
 const Values = ({ arabic, data }) => {
-  console.log(data);
   const values = data;
 
   return (

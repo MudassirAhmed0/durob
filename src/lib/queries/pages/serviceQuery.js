@@ -24,7 +24,7 @@ export const serviceQuery = () => {
             title
             description
             image {
-              src(width: 1200, height: 628)
+              src(width: 1920, height: 1080)
             }
           }
           services_section {
@@ -32,7 +32,7 @@ export const serviceQuery = () => {
               title
               description
               image {
-                src(width: 1200, height: 628)
+                src(width: 767, height: 767)
               }
               features {
                 icon {

@@ -1,21 +1,21 @@
 import React from "react";
 import SubPageHero from "../common/subpagehero/SubPageHero";
 import NewsContainer from "./NewsContainer";
-const breadCrumbs = [{ text: "News" }];
 
-const NewsPage = ({data}) => {
-
+const NewsPage = ({ data, allNews }) => {
+  const breadCrumbs = [];
+  breadCrumbs?.push({ text: data?.title });
   return (
     <>
       <SubPageHero
-        heading={data?.hero_banner?.title || "Latest News"}
+        heading={data?.hero_banner?.title}
         adjustContent={
           "lg:pb-[3.95833333333vw] lg:!h-[36.3020833333vw] !h-[70vh]"
         }
-        bannerSource={data?.hero_banner?.image?.src || "/images/news/hero.jpg"}
+        bannerSource={data?.hero_banner?.image?.src}
         breadCrumbs={breadCrumbs}
       />
-      <NewsContainer />
+      <NewsContainer allNews={allNews} />
     </>
   );
 };

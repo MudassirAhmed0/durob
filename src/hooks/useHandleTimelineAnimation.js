@@ -24,7 +24,6 @@ const useHandleTimelineAnimation = (containerRef, svgRefs) => {
   useEffect(() => {
     svgRefs.current.forEach((item) => {
       const pathLength = item?.getTotalLength();
-      console.log(pathLength, "sa");
       item.style.strokeDasharray = pathLength + "px";
       item.style.strokeDashoffset = 0;
     });

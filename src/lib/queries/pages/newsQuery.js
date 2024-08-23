@@ -36,7 +36,7 @@ export const newsQuery = () => {
             title
             description
             image {
-              src(width: 200, height: 200, webp: true)
+              src(width: 1920, height: 1080, webp: true)
             }
           }
         }
@@ -55,12 +55,13 @@ export const newsQuery = () => {
           ... on Entry_Posts_Post {
             date(format: "d F Y")
             title
-            # thumbnail: image {
-            #   src(width: 500, height: 300, webp: true)
-            # }
-            # mainImage: image {
-            #   src(width: 1600, height: 628, webp: true)
-            # }
+            date(format: "d F Y")
+            image {
+              src(width: 852, height: 759)
+            }
+            thumbnail: image {
+              src(width: 775, height: 502)
+            }
             content
           }
         }

@@ -11,6 +11,7 @@ const SubPageHero = ({
   bannerSource,
   breadCrumbs,
   video,
+  chairmanImage
 }) => {
   return (
     <section
@@ -23,6 +24,7 @@ const SubPageHero = ({
         fromAbout={fromAbout}
         overlay={overlay}
         bannerSource={bannerSource}
+        chairmanImage={chairmanImage}
       />
       <div className="container1680 relative z-[2] flex flex-wrap items-end justify-between gap-[30px]">
         <div className="lg:w-[51.7708333333vw]">

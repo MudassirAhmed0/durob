@@ -24,14 +24,14 @@ export const careerQuery = () => {
             title
             description
             image {
-              src(width: 1200, height: 628)
+              src(width: 1920, height: 1080)
             }
           }
           testimony_section {
             title
             description
             image {
-              src(width: 1200, height: 628)
+              src(width: 538, height: 750)
             }
           }
           jobs_section {

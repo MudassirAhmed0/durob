@@ -18,37 +18,37 @@ const contactLinks = [
   {
     img: "/images/icons/contact/phone.svg",
     link: "tel:+966 58 168 0000",
-    text: "+966 58 168 0000",
+    text: "+966 58 168 0000"
   },
   {
     img: "/images/icons/contact/mail.svg",
     link: "mailto:Customercare@duroub.com",
-    text: "Customercare@duroub.com",
+    text: "Customercare@duroub.com"
   },
   {
     img: "/images/icons/contact/location.svg",
     link: "https://www.google.com/maps",
     text: "Business park, near to Jamjoom center, Al Hamrah dist. P.O. box: 8960, KSA. Jeddah 21492",
-    taget: true,
-  },
+    taget: true
+  }
 ];
 const socialLinks = [
   {
     img: "/images/icons/social-footer/fb.svg",
-    link: "https://www.facebook.com/",
+    link: "https://www.facebook.com/"
   },
   {
     img: "/images/icons/social-footer/twitter.svg",
-    link: "https://www.twitter.com/",
+    link: "https://www.twitter.com/"
   },
   {
     img: "/images/icons/social-footer/insta.svg",
-    link: "https://www.instagram.com/",
+    link: "https://www.instagram.com/"
   },
   {
     img: "/images/icons/social-footer/linked.svg",
-    link: "https://www.linkedin.com/",
-  },
+    link: "https://www.linkedin.com/"
+  }
 ];
 const Contact = ({ secondVarient, arabic, heading, desc, fromContactPage }) => {
   const [subject, setSubject] = useState("");
@@ -61,7 +61,7 @@ const Contact = ({ secondVarient, arabic, heading, desc, fromContactPage }) => {
     subject: "",
     email: "",
     message_subject: "",
-    message: "",
+    message: ""
   };
 
   const contactSecondVarientValues = {
@@ -71,7 +71,7 @@ const Contact = ({ secondVarient, arabic, heading, desc, fromContactPage }) => {
     gender: "",
     email: "",
     phone: "",
-    file: "",
+    file: ""
   };
 
   const {
@@ -83,20 +83,19 @@ const Contact = ({ secondVarient, arabic, heading, desc, fromContactPage }) => {
     handleBlur,
     handleSubmit,
     touched,
-    setFieldTouched,
+    setFieldTouched
   } = useFormik({
     initialValues: secondVarient ? contactSecondVarientValues : contactValues,
     validationSchema: secondVarient
       ? contactSecondVarientSchema
       : contactSchema,
     onSubmit: (values) => {
-      console.log("values: ", values);
       resetForm();
       setSubject("");
       setGender("");
       setFile("");
       setPhoneNumber("");
-    },
+    }
   });
 
   // console.log("values", values);

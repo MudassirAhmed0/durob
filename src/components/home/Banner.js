@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 const Banner = ({ data }) => {
-  console.log(data);
   return (
     <section className="bg-[#002B87] relative lg:py-[18.0208333333vw] sm:py-[200px] py-[120px] overflow-hidden">
       <div className="w-full h-full absolute top-0 left-0">

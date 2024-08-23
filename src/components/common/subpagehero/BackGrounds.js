@@ -2,7 +2,13 @@ import React from "react";
 import ImageComponent from "../ImageComponent";
 import Image from "next/image";
 
-const BackGrounds = ({ video, bannerSource, overlay, fromAbout }) => {
+const BackGrounds = ({
+  video,
+  bannerSource,
+  overlay,
+  fromAbout,
+  chairmanImage
+}) => {
   return (
     <div className="atwh_Full lrf1 overflow-hidden">
       <div className="atwh_Full lrf1 flipped">
@@ -34,8 +40,8 @@ const BackGrounds = ({ video, bannerSource, overlay, fromAbout }) => {
           <div className="lg:w-[41.9791666667vw] lg:h-[81.3888888889vh] absolute bottom-0 lrf2">
             <Image
               fill
-              src="/images/about/about-person-hero.png"
-              alt="person-img"
+              src={chairmanImage}
+              alt="Chairman "
               className="object-contain"
             />
           </div>

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import BackGrounds from "./BackGrounds";
 import PlayVideo from "./PlayVideo";
 import MyLightBox from "@/components/common/MyLightBox/Index";
-const Hero = ({data}) => {
+const Hero = ({ data }) => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [showLightBox, setShowLightBox] = useState(false);
   const [showNow, setShowNow] = useState(false);
@@ -28,12 +28,12 @@ const Hero = ({data}) => {
   const skipSection = () => {
     window.scroll(0, window.innerHeight);
   };
-  const idStart = String(data?.video_link).indexOf("v=")+2
-  const videoId = data?.video_link?.slice(idStart, idStart+11)
+  const idStart = String(data?.extra_video).indexOf("v=") + 2;
+  const videoId = data?.extra_video?.slice(idStart, idStart + 11);
   return (
     <>
       <section className="h-screen w-full relative flex items-end py180 pt-[unset]">
-        <BackGrounds />
+        <BackGrounds videoLink={data?.video_link} />
         <div className="container1680 relative z-[2] flex flex-wrap items-end justify-between gap-[30px]">
           <h1
             data-aos="fade-up"
@@ -41,7 +41,11 @@ const Hero = ({data}) => {
           >
             {data?.title}
           </h1>
-          <PlayVideo handleOpen={handleOpen} setSlideIndex={setSlideIndex} />
+          <PlayVideo
+            label={data?.play_button_text}
+            handleOpen={handleOpen}
+            setSlideIndex={setSlideIndex}
+          />
         </div>
         <img
           onClick={skipSection}
@@ -63,7 +67,7 @@ const Hero = ({data}) => {
           //   }
           // ]}
           // sources={[{ source: "/videos/college-life-hero.mp4", type: "video" }]}
-          sources={[{ source: videoId , type: "youtube" }]}
+          sources={[{ source: videoId, type: "youtube" }]}
         />
       )}
     </>

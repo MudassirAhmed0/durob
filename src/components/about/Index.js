@@ -18,6 +18,7 @@ const AboutPage = ({ arabic, data }) => {
         overlay="about_HeroOverlay"
         bannerSource={data?.hero_banner?.image?.src}
         breadCrumbs={breadCrumbs}
+        chairmanImage={data?.hero_banner?.ceo_picture?.src}
         fromAbout
       />
       <VissionMission
@@ -29,8 +30,8 @@ const AboutPage = ({ arabic, data }) => {
       <OurTeam data={data?.our_team_section} arabic={arabic} />
       <ExcellenceOperation data={data?.our_operation_section} arabic={arabic} />
       <Contact
-        heading="Get in Touch"
-        desc="Reach out for inquiries and support"
+        heading={data?.form_section?.title_heading}
+        desc={data?.form_section?.short_description}
       />
     </>
   );

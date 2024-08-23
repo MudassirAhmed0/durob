@@ -7,75 +7,12 @@ import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import slugify from "slugify";
-import parse from 'html-react-parser';
-
-const dummyServices = [
-  {
-    id: "transportation",
-    header: "Transportation",
-    description:
-      "We offer efficient and reliable delivery solutions, ensuring that your goods are transported safely and on time. Our extensive fleet and experienced drivers guarantee seamless logistics operations.",
-    img: "/images/services/container/banners/1.jpg",
-  },
-  {
-    id: "warehousing",
-    header: "Warehousing",
-    description:
-      "Our multi-temperature warehousing solutions ensure the safety and quality of your products, from -25°C to +25°C. Our facilities are equipped with the latest technology to maintain optimal storage conditions",
-    img: "/images/services/container/banners/07.png",
-  },
-  {
-    id: "cross-border-transport",
-    header: "Cross Border Transport",
-    description:
-      "We facilitate seamless international logistics, ensuring that your goods cross borders efficiently and without delays. Our expertise in customs regulations and cross-border documentation ensures smooth operations",
-    img: "/images/services/container/banners/01.png",
-  },
-  {
-    id: "4pl-&control-tower-management",
-    header: "4PL & Control\n\nTower Management",
-    description:
-      "Our 4PL and control tower management services provide comprehensive oversight of your supply chain, ensuring real-time visibility and optimized operations. We manage your logistics, so you can focus on your core business",
-    img: "/images/services/container/banners/02.png",
-  },
-  {
-    id: "freight-forwarding",
-    header: "Freight Forwarding",
-    description:
-      "Our freight forwarding services include air, sea, and land transportation, ensuring your goods reach their destination efficiently. We handle all aspects of logistics, from documentation to delivery",
-    img: "/images/services/container/banners/03.png",
-  },
-  {
-    id: "direct-store-delivery",
-    header: "Direct Store Delivery",
-    description:
-      "Our direct store delivery services ensure timely and efficient delivery of products to retail outlets. We manage the entire process, from warehousing to final delivery, ensuring your products are always in stock",
-    img: "/images/services/container/banners/04.png",
-  },
-  {
-    id: "import-export",
-    header: "Import/Export",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Diam at elementum quisque et nascetur. In non nullam quam elementum dolor lacinia. Turpis lacus bibendum est tempus. Congue gravida eget aenean molestie ac augue.",
-    img: "/images/services/container/banners/05.png",
-  },
-  {
-    id: "value-added-services",
-    header: "Value Added Services",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Diam at elementum quisque et nascetur. In non nullam quam elementum dolor lacinia. Turpis lacus bibendum est tempus. Congue gravida eget aenean molestie ac augue.",
-    img: "/images/services/container/banners/06.png",
-  },
-];
 
 const AllServices = ({ data }) => {
-  const services = data?.services
-    ? data.services.map((item) => ({
-        ...item,
-        id: slugify(item.title, { lower: true }),
-      }))
-    : dummyServices;
-
+  const services = data.services.map((item) => ({
+    ...item,
+    id: slugify(item.title, { lower: true })
+  }));
   const router = useRouter();
   const headerRef = useRef(null);
   const [activeHeader, setActiveHeader] = useState(services[0]);
@@ -97,7 +34,7 @@ const AllServices = ({ data }) => {
               )?.offsetLeft;
               headerRef.current?.scroll({
                 left: leftOffset,
-                behavior: "smooth",
+                behavior: "smooth"
               });
             }, 1000);
           } else {
@@ -179,41 +116,34 @@ const AllServices = ({ data }) => {
                     index % 2 !== 0 ? "lg:order-last" : ""
                   )}
                 >
-                  <ImageComponent alt={"banner-img"} src={service.image ? service.image.src : service.img} />
+                  <ImageComponent alt={"banner-img"} src={service.image.src} />
                 </div>
                 <div className="lg:w-[39.1666666667vw] w-full">
                   <div>
                     <h5 className="text70 !f600 text-[#002B87] relative before:absolute before:lrf1 before:lg:top-[-0.78125vw] before:top-[-8px] before:content-[''] before:lg:h-[0.26041666666vw] before:h-[3px] before:lg:w-[2.96875vw] before:w-[12%] before:bg-[#60A1E2]">
                       {service.title}
                     </h5>
-                    {
-                      service?.description && (
+                    {service?.description && (
                       // <Markdown className="prose prose-headings:p-0 prose-headings:mb-2 prose-img:rounded-lg prose-a:no-underline prose-a:text-blue-500">
                       //   {service.description}
                       // </Markdown>
-                    <span className="lg:text26 mtext16 mt16 lg:mt-[1.04166666667vw]">
-                      {parse(service?.description)}
-                    </span>
-
-                      )
-                    }
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: service?.description
+                        }}
+                        className="lg:text26 mtext16 mt16 lg:mt-[1.04166666667vw]"
+                      ></div>
+                    )}
                   </div>
                   <ul className="lg:mt-[3.125vw] sm:mt-[40px] mt-[30px] flex flex-wrap lg:gap-[6.04166666667vw] sm:gap-[40px] gap-[30px]">
-                    {
-                      service?.features?.map((item)=> {
-                        return (
+                    {service?.features?.map((item) => {
+                      return (
                         <li key={item?.caption}>
                           <div className="lg:size-[3.4375vw] sm:size-[56px] size-[46px] border20 bg-[#94D4FF26] flex justify-center items-center">
                             <div className="relative lg:size-[2.39583333333vw] size-[76%]">
-                              {
-                                item?.icon && (
-                                  <Image
-                                    fill
-                                    alt="icon"
-                                    src={item.icon?.src}
-                                  />
-                                )
-                              }
+                              {item?.icon && (
+                                <Image fill alt="icon" src={item.icon?.src} />
+                              )}
                             </div>
                           </div>
                           <div className="flex flex-col lg:mt-[1.04166666667vw] mt-[10px]">
@@ -225,9 +155,8 @@ const AllServices = ({ data }) => {
                             </span>
                           </div>
                         </li>
-                        )
-                      })
-                    }
+                      );
+                    })}
                   </ul>
                 </div>
               </div>

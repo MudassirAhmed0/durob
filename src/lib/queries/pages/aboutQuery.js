@@ -19,11 +19,14 @@ export const aboutQuery = () => {
         last_modified
         locale
         ... on Entry_Pages_Aboutus {
-          hero_banner {
+          hero_banner: hero_banner_section {
             title
             description
             image {
               src(width: 1920, height: 1080)
+            }
+            ceo_picture {
+              src
             }
           }
           vision {
@@ -65,7 +68,7 @@ export const aboutQuery = () => {
             title_heading
             short_description
             images {
-              src(width: 700, height: 628, webp: true)
+              src(webp: true)
             }
           }
           form_section {
