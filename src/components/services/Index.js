@@ -2,10 +2,15 @@ import React from "react";
 import SubPageHero from "../common/subpagehero/SubPageHero";
 import AllServices from "./AllServices";
 import Contact from "../common/contact/Contact";
+import getFormattedFormData from "@/form/getFormatterFormData";
 
 const ServicesPage = ({ data, arabic }) => {
   const breadCrumbs = [];
   breadCrumbs.push({ text: data?.title });
+  const formData = getFormattedFormData(
+    data?.form_section?.linked_form,
+    arabic
+  );
   return (
     <>
       <SubPageHero
@@ -20,6 +25,7 @@ const ServicesPage = ({ data, arabic }) => {
       <Contact
         heading={data?.form_section?.title_heading}
         desc={data?.form_section?.short_description}
+        formData={formData}
       />
     </>
   );

@@ -3,9 +3,14 @@ import SubPageHero from "../common/subpagehero/SubPageHero";
 import Testimonial from "./Testimonial";
 import Contact from "../common/contact/Contact";
 import JobOpenings from "./JobOpenings";
+import getFormattedFormData from "@/form/getFormatterFormData";
 const breadCrumbs = [{ text: "Careers" }];
 
-const CareersPage = ({ data }) => {
+const CareersPage = ({ data, arabic }) => {
+  const formData = getFormattedFormData(
+    data?.formlink_section?.linked_form,
+    arabic
+  );
   return (
     <>
       <SubPageHero
@@ -21,6 +26,8 @@ const CareersPage = ({ data }) => {
         heading={data?.formlink_section?.title_heading}
         desc={data?.formlink_section?.desc}
         secondVarient
+        formData={formData}
+        endpoint={data?.formlink_section?.linked_form.handle}
       />
     </>
   );

@@ -1,10 +1,10 @@
 import axiosRequest from "@/lib/axiosRequest";
 
-const postForm = async (states, endpoint) => {
+const postForm = async (values, endpoint) => {
   try {
     const formData = new FormData();
-    Object.keys(states)?.forEach((stateKey) => {
-      formData.append(stateKey, states[stateKey]);
+    Object.keys(values)?.forEach((key) => {
+      formData.append(key, values[key]);
     });
     let config = {
       method: "post",

@@ -2,17 +2,17 @@ import clsx from "clsx";
 import Image from "next/image";
 import React from "react";
 
-const UploadFileField = ({ file, setFile, touched, error, secondVarient }) => {
+const UploadFileField = ({ file, id, setFile, touched, error, secondVarient }) => {
   return (
     <>
       <label
-        htmlFor="file"
+        htmlFor={id}
         className="opacity_Hover cursor-pointer flex flex-col text-center justify-center items-center lg:gap-y-[0.52083333333vw] gap-y-[10px] border-dashed border border20 border-[#94D4FF] w-full lg:py-[2.52604166667vw] lg:px-[1.04166666667vw] sm:p-[30px] p-[20px]"
       >
         <input
           type="file"
-          id="file"
-          name="file"
+          id={id}
+          name={id}
           className="hidden"
           onChange={({ target }) => setFile(target.files[0])}
         />
@@ -25,6 +25,9 @@ const UploadFileField = ({ file, setFile, touched, error, secondVarient }) => {
         ) : (
           <>
             <span className="text-[#94D4FF]">Upload your CV</span>
+            <span className="text-[#94D4FF]">
+              PDF, JPG, JPEG, PNG (max 2 mbs)
+            </span>
           </>
         )}
       </label>

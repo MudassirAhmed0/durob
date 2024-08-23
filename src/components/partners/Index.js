@@ -3,11 +3,15 @@ import SubPageHero from "../common/subpagehero/SubPageHero";
 import WhyDuroub from "./whyduroub/WhyDuroub";
 import Partners from "./partners/Partners";
 import Contact from "../common/contact/Contact";
+import getFormattedFormData from "@/form/getFormatterFormData";
 
-const PartnersPage = ({ data }) => {
+const PartnersPage = ({ data, arabic }) => {
   const breadCrumbs = [];
   breadCrumbs.push({ text: data?.title });
-
+  const formData = getFormattedFormData(
+    data?.contact_us_section?.linked_form,
+    arabic
+  );
   return (
     <>
       <SubPageHero
@@ -22,6 +26,7 @@ const PartnersPage = ({ data }) => {
       <Contact
         heading={data?.contact_us_section?.title_heading}
         desc={data?.contact_us_section?.description}
+        formData={formData}
       />
     </>
   );

@@ -30,10 +30,10 @@ export const careerQuery = () => {
           testimony_section {
             title
             description
-            image {
+            image: picture {
               src(width: 538, height: 750)
             }
-          }
+          }    
           jobs_section {
             title_heading
             jobs {

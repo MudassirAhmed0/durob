@@ -218,6 +218,7 @@ const PhoneField = ({
   touched,
   error,
   secondVarient,
+  ...props
 }) => {
   const [showDropDown, setShowDropDown] = useState(false);
   const [dropDownValue, setDropDownValue] = useState({
@@ -231,25 +232,16 @@ const PhoneField = ({
     setPhoneNumber(dropDownValue.value + event.target.value);
   };
 
-  // const [selectedCountryCode, setSelectedCountryCode] = useState({
-  //   value: "+966",
-  //   label: "+966",
-  // });
-
-  // const handleChange = (option) => {
-  //   setSelectedCountryCode(option);
-  // };
+  const formatAfterCodeChange = (countryCode) => {
+    let value = String(phoneNumber);
+    const replaceTo = countryCodes.find((code) => value.startsWith(code.value));
+    const replaceWith = countryCode.value;
+    return value.replace(replaceTo, replaceWith);
+  };
 
   const handleCouteryCodeSelect = (countryCode) => {
     setDropDownValue(countryCode);
-    setPhoneNumber((prev) => {
-      let value = String(prev.value);
-      const replaceTo = countryCodes.find((code) =>
-        value.startsWith(code.value)
-      );
-      const replaceWith = countryCode.value;
-      return value.replace(replaceTo, replaceWith);
-    });
+    setPhoneNumber(formatAfterCodeChange(countryCode));
   };
   const [isMounted, setIsMounted] = useState(false);
 
@@ -266,11 +258,12 @@ const PhoneField = ({
             />
           ) : null}
         </div>
-        <label htmlFor="phone" className={` border-b size-full block`}>
+        <label htmlFor={props.id} className={` border-b size-full block`}>
           <input
-            id="phone"
+            id={props.id}
+            name={props.name}
             type="number"
-            placeholder="Phone number"
+            placeholder={props.placeholder}
             autoComplete="off"
             onChange={handleInputChange}
             className={clsx(

@@ -15,6 +15,7 @@ const page = async ({ params: { locale, slug } }) => {
   const isAr = locale == "ar";
 
   const data = await getData(slug, isAr);
+
   // await new Promise((resolve) => setTimeout(resolve, 1000));
   switch (data?.page?.blueprint) {
     case "aboutus":
@@ -53,7 +54,7 @@ const page = async ({ params: { locale, slug } }) => {
       return (
         <Suspense fallback={<Loading />}>
           <Layout arabic={isAr}>
-            {/* <CareersPage arabic={isAr} data={data?.page} /> */}
+            <CareersPage arabic={isAr} data={data?.page} />
           </Layout>
         </Suspense>
       );

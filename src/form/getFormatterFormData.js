@@ -2,10 +2,10 @@ const splitArabicAndEnglishText = (text, arabic) => {
   return text.split("/")[arabic ? 1 : 0];
 };
 const splitDropdownArabicAndEnglishText = (text, arabic) => {
-  return text.split("/")[arabic ? 2 : 1];
+  return text.split("/")[arabic ? 1 : 0];
 };
 const orderOptions = (text) => {
-  return +text.split("/")[0];
+  return text.split("/")[0];
 };
 
 const getFormattedFormData = (formData, arabic) => {
@@ -17,7 +17,7 @@ const getFormattedFormData = (formData, arabic) => {
     if (field.config.options) {
       const fieldOptions = field.config.options;
       Object.keys(fieldOptions)?.forEach((optionKey) => {
-        options[orderOptions(fieldOptions[optionKey])] = {
+        options[optionKey] = {
           placeholder: splitDropdownArabicAndEnglishText(
             fieldOptions[optionKey],
             arabic

@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import React from "react";
 
-const GenderField = ({ setGender, touched, error, secondVarient }) => {
+const GenderField = ({ setGender, id, touched, error, secondVarient }) => {
   const handleChange = (e) => {
     setGender(e.target.value);
   };
 
   return (
-    <div className="w-full lg:h-[3.07291666667vw] h-[44px] genderInputField ">
+    <div id={id} className="w-full lg:h-[3.07291666667vw] h-[44px] genderInputField ">
       <div className="lg:px-[1.5625vw] sm:px-[20px] px-[10px] flex items-center lg:gap-x-[1.40625vw] gap-x-[15px]">
         <span>Gender</span>
         <div className="InputField">

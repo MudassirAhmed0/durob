@@ -7,8 +7,13 @@ import News from "./news/News";
 import Banner from "./Banner";
 import Partners from "./partners/Partners";
 import Contact from "../common/contact/Contact";
+import getFormattedFormData from "@/form/getFormatterFormData";
 
-const HomePage = ({ data, recentNews }) => {
+const HomePage = ({ data, recentNews, arabic }) => {
+  const formData = getFormattedFormData(
+    data?.contact_us_form_section?.linked_form,
+    arabic
+  );
   return (
     <>
       <Hero data={data?.video_banner} />
@@ -21,6 +26,7 @@ const HomePage = ({ data, recentNews }) => {
       <Contact
         heading={data?.contact_us_form_section?.title_heading}
         desc={data?.contact_us_form_section?.description}
+        formData={formData}
       />
     </>
   );

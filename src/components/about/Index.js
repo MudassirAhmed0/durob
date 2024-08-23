@@ -6,9 +6,16 @@ import OurValues from "./ourvalues/OurValues";
 import OurTeam from "./ourteam/OurTeam";
 import ExcellenceOperation from "./excellenceoperation/ExcellenceOperation";
 import Contact from "../common/contact/Contact";
+import getFormattedFormData from "@/form/getFormatterFormData";
 const AboutPage = ({ arabic, data }) => {
   const breadCrumbs = [];
   breadCrumbs.push({ text: data?.title });
+
+  const formData = getFormattedFormData(
+    data?.form_section?.linked_form,
+    arabic
+  );
+
   return (
     <>
       <SubPageHero
@@ -32,6 +39,7 @@ const AboutPage = ({ arabic, data }) => {
       <Contact
         heading={data?.form_section?.title_heading}
         desc={data?.form_section?.short_description}
+        formData={formData}
       />
     </>
   );

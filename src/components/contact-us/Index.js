@@ -1,10 +1,15 @@
 import React from "react";
 import Contact from "../common/contact/Contact";
 import SubPageHero from "../common/subpagehero/SubPageHero";
+import getFormattedFormData from "@/form/getFormatterFormData";
 
-const ContactUsPage = ({ data }) => {
+const ContactUsPage = ({ data, arabic }) => {
   const breadCrumbs = [];
   breadCrumbs.push({ text: data?.title });
+  const formData = getFormattedFormData(
+    data?.form_section?.linked_form,
+    arabic
+  );
   return (
     <>
       <SubPageHero
@@ -17,6 +22,7 @@ const ContactUsPage = ({ data }) => {
         heading={data?.form_section?.title_heading}
         desc="Reach out for inquiries and support. We offer specialized logistics services to meet your unique needs"
         fromContactPage
+        formData={formData}
       />
     </>
   );

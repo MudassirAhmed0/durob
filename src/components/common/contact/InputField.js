@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
-const InputField = ({ secondVarient, ...rest }) => {
+const InputField = ({ secondVarient, touched, error, ...rest }) => {
   return (
     <div className="w-full lg:h-[2.55208333333vw] h-[39px] inputField">
       <label
@@ -18,14 +18,14 @@ const InputField = ({ secondVarient, ...rest }) => {
           {...rest}
         />
       </label>
-      {rest.touched && rest.error && (
+      {touched && error && (
         <p
           className={clsx(
             "text-xs mt-1 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
             secondVarient ? "text-red-400" : "text-red-600"
           )}
         >
-          {rest.error}
+          {error}
         </p>
       )}
     </div>
