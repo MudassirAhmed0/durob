@@ -220,28 +220,27 @@ const PhoneField = ({
   secondVarient,
   ...props
 }) => {
-  const [showDropDown, setShowDropDown] = useState(false);
   const [dropDownValue, setDropDownValue] = useState({
     value: "+966",
     label: "+966",
   });
-  const handleDropDown = () => {
-    setShowDropDown(!showDropDown);
-  };
+
   const handleInputChange = (event) => {
     setPhoneNumber(dropDownValue.value + event.target.value);
   };
 
   const formatAfterCodeChange = (countryCode) => {
-    let value = String(phoneNumber);
-    const replaceTo = countryCodes.find((code) => value.startsWith(code.value));
-    const replaceWith = countryCode.value;
-    return value.replace(replaceTo, replaceWith);
+    let phone = String(phoneNumber);
+    const replaceTo = countryCodes.find((code) =>
+      phone.startsWith(code.value)
+    )?.value;
+    const replaceWith = countryCode;
+    return phone.replace(replaceTo, replaceWith);
   };
 
   const handleCouteryCodeSelect = (countryCode) => {
     setDropDownValue(countryCode);
-    setPhoneNumber(formatAfterCodeChange(countryCode));
+    setPhoneNumber(formatAfterCodeChange(countryCode.value));
   };
   const [isMounted, setIsMounted] = useState(false);
 

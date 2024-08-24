@@ -8,7 +8,7 @@ const CaptchaField = ({
   handleRecaptchaExpire,
   captchaRef,
   arabic,
-  secondVarient
+  secondVarient,
 }) => {
   return (
     <div className="md:mt-[1vw] md:mb-0 mt-[15px] relative w-full">

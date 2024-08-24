@@ -15,7 +15,7 @@ import { useFormik } from "formik";
 import {
   contactSchema,
   contactSecondVarientSchema,
-  getValidationSchema
+  getValidationSchema,
 } from "@/form/schemas";
 import CaptchaField from "./CaptchaField";
 import postForm from "@/form/postForm";
@@ -25,37 +25,37 @@ const contactLinks = [
   {
     img: "/images/icons/contact/phone.svg",
     link: "tel:+966 58 168 0000",
-    text: "+966 58 168 0000"
+    text: "+966 58 168 0000",
   },
   {
     img: "/images/icons/contact/mail.svg",
     link: "mailto:Customercare@duroub.com",
-    text: "Customercare@duroub.com"
+    text: "Customercare@duroub.com",
   },
   {
     img: "/images/icons/contact/location.svg",
     link: "https://www.google.com/maps",
     text: "Business park, near to Jamjoom center, Al Hamrah dist. P.O. box: 8960, KSA. Jeddah 21492",
-    taget: true
-  }
+    taget: true,
+  },
 ];
 const socialLinks = [
   {
     img: "/images/icons/social-footer/fb.svg",
-    link: "https://www.facebook.com/"
+    link: "https://www.facebook.com/",
   },
   {
     img: "/images/icons/social-footer/twitter.svg",
-    link: "https://www.twitter.com/"
+    link: "https://www.twitter.com/",
   },
   {
     img: "/images/icons/social-footer/insta.svg",
-    link: "https://www.instagram.com/"
+    link: "https://www.instagram.com/",
   },
   {
     img: "/images/icons/social-footer/linked.svg",
-    link: "https://www.linkedin.com/"
-  }
+    link: "https://www.linkedin.com/",
+  },
 ];
 const Contact = ({
   secondVarient,
@@ -64,9 +64,10 @@ const Contact = ({
   desc,
   fromContactPage,
   formData,
-  endpoint
+  endpoint,
 }) => {
   const [additionalFields, setAdditionalFields] = useState(null);
+  const [dragActive, setDragActive] = useState(false);
   const [varified, setVerified] = useState(false);
   const [captchaError, setCaptchaError] = useState(false);
   const captchaRef = useRef(null);
@@ -77,9 +78,8 @@ const Contact = ({
     acc[item.id] = "";
     return acc;
   }, {});
-  // console.log("initial", initialValues);
+
   const validationSchema = getValidationSchema(formData);
-  // console.log(formData);
 
   const {
     values,
@@ -93,26 +93,28 @@ const Contact = ({
     touched,
     isSubmitting,
     setTouched,
-    validateForm
+    validateForm,
   } = useFormik({
     initialValues: initialValues,
     validationSchema: validationSchema,
     onSubmit: async (values) => {
+      console.log("submit", values);
       const res = await postForm(values, endpoint);
       if (res?.status == 200) {
         setSubmitSuccess("Done! Submission Successfull!");
         setSubmitError(null);
+        resetForm();
+        setAdditionalFields({});
+        captchaRef.current?.reset()
       } else {
         setSubmitError("Internal server Error.");
         setSubmitSuccess(null);
+        captchaRef.current?.reset()
       }
-      console.log("submit", values);
-      resetForm();
-      setAdditionalFields(null);
-    }
+      
+      
+    },
   });
-  // console.log(errors);
-  // console.log(values);
 
   const validateThenSumbit = async (e) => {
     e.preventDefault();
@@ -128,7 +130,7 @@ const Contact = ({
         acc[key] = true;
         return acc;
       }, {});
-      // console.log(touches);
+
       setTouched(touches);
       setErrors(errors);
       const firstErrorId = formData.find((field) =>
@@ -166,6 +168,16 @@ const Contact = ({
     // This callback will be called when the user verifies the CAPTCHA
     setVerified(false);
     setCaptchaError(true);
+  };
+
+  const handleDrag = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.type === "dragenter" || e.type === "dragover") {
+      setDragActive(true);
+    } else if (e.type === "dragleave") {
+      setDragActive(false);
+    }
   };
 
   return (
@@ -293,6 +305,7 @@ const Contact = ({
                 id={field.id}
                 name={field.id}
                 placeholder={field.placeholder}
+                phoneNumber={values[field.id]}
                 setPhoneNumber={(val) =>
                   setAdditionalFields((prev) => ({ ...prev, [field.id]: val }))
                 }
@@ -305,7 +318,13 @@ const Contact = ({
                 id={field.id}
                 key={field.id}
                 file={values[field.id]}
+                dragActive={dragActive}
+                setDragActive={setDragActive}
                 setFile={(val) =>
+                  setAdditionalFields((prev) => ({ ...prev, [field.id]: val }))
+                }
+                handleDrag={handleDrag}
+                handleDrop={(val) => 
                   setAdditionalFields((prev) => ({ ...prev, [field.id]: val }))
                 }
                 touched={touched[field.id]}
@@ -359,7 +378,7 @@ const Contact = ({
               {submitError}
             </span>
           )}
-          {submitError && (
+          {submitSuccess && (
             <span
               className={clsx(
                 "text-xs font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",

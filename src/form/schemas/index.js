@@ -62,8 +62,6 @@ export const getValidationSchema = (formData) => {
         }
         break;
       case "number":
-        // additional validation for email or other patterns can be added here
-        schema = schema.min(10);
         break;
       case "files":
         schema = Yup.mixed()

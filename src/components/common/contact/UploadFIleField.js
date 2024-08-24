@@ -2,12 +2,34 @@ import clsx from "clsx";
 import Image from "next/image";
 import React from "react";
 
-const UploadFileField = ({ file, id, setFile, touched, error, secondVarient }) => {
+const UploadFileField = ({
+  file,
+  id,
+  setFile,
+  touched,
+  error,
+  dragActive,
+  setDragActive,
+  secondVarient,
+  handleDrag,
+  handleDrop,
+}) => {
   return (
     <>
       <label
         htmlFor={id}
-        className="opacity_Hover cursor-pointer flex flex-col text-center justify-center items-center lg:gap-y-[0.52083333333vw] gap-y-[10px] border-dashed border border20 border-[#94D4FF] w-full lg:py-[2.52604166667vw] lg:px-[1.04166666667vw] sm:p-[30px] p-[20px]"
+        className={clsx(
+          "opacity_Hover cursor-pointer flex flex-col border-dashed text-center justify-center items-center lg:gap-y-[0.52083333333vw] gap-y-[10px]  border border20 w-full lg:py-[2.52604166667vw] lg:px-[1.04166666667vw] sm:p-[30px] p-[20px]",
+          dragActive ? "border-white border-2 !text-white" : file ? "border-white" : "border-[#94D4FF] "
+        )}
+        onDragEnter={handleDrag}
+        onDragLeave={handleDrag}
+        onDragOver={handleDrag}
+        onDrop={(e) => {
+          e.preventDefault();
+          setDragActive(false);
+          handleDrop(e.dataTransfer.files[0]);
+        }}
       >
         <input
           type="file"
@@ -21,10 +43,12 @@ const UploadFileField = ({ file, id, setFile, touched, error, secondVarient }) =
           <Image fill alt="upload" src="/images/icons/upload.svg" />
         </div>
         {file ? (
-          <span className="text-[#94D4FF]">{file.name}</span>
+          <span className="text-white">{file.name}</span>
         ) : (
           <>
-            <span className="text-[#94D4FF]">Upload your CV</span>
+            <span className="text-[#94D4FF]">
+              Choose or Drop your {id?.toUpperCase()} here.
+            </span>
             <span className="text-[#94D4FF]">
               PDF, JPG, JPEG, PNG (max 2 mbs)
             </span>
