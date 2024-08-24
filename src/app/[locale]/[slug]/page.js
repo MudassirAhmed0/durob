@@ -10,6 +10,30 @@ import getData from "@/lib/data-hooks/getData";
 import React, { Suspense } from "react";
 import Loading from "../loading";
 import { notFound } from "next/navigation";
+import getMetaData from "@/utils/seo/getMetaData";
+import { locales } from "@/middleware";
+
+export const dynamic = "force-static";
+
+export const revalidate = 172800;
+
+const slugs = [
+  "about-us",
+  "services",
+  "our-partners",
+  "news",
+  "career",
+  "contact-us"
+];
+export function generateStaticParams() {
+  return slugs.map((slug) => {
+    locales.map((locale) => ({ slug, locale }));
+  });
+}
+
+export async function generateMetadata({ params: { locale, slug } }, parent) {
+  return await getMetaData({ slug: slug, isAr: locale == "ar" });
+}
 
 const page = async ({ params: { locale, slug } }) => {
   const isAr = locale == "ar";

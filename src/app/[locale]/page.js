@@ -3,10 +3,21 @@ import React from "react";
 import Layout from "@/components/layout/Index";
 import HomePage from "@/components/home/Index";
 import getData from "@/lib/data-hooks/getData";
+import { locales } from "@/middleware";
+import getMetaData from "@/utils/seo/getMetaData";
+import { unstable_setRequestLocale } from "next-intl/server";
+export const revalidate = 172800;
 
-export const revalidate = 5;
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params: { locale, slug } }, parent) {
+  return await getMetaData({ slug: "home", isAr: locale == "ar" });
+}
 
 export default async function Index({ params: { locale } }) {
+  unstable_setRequestLocale(locale);
   const isAr = locale == "ar";
   const data = await getData("home", isAr);
   return (
