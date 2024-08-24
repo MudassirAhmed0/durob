@@ -23,8 +23,8 @@ const Card = ({ setActivePopup, setPopupData, member, index }) => {
         <div className="absolute bottom-0 left-[50%] translate-x-[-50%] lg:w-[23.6458333333vw] lg:h-[27.34375vw] sm:w-[54%] w-[75%] h-[95%]">
           <Image
             fill
-            alt="team-member"
-            src={member.img}
+            alt={member?.title}
+            src={member?.picture?.src}
             className="object-cover"
           />
         </div>
@@ -37,14 +37,14 @@ const Card = ({ setActivePopup, setPopupData, member, index }) => {
         />
         <div className="flex flex-col lg:mb-[2.1875vw] mb-[10px] lg:w-[17.7083333333vw]">
           <span className="lg:text25 mtext18 f600 text-[#002B87] capitalize">
-            {member.name}
+            {member?.title}
           </span>
           <div className="flex items-center lg:gap-x-[0.36458333333vw] gap-x-[5px] lg:mt-[0.26041666666vw] mt-[5px]">
             <div className="relative lg:min-w-[0.78125vw] min-w-[12px] lg:size-[0.78125vw] size-[12px]">
               <Image fill alt="icon" src="/images/icons/member-icon.svg" />
             </div>
             <span className="lg:text20 mtext16 text-[#3D81D3] block">
-              {member.position}
+              {member?.position}
             </span>
           </div>
         </div>

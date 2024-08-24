@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Popup from "./Popup";
 import CardsWrapper from "./CardsWrapper";
 
-const OurTeam = ({ data, arabic }) => {
+const OurTeam = ({ data, arabic, managementMembers, boardMembers }) => {
   const [activeCategory, setActiveCategory] = useState(0);
   const [activePopup, setActivePopup] = useState(false);
   const [popupData, setPopupData] = useState({});
@@ -36,7 +36,7 @@ const OurTeam = ({ data, arabic }) => {
         </div>
         <CardsWrapper
           activeCategory={activeCategory}
-          membersData={membersData}
+          membersData={activeCategory == 0 ? boardMembers : managementMembers}
           setActivePopup={setActivePopup}
           setPopupData={setPopupData}
         />

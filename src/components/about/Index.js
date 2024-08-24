@@ -7,7 +7,7 @@ import OurTeam from "./ourteam/OurTeam";
 import ExcellenceOperation from "./excellenceoperation/ExcellenceOperation";
 import Contact from "../common/contact/Contact";
 import getFormattedFormData from "@/form/getFormatterFormData";
-const AboutPage = ({ arabic, data }) => {
+const AboutPage = ({ arabic, data, managementMembers, boardMembers }) => {
   const breadCrumbs = [];
   breadCrumbs.push({ text: data?.title });
 
@@ -34,7 +34,12 @@ const AboutPage = ({ arabic, data }) => {
         arabic={arabic}
       />
       <OurValues data={data?.values_section} arabic={arabic} />
-      <OurTeam data={data?.our_team_section} arabic={arabic} />
+      <OurTeam
+        data={data?.our_team_section}
+        arabic={arabic}
+        managementMembers={managementMembers}
+        boardMembers={boardMembers}
+      />
       <ExcellenceOperation data={data?.our_operation_section} arabic={arabic} />
       <Contact
         heading={data?.form_section?.title_heading}

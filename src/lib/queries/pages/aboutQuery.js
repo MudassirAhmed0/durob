@@ -97,6 +97,63 @@ export const aboutQuery = () => {
           }
         }
       }
+
+      managementMembers: entries(
+        collection: "management_members"
+        site: $site
+        sort: "order asc"
+      ) {
+        data {
+          title
+          published
+          status
+          slug
+          ... on Entry_ManagementMembers_ManagementMember {
+            title
+            published
+            position
+            picture {
+              src(width: 454, height: 525)
+            }
+            content
+          }
+        }
+        total
+        per_page
+        current_page
+        from
+        to
+        last_page
+        has_more_pages
+      }
+      boardMembers: entries(
+        collection: "board_members"
+        site: $site
+        sort: "order asc"
+      ) {
+        data {
+          title
+          published
+          status
+          slug
+          ... on Entry_BoardMembers_BoardMember {
+            title
+            published
+            position
+            picture {
+              src(width: 454, height: 525)
+            }
+            content
+          }
+        }
+        total
+        per_page
+        current_page
+        from
+        to
+        last_page
+        has_more_pages
+      }
       fallbackSEO: globalSet(handle: "global_seo", site: $site) {
         title
         ... on GlobalSet_GlobalSeo {

@@ -48,7 +48,12 @@ const page = async ({ params: { locale, slug } }) => {
       return (
         <Suspense fallback={<Loading />}>
           <Layout arabic={isAr}>
-            <AboutPage arabic={isAr} data={data?.page} />
+            <AboutPage
+              arabic={isAr}
+              data={data?.page}
+              managementMembers={data?.managementMembers?.data}
+              boardMembers={data?.boardMembers?.data}
+            />
           </Layout>
         </Suspense>
       );

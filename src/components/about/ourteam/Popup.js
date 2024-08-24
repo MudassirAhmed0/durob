@@ -32,8 +32,8 @@ const Popup = ({ arabic, activePopup, setActivePopup, popupData }) => {
             <div className="lg:size-[18.5416666667vw] size-[90%] relative">
               <Image
                 fill
-                alt="member"
-                src={popupData.img}
+                alt={popupData?.title}
+                src={popupData?.picture?.src}
                 className="object-cover object-top"
               />
             </div>
@@ -46,20 +46,19 @@ const Popup = ({ arabic, activePopup, setActivePopup, popupData }) => {
           <div className="lg:w-[42.0833333333vw]">
             <div className="flex flex-col lg:mb-[1.04166666667vw] mb-[10px]">
               <span className="lg:text40 mtext24 f600 text-[#002B87] capitalize">
-                {popupData.name}
+                {popupData?.title}
               </span>
               <div className="flex items-center lg:gap-x-[0.36458333333vw] gap-x-[5px] lg:mt-[0.26041666666vw] mt-[5px]">
                 <div className="relative lg:min-w-[0.78125vw] min-w-[12px] lg:size-[0.78125vw] size-[12px]">
                   <Image fill alt="icon" src="/images/icons/member-icon.svg" />
                 </div>
                 <span className="lg:text25 mtext18 text-[#3D81D3]">
-                  {" "}
-                  {popupData.position}
+                  {popupData?.position}
                 </span>
               </div>
             </div>
             <div
-              dangerouslySetInnerHTML={{ __html: popupData.desc }}
+              dangerouslySetInnerHTML={{ __html: popupData.content }}
               className="lg:text28 mtext20"
             ></div>
           </div>
