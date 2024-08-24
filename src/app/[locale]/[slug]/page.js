@@ -12,6 +12,7 @@ import Loading from "../loading";
 import { notFound } from "next/navigation";
 import getMetaData from "@/utils/seo/getMetaData";
 import { locales } from "@/middleware";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export const dynamic = "force-static";
 
@@ -36,6 +37,7 @@ export async function generateMetadata({ params: { locale, slug } }, parent) {
 }
 
 const page = async ({ params: { locale, slug } }) => {
+  unstable_setRequestLocale(locale);
   const isAr = locale == "ar";
 
   const data = await getData(slug, isAr);
