@@ -10,7 +10,11 @@ const Layout = async ({ children, arabic, blackHeader }) => {
   return (
     <>
       <div className={arabic ? "rtl" : "ltr"}>
-        <Header blackHeader={blackHeader} data={mainNavData?.nav?.tree} />
+        <Header
+          blackHeader={blackHeader}
+          data={mainNavData?.nav?.tree}
+          arabic={arabic}
+        />
         <main>{children}</main>
         <Footer
           arabic={arabic}

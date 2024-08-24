@@ -69,7 +69,7 @@ const page = async ({ params: { locale, slug } }) => {
     case "page":
       return (
         <Suspense fallback={<Loading />}>
-          <Layout arabic={isAr}>
+          <Layout arabic={isAr} blackHeader>
             <PrivacyPolicyPage arabic={isAr} data={data?.page} />
           </Layout>
         </Suspense>

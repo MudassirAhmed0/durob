@@ -1,11 +1,14 @@
 "use client";
 import UseAos from "@/hooks/useAos";
+import useLangSwitcher from "@/hooks/useLangSwitcher";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const Header = ({ blackHeader, data }) => {
+const Header = ({ blackHeader, data, arabic }) => {
   UseAos();
+  const { changeLocale } = useLangSwitcher();
+
   const [showDropDown, setShowDropDown] = useState(false);
   const handleDropDown = () => {
     setShowDropDown(!showDropDown);
@@ -60,12 +63,19 @@ const Header = ({ blackHeader, data }) => {
             }}
             className="flex lg:gap-x-[0.41666666666vw] items-center f700 relative z-[2]"
           >
-            <span>English</span>
+            <span className="hidden lg:block">
+              {arabic ? "العربية" : "English"}
+            </span>
+            <span className="lg:hidden">{arabic ? "En" : "العربية"}</span>
             <div className=" hidden lg:block relative lg:w-[1.5625vw] lg:h-[1.04166666667vw]">
               <Image
                 fill
                 alt="logo"
-                src="/images/icons/american-flag.svg"
+                src={
+                  arabic
+                    ? "/images/icons/arabic-flag.svg"
+                    : "/images/icons/american-flag.svg"
+                }
                 className="american-flag"
               />
             </div>
@@ -90,13 +100,20 @@ const Header = ({ blackHeader, data }) => {
                 : "opacity-0 translate-y-[-0.2vw] pointer-events-none"
             } transition-all duration-500 lg:w-[8.28125vw] dropDown absolute top-[100%] lrf2 flex flex-col`}
           >
-            <li className="lg:px-[1.04166666667vw] lg:py-[0.625vw] border15 bg-white text-[#002B87] flex lg:gap-x-[0.41666666666vw] items-center">
-              <span>العربية</span>
+            <li
+              onClick={() => changeLocale(arabic ? "en" : "ar")}
+              className="lg:px-[1.04166666667vw] lg:py-[0.625vw] border15 bg-white text-[#002B87] flex lg:gap-x-[0.41666666666vw] items-center"
+            >
+              <span>{arabic ? "English" : "العربية"}</span>
               <div className="relative lg:w-[1.5625vw] lg:h-[1.04166666667vw]">
                 <Image
                   fill
                   alt="logo"
-                  src="/images/icons/arabic-flag.svg"
+                  src={
+                    arabic
+                      ? "/images/icons/american-flag.svg"
+                      : "/images/icons/arabic-flag.svg"
+                  }
                   className="arabic-flag"
                 />
               </div>
