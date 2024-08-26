@@ -277,6 +277,9 @@ html {
   .mt16 {
     @apply lg:mt-[0.83333333333vw] mt-[10px];
   }
+  .numbers.active {
+    @apply text-[#002B87];
+  }
   .partnersSwiper .swiper-pagination-bullet {
     @apply lg:!size-[0.65104166666vw] !size-[10px] !bg-[#94D4FF] !opacity-[0.5];
   }

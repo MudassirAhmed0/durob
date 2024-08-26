@@ -45,6 +45,7 @@ const AboutPage = ({ arabic, data, managementMembers, boardMembers }) => {
         heading={data?.form_section?.title_heading}
         desc={data?.form_section?.short_description}
         formData={formData}
+        endpoint={data?.form_section?.linked_form?.handle}
       />
     </>
   );

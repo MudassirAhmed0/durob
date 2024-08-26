@@ -15,7 +15,7 @@ import { useFormik } from "formik";
 import {
   contactSchema,
   contactSecondVarientSchema,
-  getValidationSchema,
+  getValidationSchema
 } from "@/form/schemas";
 import CaptchaField from "./CaptchaField";
 import postForm from "@/form/postForm";
@@ -25,37 +25,37 @@ const contactLinks = [
   {
     img: "/images/icons/contact/phone.svg",
     link: "tel:+966 58 168 0000",
-    text: "+966 58 168 0000",
+    text: "+966 58 168 0000"
   },
   {
     img: "/images/icons/contact/mail.svg",
     link: "mailto:Customercare@duroub.com",
-    text: "Customercare@duroub.com",
+    text: "Customercare@duroub.com"
   },
   {
     img: "/images/icons/contact/location.svg",
     link: "https://www.google.com/maps",
     text: "Business park, near to Jamjoom center, Al Hamrah dist. P.O. box: 8960, KSA. Jeddah 21492",
-    taget: true,
-  },
+    taget: true
+  }
 ];
 const socialLinks = [
   {
     img: "/images/icons/social-footer/fb.svg",
-    link: "https://www.facebook.com/",
+    link: "https://www.facebook.com/"
   },
   {
     img: "/images/icons/social-footer/twitter.svg",
-    link: "https://www.twitter.com/",
+    link: "https://www.twitter.com/"
   },
   {
     img: "/images/icons/social-footer/insta.svg",
-    link: "https://www.instagram.com/",
+    link: "https://www.instagram.com/"
   },
   {
     img: "/images/icons/social-footer/linked.svg",
-    link: "https://www.linkedin.com/",
-  },
+    link: "https://www.linkedin.com/"
+  }
 ];
 const Contact = ({
   secondVarient,
@@ -65,6 +65,8 @@ const Contact = ({
   fromContactPage,
   formData,
   endpoint,
+  jobId,
+  jobSlug
 }) => {
   const [additionalFields, setAdditionalFields] = useState(null);
   const [dragActive, setDragActive] = useState(false);
@@ -93,27 +95,33 @@ const Contact = ({
     touched,
     isSubmitting,
     setTouched,
-    validateForm,
+    validateForm
   } = useFormik({
     initialValues: initialValues,
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       console.log("submit", values);
-      const res = await postForm(values, endpoint);
+      let res;
+      if (jobId && jobSlug) {
+        res = await postForm(
+          { ...values, job_id: jobId, job_slug: jobSlug },
+          endpoint
+        );
+      } else {
+        res = await postForm(values, endpoint);
+      }
       if (res?.status == 200) {
-        setSubmitSuccess("Done! Submission Successfull!");
+        setSubmitSuccess("Your Form has been sucessfully submitted.");
         setSubmitError(null);
         resetForm();
         setAdditionalFields({});
-        captchaRef.current?.reset()
+        captchaRef.current?.reset();
       } else {
         setSubmitError("Internal server Error.");
         setSubmitSuccess(null);
-        captchaRef.current?.reset()
+        captchaRef.current?.reset();
       }
-      
-      
-    },
+    }
   });
 
   const validateThenSumbit = async (e) => {
@@ -324,7 +332,7 @@ const Contact = ({
                   setAdditionalFields((prev) => ({ ...prev, [field.id]: val }))
                 }
                 handleDrag={handleDrag}
-                handleDrop={(val) => 
+                handleDrop={(val) =>
                   setAdditionalFields((prev) => ({ ...prev, [field.id]: val }))
                 }
                 touched={touched[field.id]}

@@ -8,7 +8,7 @@ const NewsCard = ({ news, index }) => {
     <Link
       data-aos="fade"
       data-aos-delay={index * 100}
-      href="/single-news-page"
+      href={"/news/" + news?.slug}
       className="group lg:w-[28.0729166667vw] sm:w-[47%] w-full flex flex-col"
     >
       <div className="relative w-full lg:h-[21.5625vw] sm:h-[350px] h-[300px] border15 overflow-hidden">

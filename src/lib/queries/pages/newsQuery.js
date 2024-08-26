@@ -45,7 +45,7 @@ export const newsQuery = () => {
         collection: "posts"
         site: $site
         sort: "date desc"
-        limit: 3
+        limit: 6
       ) {
         data {
           title
@@ -60,7 +60,7 @@ export const newsQuery = () => {
               src(width: 852, height: 759)
             }
             thumbnail: image {
-              src(width: 775, height: 502)
+              src(width: 539, height: 414)
             }
             content
           }

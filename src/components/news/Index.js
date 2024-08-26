@@ -2,7 +2,7 @@ import React from "react";
 import SubPageHero from "../common/subpagehero/SubPageHero";
 import NewsContainer from "./NewsContainer";
 
-const NewsPage = ({ data, allNews }) => {
+const NewsPage = ({ data, allNews, arabic }) => {
   const breadCrumbs = [];
   breadCrumbs?.push({ text: data?.title });
   return (
@@ -15,7 +15,7 @@ const NewsPage = ({ data, allNews }) => {
         bannerSource={data?.hero_banner?.image?.src}
         breadCrumbs={breadCrumbs}
       />
-      <NewsContainer allNews={allNews} />
+      <NewsContainer allNews={allNews} arabic={arabic} />
     </>
   );
 };

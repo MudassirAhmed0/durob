@@ -16,7 +16,7 @@ const JobOpenings = ({ data, arabic }) => {
               data-aos="fade"
               data-aos-delay={index * 100}
               key={index}
-              href={opening?.url}
+              href={"/career/jobs/" + opening?.slug}
               className="group w-full bg-[#94d4ff1a] border10 lg:px-[2.60416666667vw] lg:py-[2.21354166667vw] sm:p-[40px] p-[30px] flex flex-wrap justify-between items-end lg:gap-[3.75vw] sm:gap-[30px] gap-[20px]"
             >
               <div className="w-full lg:w-[80%]">

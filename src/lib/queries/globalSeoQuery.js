@@ -6,7 +6,6 @@ export const globalSeoQuery = () => {
       fallbackSEO: globalSet(handle: "global_seo", site: $site) {
         title
         ... on GlobalSet_GlobalSeo {
-          global_website_title
           seo_title
           seo_image {
             src(width: 1200, height: 628)

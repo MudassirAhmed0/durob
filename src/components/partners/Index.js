@@ -27,6 +27,7 @@ const PartnersPage = ({ data, arabic }) => {
         heading={data?.contact_us_section?.title_heading}
         desc={data?.contact_us_section?.description}
         formData={formData}
+        endpoint={data?.contact_us_section?.linked_form?.handle}
       />
     </>
   );

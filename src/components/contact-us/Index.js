@@ -22,6 +22,7 @@ const ContactUsPage = ({ data, arabic }) => {
         heading={data?.form_section?.title_heading}
         desc="Reach out for inquiries and support. We offer specialized logistics services to meet your unique needs"
         fromContactPage
+        endpoint={data?.form_section?.linked_form?.handle}
         formData={formData}
       />
     </>

@@ -1,3 +1,4 @@
+import { checkIfExist } from "@/utils/checkIfExist";
 import Image from "next/image";
 import React from "react";
 
@@ -58,7 +59,9 @@ const Popup = ({ arabic, activePopup, setActivePopup, popupData }) => {
               </div>
             </div>
             <div
-              dangerouslySetInnerHTML={{ __html: popupData.content }}
+              dangerouslySetInnerHTML={{
+                __html: checkIfExist(popupData?.content)
+              }}
               className="lg:text28 mtext20"
             ></div>
           </div>

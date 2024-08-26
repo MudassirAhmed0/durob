@@ -11,7 +11,7 @@ const breifs = [
  <li>Nunc quis viverra adipiscing dolor elementum nibh ut purus.</li>
  <li>Ut id vitae egestas enim lorem cras justo.</li>
  <li>Ornare eu sed ipsum nibh adipiscing.</li>
-<li>Viverra posuere sit eget pellentesque scelerisque lectus integer felis vel.</li> `,
+<li>Viverra posuere sit eget pellentesque scelerisque lectus integer felis vel.</li> `
   },
   {
     heading: "Requirements",
@@ -23,15 +23,15 @@ const breifs = [
  <li>Nunc quis viverra adipiscing dolor elementum nibh ut purus.</li>
  <li>Ut id vitae egestas enim lorem cras justo.</li>
  <li>Ornare eu sed ipsum nibh adipiscing.</li>
-<li>Viverra posuere sit eget pellentesque scelerisque lectus integer felis vel.</li> `,
-  },
+<li>Viverra posuere sit eget pellentesque scelerisque lectus integer felis vel.</li> `
+  }
 ];
-const Breifs = () => {
+const Breifs = ({ resposiblity, requirement }) => {
   return (
     <div className="flex flex-wrap lg:gap-[1.5625vw] gap-[20px] justify-between">
-      {breifs.map((breif, index) => (
-        <Breif key={index} breif={breif} index={index} />
-      ))}
+      <Breif points={resposiblity} heading={"Responsibilities"} />
+
+      <Breif points={requirement} heading={"Requirements"} />
     </div>
   );
 };

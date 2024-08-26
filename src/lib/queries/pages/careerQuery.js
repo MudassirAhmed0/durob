@@ -33,7 +33,7 @@ export const careerQuery = () => {
             image: picture {
               src(width: 538, height: 750)
             }
-          }    
+          }
           jobs_section {
             title_heading
             jobs {
@@ -41,6 +41,7 @@ export const careerQuery = () => {
                 title
                 city
                 job_br
+                slug
                 responsibility {
                   points
                 }

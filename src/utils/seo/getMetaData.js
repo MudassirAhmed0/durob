@@ -12,10 +12,13 @@ const getMetaData = async ({ slug, isAr, fetchedData }) => {
   const globalSeo = await getGlobalSeoData(isAr);
   const pageSeo = data?.page?.seo_group;
   const fallbackSeo = globalSeo?.fallbackSEO;
-  const mainTitle = fallbackSeo?.global_website_title;
+  // const mainTitle = fallbackSeo?.global_website_title;
+  const pageTitle = data?.page?.title;
   // console.log(data);
   const title = pageSeo?.seo_title
     ? pageSeo?.seo_title
+    : pageTitle
+    ? pageTitle + " | " + fallbackSeo?.seo_title
     : fallbackSeo?.seo_title;
   const description = pageSeo?.seo_description
     ? pageSeo?.seo_description
@@ -27,18 +30,18 @@ const getMetaData = async ({ slug, isAr, fetchedData }) => {
     ? pageSeo?.seo_image?.src
     : fallbackSeo?.seo_image?.src;
   return {
-    title: mainTitle + " | " + title,
+    title: title,
     description: description,
     keywords: keywords,
     openGraph: {
-      title: mainTitle + " | " + title,
+      title: title,
       description: description,
       images: [image],
       width: 1200,
       height: 628
     },
     twitter: {
-      title: mainTitle + " | " + title,
+      title: title,
       description: description,
       images: [image],
       width: 1200,

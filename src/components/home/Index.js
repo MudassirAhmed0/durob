@@ -27,6 +27,7 @@ const HomePage = ({ data, recentNews, arabic }) => {
         heading={data?.contact_us_form_section?.title_heading}
         desc={data?.contact_us_form_section?.description}
         formData={formData}
+        endpoint={data?.contact_us_form_section?.linked_form?.handle}
       />
     </>
   );
