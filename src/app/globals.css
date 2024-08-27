@@ -268,6 +268,9 @@ html {
   footer nav ul li a {
     @apply block relative before:absolute before:lrf1 before:lg:bottom-[-0.36458333333vw] before:bottom-[-7px] before:content-[''] before:lg:h-[0.10416666666vw] before:hover:lg:w-[1.97916666667vw] before:lg:w-0 before:w-full before:h-[2px] before:bg-[#94D4FF] before:transition-all before:duration-500 hover:text-[#94D4FF] transition-all duration-500;
   }
+  header nav ul li.active a {
+    @apply before:lg:w-[1.97916666667vw] text-[#94D4FF];
+  }
   footer nav ul li a {
     @apply before:w-0;
   }

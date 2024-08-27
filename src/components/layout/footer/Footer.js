@@ -64,7 +64,7 @@ const Footer = ({ arabic, navigation, data }) => {
       />
       <div className="lg:py-[4.47916666667vw] sm:py-[60px] py-[40px] flex flex-wrap lg:gap-[4.6875vw] gap-[40px] items-end container1680 relative z-[2]">
         <Link
-          href="#"
+          href={arabic ? "/ar" : "/en"}
           className="relative z-[2] lg:w-[19.21875vw] lg:h-[6.19791666667vw] block sm:w-[250px] sm:h-[80px] w-[170px] h-[55px]"
         >
           <Image fill alt="logo" src={data?.website_logos?.dark?.src} />

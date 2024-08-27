@@ -3,15 +3,19 @@ import UseAos from "@/hooks/useAos";
 import useLangSwitcher from "@/hooks/useLangSwitcher";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import { usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 const Header = ({ blackHeader, data, arabic }) => {
   UseAos();
   const { changeLocale } = useLangSwitcher();
+  const [myPathName, setMyPathName] = useState("");
 
   const [showDropDown, setShowDropDown] = useState(false);
   const handleDropDown = () => {
-    setShowDropDown(!showDropDown);
+    if (window.innerWidth > 1024) {
+      setShowDropDown(!showDropDown);
+    }
   };
   function toggleSidebar() {
     const body = document.querySelector("body");
@@ -21,6 +25,10 @@ const Header = ({ blackHeader, data, arabic }) => {
     sideBar.classList.toggle("active");
     menu.classList.toggle("active");
   }
+  const pathname = usePathname();
+  useEffect(() => {
+    setMyPathName(pathname);
+  }, []);
   return (
     <header
       className={`${
@@ -28,7 +36,7 @@ const Header = ({ blackHeader, data, arabic }) => {
       } absolute w-full top-0 z-[9] lg:px-[6.25vw] lg:pt-[3.02083333333vw] p-[20px] flex items-center lg:gap-x-[9.375vw] justify-between`}
     >
       <Link
-        href="/"
+        href={arabic ? "/ar" : "/en"}
         className="relative z-[2] lg:w-[18.6979166667vw] lg:h-[5.98958333333vw] block sm:w-[230px] sm:h-[75px] w-[150px] h-[50px]"
       >
         <Image
@@ -46,13 +54,21 @@ const Header = ({ blackHeader, data, arabic }) => {
       </Link>
       <nav className="text-[#FFFFFF]">
         <ul className="sideBar px-[20px] lg:px-[unset] absolute top-0 lrf1 lg:static h-[100vh] lg:h-[unset] w-full lg:w-[unset] lg:text28 mtext20 capitalize flex flex-col lg:flex-row gap-y-[30px] lg:gap-x-[1.66666666667vw] place-content-center lg:items-center">
-          {data?.map(({ page }, index) => (
-            <li key={index} onClick={toggleSidebar}>
-              <Link className="whitespace-nowrap" href={`${page.url}`}>
-                {page.title}
-              </Link>
-            </li>
-          ))}
+          {data?.map(({ page }, index) => {
+            const urlCondition = page.url == myPathName;
+            console.log(urlCondition, page.title);
+            return (
+              <li
+                key={index}
+                onClick={toggleSidebar}
+                className={urlCondition ? "active" : ""}
+              >
+                <Link className="whitespace-nowrap" href={`${page.url}`}>
+                  {page.title}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
       <div className="flex gap-x-[20px] items-center ltr:ml-[1.97916666667vw] rtl:mr-[1.97916666667vw]">
@@ -66,7 +82,12 @@ const Header = ({ blackHeader, data, arabic }) => {
             <span className="hidden lg:block">
               {arabic ? "العربية" : "English"}
             </span>
-            <span className="lg:hidden">{arabic ? "En" : "العربية"}</span>
+            <span
+              onClick={() => changeLocale(arabic ? "en" : "ar")}
+              className="lg:hidden"
+            >
+              {arabic ? "En" : "العربية"}
+            </span>
             <div className=" hidden lg:block relative lg:w-[1.5625vw] lg:h-[1.04166666667vw]">
               <Image
                 fill
