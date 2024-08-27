@@ -1,3 +1,4 @@
+import { checkIfExist } from "@/utils/checkIfExist";
 import React from "react";
 
 const Content = ({ data }) => {
@@ -11,7 +12,7 @@ const Content = ({ data }) => {
       </h2>
       <div
         data-aos="fade-down"
-        dangerouslySetInnerHTML={{ __html: data }}
+        dangerouslySetInnerHTML={{ __html: checkIfExist(data) }}
         className="lg:text22 mtext16 mt16 text-[#3B3B3B] text-opacity-[0.9]"
       ></div>
     </div>

@@ -32,7 +32,7 @@ const JobOpenings = ({ data, arabic }) => {
                   {opening?.title}
                 </span>
               </div>
-              <LinkBtnV2 text={"Apply Now"} tag={"button"} />
+              <LinkBtnV2 text={"Apply Now"} tag={"button"} arabic={arabic} />
             </Link>
           ))}
           {/* <button

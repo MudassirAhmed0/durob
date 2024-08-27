@@ -10,8 +10,8 @@ const Breif = ({ points, heading }) => {
         {heading}
       </span>
       <ul className="text-[#3B3B3B] text-opacity-[0.9] lg:text22 mtext16 defaultList mt16">
-        {points?.map(({ point }) => (
-          <li>{point}</li>
+        {points?.map(({ point }, index) => (
+          <li key={index}>{point}</li>
         ))}
       </ul>
     </div>

@@ -48,12 +48,13 @@ const NewsContainer = ({ allNews, arabic }) => {
     <section ref={containerRef}>
       <div className="container1680 py180 flex justify-center flex-wrap items-stretch lg:gap-y-[3.75vw] lg:gap-x-[1.5625vw]  gap-[20px]">
         {news?.map((news, index) => (
-          <NewsCard key={index} index={index} news={news} />
+          <NewsCard key={index} index={index} news={news} arabic={arabic} />
         ))}
         <Pagination
           currentPage={currentPageNumber}
           setCurrentPageNumber={setCurrentPageNumber}
           lastPage={allNews?.last_page}
+          arabic={arabic}
         />
       </div>
     </section>

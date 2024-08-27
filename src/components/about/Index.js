@@ -27,6 +27,7 @@ const AboutPage = ({ arabic, data, managementMembers, boardMembers }) => {
         breadCrumbs={breadCrumbs}
         chairmanImage={data?.hero_banner?.ceo_picture?.src}
         fromAbout
+        arabic={arabic}
       />
       <VissionMission
         vision={data?.vision}
@@ -46,6 +47,7 @@ const AboutPage = ({ arabic, data, managementMembers, boardMembers }) => {
         desc={data?.form_section?.short_description}
         formData={formData}
         endpoint={data?.form_section?.linked_form?.handle}
+        arabic={arabic}
       />
     </>
   );

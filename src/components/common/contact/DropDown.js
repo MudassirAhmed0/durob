@@ -5,7 +5,7 @@ const DropDown = ({
   dropDown,
   handleDropDown,
   setDropDownValue,
-  fromPhoneField,
+  fromPhoneField
 }) => {
   return (
     <ul
@@ -15,15 +15,15 @@ const DropDown = ({
           : "lg:p-[1.5625vw] p-[20px]"
       }`}
     >
-      {dropDown.map((item) => (
+      {Object.keys(dropDown)?.map((key, index) => (
         <li
-          key={item}
+          key={index}
           onClick={() => {
             handleDropDown();
-            setDropDownValue(item);
+            setDropDownValue(dropDown[key]?.value);
           }}
         >
-          <span className="block">{item}</span>
+          <span className="block">{dropDown[key]?.placeholder}</span>
         </li>
       ))}
     </ul>

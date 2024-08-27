@@ -20,13 +20,15 @@ const ServicesPage = ({ data, arabic }) => {
         bannerSource={data?.hero_banner?.image?.src}
         breadCrumbs={breadCrumbs}
         video={data?.hero_banner?.image ? false : true}
+        arabic={arabic}
       />
-      <AllServices data={data?.services_section} />
+      <AllServices data={data?.services_section} arabic={arabic} />
       <Contact
         heading={data?.form_section?.title_heading}
         desc={data?.form_section?.short_description}
         formData={formData}
         endpoint={data?.form_section?.linked_form?.handle}
+        arabic={arabic}
       />
     </>
   );

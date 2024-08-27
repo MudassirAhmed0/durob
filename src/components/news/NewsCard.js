@@ -3,7 +3,7 @@ import ImageComponent from "../common/ImageComponent";
 import LinkBtnV2 from "../common/LinkBtnV2";
 import Link from "next/link";
 
-const NewsCard = ({ news, index }) => {
+const NewsCard = ({ news, index, arabic }) => {
   return (
     <Link
       data-aos="fade"
@@ -32,7 +32,7 @@ const NewsCard = ({ news, index }) => {
             className="lg:text22 mtext16 text-[#0F0D0F] text-opacity-[0.9] line-clamp-2 lg:leading-[1.66666666667vw]"
           ></div>
         </div>
-        <LinkBtnV2 text={"read more"} tag={"button"} />
+        <LinkBtnV2 text={"read more"} tag={"button"} arabic={arabic} />
       </div>
     </Link>
   );

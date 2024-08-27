@@ -15,6 +15,7 @@ const SingleCareerPage = ({ data, arabic, form }) => {
         breadCrumbs={breadCrumbs}
         tagImg={"/images/icons/careers.svg"}
         tagText={data?.city}
+        arabic={arabic}
       />
       <section>
         <div className="container1680 py180 pt-[unset] flex flex-wrap lg:gap-[3.75vw] sm:gap-[50px] gap-[40px] justify-between">
@@ -33,6 +34,7 @@ const SingleCareerPage = ({ data, arabic, form }) => {
         secondVarient
         jobId={data?.id}
         jobSlug={data?.slug}
+        arabic={arabic}
       />
     </>
   );

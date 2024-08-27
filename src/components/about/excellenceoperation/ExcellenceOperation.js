@@ -24,14 +24,14 @@ const ExcellenceOperation = ({ data }) => {
           />
           <div
             data-aos="fade"
-            className="lg:w-[44.84375vw] w-full lg:pt-[12.7083333333vw] flex justify-center lg:justify-end flex-wrap lg:gap-[1.35416666667vw] gap-[20px]"
+            className="lg:w-[44.84375vw] w-full lg:pt- [12.7083333333vw] flex justify-center lg:justify-end flex-wrap lg:gap-[1.35416666667vw] gap-[20px]"
           >
             {partnerLogos?.map((partnerLogo, index) => {
               if (index + 1 != partnerLogo?.length) {
                 return (
                   <div
                     key={index}
-                    className="relative overflow-hidden border20 bg-[#4964BF66]  lg:size-[10.2083333333vw] sm:size-[120px] size-[90px]"
+                    className="relative p-[16px] lg:p-[1vw] overflow-hidden border20 bg-[#4964BF66]  lg:size-[10.2083333333vw] sm:size-[120px] size-[90px]"
                   >
                     {partnerLogo?.src && (
                       <Image
@@ -46,7 +46,7 @@ const ExcellenceOperation = ({ data }) => {
               }
             })}
             {partnerLogos?.length > 0 && (
-              <div className="relative overflow-hidden border20 bg-[#4964BF66]  lg:w-[20.8854166667vw] sm:w-[320px] w-[260px] lg:h-[10.2083333333vw] sm:h-[120px] h-[90px]">
+              <div className="relative  p-[16px] lg:p-[1vw]  overflow-hidden border20 bg-[#4964BF66]  lg:w-[20.8854166667vw] sm:w-[320px] w-[260px] lg:h-[10.2083333333vw] sm:h-[120px] h-[90px]">
                 {partnerLogos[partnerLogos?.length - 1].src && (
                   <Image
                     fill

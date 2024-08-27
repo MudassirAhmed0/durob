@@ -2,8 +2,15 @@ import React from "react";
 
 const SubmitBtn = ({ arabic, disabled }) => {
   return (
-    <button type="submit" disabled={disabled} className="mt-4 lg:px-[1.5625vw] sm:px-[20px] px-[10px] flex items-center lg:gap-x-[0.52083333333vw] gap-x-[6px] group submit_Btn">
-      <span className="lg:text30 mtext20 f600 capitalize"> Send</span>
+    <button
+      type="submit"
+      disabled={disabled}
+      className="mt-4 lg:px-[1.5625vw] sm:px-[20px] px-[10px] flex items-center lg:gap-x-[0.52083333333vw] gap-x-[6px] group submit_Btn"
+    >
+      <span className="lg:text30 mtext20 f600 capitalize">
+        {" "}
+        {arabic ? "ارسل" : "Send"}
+      </span>
       <div
         className={`${
           arabic

@@ -14,6 +14,7 @@ const NewsPage = ({ data, allNews, arabic }) => {
         }
         bannerSource={data?.hero_banner?.image?.src}
         breadCrumbs={breadCrumbs}
+        arabic={arabic}
       />
       <NewsContainer allNews={allNews} arabic={arabic} />
     </>

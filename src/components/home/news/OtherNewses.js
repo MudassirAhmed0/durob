@@ -4,22 +4,22 @@ import { checkIfExist } from "@/utils/checkIfExist";
 const newses = [
   {
     date: "09 May 2023",
-    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ...",
+    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ..."
   },
   {
     date: "09 May 2023",
-    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ...",
+    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ..."
   },
   {
     date: "09 May 2023",
-    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ...",
+    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ..."
   },
   {
     date: "09 May 2023",
-    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ...",
-  },
+    desc: "Lorem ipsum dolor sit amet consectetur lacus auctor amet varius in ..."
+  }
 ];
-const OtherNewses = ({ recentNews }) => {
+const OtherNewses = ({ recentNews, arabic }) => {
   return (
     <div className="flex flex-col lg:w-[44.4270833333vw] w-full lg:gap-y-[1.25vw] gap-y-[15px]">
       {recentNews.map((news, index) => {
@@ -37,12 +37,16 @@ const OtherNewses = ({ recentNews }) => {
                 </span>
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: checkIfExist(news?.content),
+                    __html: checkIfExist(news?.content)
                   }}
                   className="lg:text22 mtext18 line-clamp-2"
                 ></div>
               </div>
-              <LinkBtnV2 text={"read more"} link={"/news/" + news?.slug} />
+              <LinkBtnV2
+                text={"read more"}
+                link={"/news/" + news?.slug}
+                arabic={arabic}
+              />
             </div>
           );
         }

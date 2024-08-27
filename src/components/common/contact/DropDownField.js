@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import DropDown from "./DropDown";
 import clsx from "clsx";
 
-const dropDown = ["General Inquiry", "Complaint", "Business Request"];
+// const dropDown = ["General Inquiry", "Complaint", "Business Request"];
 
 const DropDownField = ({
   handleChange,
@@ -15,6 +15,7 @@ const DropDownField = ({
   value,
   setValue,
   secondVarient,
+  options
 }) => {
   const [showDropDown, setShowDropDown] = useState(false);
 
@@ -72,7 +73,7 @@ const DropDownField = ({
       )}
       <DropDown
         showDropDown={showDropDown}
-        dropDown={dropDown}
+        dropDown={options}
         handleDropDown={handleDropDown}
         setDropDownValue={setValue}
       />

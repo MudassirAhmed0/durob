@@ -1,7 +1,12 @@
 import React from "react";
 import Card from "./Card";
 
-const CardsWrapper = ({ membersData, setActivePopup, setPopupData }) => {
+const CardsWrapper = ({
+  membersData,
+  setActivePopup,
+  setPopupData,
+  arabic
+}) => {
   return (
     <div className="lg:mt-[5.20833333333vw] sm:mt-[60px] mt-[40px] flex flex-wrap lg:gap-x-[1.5625vw] gap-[20px]">
       {membersData.map((member, index) => (
@@ -11,6 +16,7 @@ const CardsWrapper = ({ membersData, setActivePopup, setPopupData }) => {
           setPopupData={setPopupData}
           member={member}
           index={index}
+          arabic={arabic}
         />
       ))}
     </div>

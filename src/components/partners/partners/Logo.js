@@ -11,8 +11,8 @@ const Logo = ({ partnersLogo, index }) => {
       {partnersLogo?.src && (
         <Image
           fill
-          alt="partner-log"
-          className="object-contain lg:!size-[unset] !size-[70%] translate-y-[-50%] !top-[50%] translate-x-[-50%] !left-[50%]"
+          alt="partner-logo"
+          className="object-contain "
           src={partnersLogo?.src}
         />
       )}

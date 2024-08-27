@@ -19,15 +19,17 @@ const CareersPage = ({ data, arabic }) => {
         adjustContent={"lg:pb-[18.7037037037vh]"}
         bannerSource={data?.hero_banner?.image?.src}
         breadCrumbs={breadCrumbs}
+        arabic={arabic}
       />
-      <Testimonial data={data?.testimony_section} />
-      <JobOpenings data={data?.jobs_section} />
+      <Testimonial data={data?.testimony_section} arabic={arabic} />
+      <JobOpenings data={data?.jobs_section} arabic={arabic} />
       <Contact
         heading={data?.formlink_section?.title_heading}
         desc={data?.formlink_section?.desc}
         secondVarient
         formData={formData}
         endpoint={data?.formlink_section?.linked_form.handle}
+        arabic={arabic}
       />
     </>
   );

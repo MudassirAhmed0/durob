@@ -17,6 +17,7 @@ const ContactUsPage = ({ data, arabic }) => {
         adjustContent={"lg:pb-[3.90625vw] lg:!h-[36.3020833333vw] !h-[70vh]"}
         bannerSource={data?.hero_banner?.image?.src}
         breadCrumbs={breadCrumbs}
+        arabic={arabic}
       />
       <Contact
         heading={data?.form_section?.title_heading}
@@ -24,6 +25,7 @@ const ContactUsPage = ({ data, arabic }) => {
         fromContactPage
         endpoint={data?.form_section?.linked_form?.handle}
         formData={formData}
+        arabic={arabic}
       />
     </>
   );

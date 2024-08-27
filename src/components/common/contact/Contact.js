@@ -293,6 +293,7 @@ const Contact = ({
                 error={errors[field.id]}
                 touched={touched[field.id]}
                 secondVarient={secondVarient}
+                options={field?.options}
               />
             ) : field.type === "textarea" ? (
               <TextAreaField
@@ -350,6 +351,8 @@ const Contact = ({
                 touched={touched[field.id]}
                 error={errors[field.id]}
                 secondVarient
+                options={field.options}
+                arabic={arabic}
               />
             ) : (
               <InputField

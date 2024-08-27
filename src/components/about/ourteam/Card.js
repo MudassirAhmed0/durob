@@ -2,7 +2,7 @@ import React from "react";
 import LinkBtnV2 from "@/components/common/LinkBtnV2";
 import Image from "next/image";
 
-const Card = ({ setActivePopup, setPopupData, member, index }) => {
+const Card = ({ setActivePopup, setPopupData, member, index, arabic }) => {
   return (
     <div
       data-aos="fade"
@@ -48,7 +48,7 @@ const Card = ({ setActivePopup, setPopupData, member, index }) => {
             </span>
           </div>
         </div>
-        <LinkBtnV2 text={"read more"} tag={"button"} />
+        <LinkBtnV2 text={"read more"} tag={"button"} arabic={arabic} />
       </div>
     </div>
   );

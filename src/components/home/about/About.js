@@ -4,7 +4,7 @@ import Patterns from "./Patterns";
 import ContentWrapper from "@/components/common/ContentWrapper";
 import LinkBtn from "@/components/common/LinkBtn";
 
-const About = ({ data }) => {
+const About = ({ data, arabic }) => {
   return (
     <section className="relative">
       <Patterns />
@@ -14,7 +14,7 @@ const About = ({ data }) => {
           desc={data?.description}
         />
         <div className="lg:mt-[2.39583333333vw] mt-[20px]" data-aos="fade">
-          <LinkBtn text={data.link_text} link={data?.link} />
+          <LinkBtn text={data.link_text} link={data?.link} arabic={arabic} />
         </div>
 
         <CardsWrapper data={data?.blocks} />

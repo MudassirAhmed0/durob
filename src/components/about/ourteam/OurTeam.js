@@ -39,6 +39,7 @@ const OurTeam = ({ data, arabic, managementMembers, boardMembers }) => {
           membersData={activeCategory == 0 ? boardMembers : managementMembers}
           setActivePopup={setActivePopup}
           setPopupData={setPopupData}
+          arabic={arabic}
         />
       </div>
       <Popup

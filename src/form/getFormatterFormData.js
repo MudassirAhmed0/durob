@@ -13,7 +13,7 @@ const getFormattedFormData = (formData, arabic) => {
   const inputFields = formData?.fields;
   const inputFieldsData = [];
   inputFields?.forEach((field) => {
-    let options = [];
+    let options = {};
     if (field.config.options) {
       const fieldOptions = field.config.options;
       Object.keys(fieldOptions)?.forEach((optionKey) => {

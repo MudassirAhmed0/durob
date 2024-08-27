@@ -4,7 +4,7 @@ import ImageComponent from "@/components/common/ImageComponent";
 import LinkBtnV2 from "@/components/common/LinkBtnV2";
 import { checkIfExist } from "@/utils/checkIfExist";
 
-const MainNews = ({ recentNews }) => {
+const MainNews = ({ recentNews, arabic }) => {
   return (
     <Link
       data-aos="fade"
@@ -28,7 +28,7 @@ const MainNews = ({ recentNews }) => {
         </h4>
         <div
           dangerouslySetInnerHTML={{
-            __html: checkIfExist(recentNews[0].content),
+            __html: checkIfExist(recentNews[0].content)
           }}
           className="lg:text22 mtext16 w-[88.517%] line-clamp-2"
         ></div>
@@ -37,6 +37,7 @@ const MainNews = ({ recentNews }) => {
         text={"read more"}
         tag={"button"}
         link={"/news/" + recentNews[0].slug}
+        arabic={arabic}
       />
     </Link>
   );

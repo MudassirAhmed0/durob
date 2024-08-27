@@ -1,7 +1,12 @@
 import React from "react";
 import Numbers from "./Numbers";
 
-const Pagination = ({ currentPage, lastPage, setCurrentPageNumber }) => {
+const Pagination = ({
+  currentPage,
+  lastPage,
+  setCurrentPageNumber,
+  arabic
+}) => {
   const hanldePageChange = (newPageNumber) => {
     setCurrentPageNumber(newPageNumber);
   };
@@ -26,7 +31,9 @@ const Pagination = ({ currentPage, lastPage, setCurrentPageNumber }) => {
     <div className="pagination w-full lg:mt-[4.16666666667vw] mt56 flex items-center justify-center lg:gap-x-[1.66666666667vw] sm:gap-x-[30px] gap-x-[20px]">
       <svg
         onClick={handlePrev}
-        className={`  active    cursor-pointer transform rotate-[-180deg]  lg:w-[2.5vw] lg:h-[2.5vw] sm:w-[40px] sm:h-[40px] w-[30px] h-[30px] ${
+        className={`  active    cursor-pointer transform  ${
+          arabic ? "" : "rotate-[-180deg]"
+        }  lg:w-[2.5vw] lg:h-[2.5vw] sm:w-[40px] sm:h-[40px] w-[30px] h-[30px] ${
           currentPage == 1 ? "pointer-events-none opacity-[0.5]" : ""
         }`}
         xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +95,9 @@ const Pagination = ({ currentPage, lastPage, setCurrentPageNumber }) => {
       )}
       <svg
         onClick={handleNext}
-        className={`active cursor-pointer   transform rotate-[-180deg] lg:w-[2.5vw] lg:h-[2.5vw] sm:w-[40px] sm:h-[40px] w-[30px] h-[30px] ${
+        className={`active cursor-pointer   transform ${
+          arabic ? "" : "rotate-[-180deg]"
+        } lg:w-[2.5vw] lg:h-[2.5vw] sm:w-[40px] sm:h-[40px] w-[30px] h-[30px] ${
           currentPage === lastPage ? "pointer-events-none opacity-[0.5]" : ""
         }`}
         xmlns="http://www.w3.org/2000/svg"

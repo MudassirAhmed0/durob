@@ -20,14 +20,16 @@ const PartnersPage = ({ data, arabic }) => {
         adjustContent={"lg:pb-[8.125vw]"}
         bannerSource={data?.hero_banner?.image?.src}
         breadCrumbs={breadCrumbs}
+        arabic={arabic}
       />
-      <WhyDuroub data={data?.why_section} />
-      <Partners data={data?.partners_section} />
+      <WhyDuroub data={data?.why_section} arabic={arabic} />
+      <Partners data={data?.partners_section} arabic={arabic} />
       <Contact
         heading={data?.contact_us_section?.title_heading}
         desc={data?.contact_us_section?.description}
         formData={formData}
         endpoint={data?.contact_us_section?.linked_form?.handle}
+        arabic={arabic}
       />
     </>
   );
