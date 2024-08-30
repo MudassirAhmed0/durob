@@ -16,6 +16,13 @@ const Card = ({ aboutCard, index }) => {
         src={aboutCard.image.src}
         className="object-cover z-[-1]"
       />
+      <span
+        className="atwh_Full lrf1"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(33, 33, 33, 0.00) 38.5%, rgba(33, 33, 33, 0.80) 84.5%)"
+        }}
+      ></span>
       <div className="relative z-[2] flex flex-col w-[91%]">
         <span className="text50 text-[#94D4FF]">{aboutCard?.title}</span>
         <div

@@ -4,7 +4,7 @@ import React from "react";
 
 const ExcellenceOperation = ({ data }) => {
   const partnerLogos = data?.images;
-
+  console.log(partnerLogos);
   return (
     <section>
       <div className="w-full bg-[#0B44AA] relative flex items-end lg:pt-[7.60416666667vw] lg:pb-[14.1666666667vw] py180">
@@ -27,7 +27,7 @@ const ExcellenceOperation = ({ data }) => {
             className="lg:w-[44.84375vw] w-full lg:pt- [12.7083333333vw] flex justify-center lg:justify-end flex-wrap lg:gap-[1.35416666667vw] gap-[20px]"
           >
             {partnerLogos?.map((partnerLogo, index) => {
-              if (index + 1 != partnerLogo?.length) {
+              if (index + 1 != partnerLogos?.length) {
                 return (
                   <div
                     key={index}
@@ -46,7 +46,7 @@ const ExcellenceOperation = ({ data }) => {
               }
             })}
             {partnerLogos?.length > 0 && (
-              <div className="relative  p-[16px] lg:p-[1vw]  overflow-hidden border20 bg-[#4964BF66]  lg:w-[20.8854166667vw] sm:w-[320px] w-[260px] lg:h-[10.2083333333vw] sm:h-[120px] h-[90px]">
+              <div className="relative  p-[16px] lg:p-[1vw]  overflow-hidden border20 bg-[#4964BF66]  lg:w-[21.8854166667vw] sm:w-[320px] w-[260px] lg:h-[10.2083333333vw] sm:h-[120px] h-[90px]">
                 {partnerLogos[partnerLogos?.length - 1].src && (
                   <Image
                     fill

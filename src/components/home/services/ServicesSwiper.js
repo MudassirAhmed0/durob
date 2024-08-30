@@ -3,9 +3,22 @@ import ImageComponent from "@/components/common/ImageComponent";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import slugify from "slugify";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+function replaceLastSlashWithHash(url) {
+  // Find the index of the last slash
+  let lastSlashIndex = url.lastIndexOf("/");
+
+  // If a slash is found, replace it with a hash
+  if (lastSlashIndex !== -1) {
+    url =
+      url.substring(0, lastSlashIndex) +
+      "#" +
+      url.substring(lastSlashIndex + 1);
+  }
+
+  return url;
+}
 const ServicesSwiper = ({ arabic, cards }) => {
   const [swiperGap, setSwiperGap] = useState(0);
   useEffect(() => {
@@ -14,7 +27,7 @@ const ServicesSwiper = ({ arabic, cards }) => {
     );
   }, []);
 
-  const servicesCards = cards ?? dummyCards;
+  const servicesCards = cards;
 
   return (
     <div
@@ -26,17 +39,12 @@ const ServicesSwiper = ({ arabic, cards }) => {
         className="w-full"
         slidesPerView={"auto"}
       >
-        {servicesCards.map((servicesCard, index) => (
+        {servicesCards?.map((servicesCard, index) => (
           <SwiperSlide
             key={index}
             className="group cursor-pointer lg:w-[26.9791666667vw] lg:h-[25.9895833333vw] sm:w-[55.5%] w-[90%] h-[300px] border20 relative overflow-hidden"
           >
-            <Link
-              href={
-                "/services#" +
-                slugify(servicesCard.title_heading, { lower: true })
-              }
-            >
+            <Link href={replaceLastSlashWithHash(servicesCard?.url)}>
               <div
                 className={`${
                   arabic

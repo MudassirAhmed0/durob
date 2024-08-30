@@ -3,10 +3,10 @@ import ContentWrapper from "@/components/common/ContentWrapper";
 import React from "react";
 import PartnersSwiper from "./PartnersSwiper";
 
-const Partners = ({ data }) => {
+const Partners = ({ data, paddingTop }) => {
   return (
     <div>
-      <div className="container1680">
+      <div className={`container1680 ${paddingTop ? "pt180" : ""}`}>
         <ContentWrapper
           heading={data?.title_heading}
           desc={data?.description}

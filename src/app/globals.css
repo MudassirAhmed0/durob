@@ -193,6 +193,14 @@ html {
   form .inputField textarea {
     @apply border-[#002B8780];
   }
+  form input,
+  form textarea {
+    @apply !text-[#002b87];
+  }
+  form.v2 input,
+  form.v2 textarea {
+    @apply !text-[#94d4ff];
+  }
   form.v2 .inputField label,
   form.v2 .inputField textarea {
     @apply border-[#DFDFDF];
@@ -225,7 +233,8 @@ html {
     @apply fill-[#94D4FF];
   }
   .genderInputField .InputField label input[type="radio"]:checked {
-    background-color: hsl(172, 67%, 45%);
+    /* background-color: hsl(172, 67%, 45%); */
+    background-color: #002b87;
   }
   form .phoneField .css-13cymwt-control,
   form .phoneField .css-t3ipsp-control {
@@ -276,6 +285,9 @@ html {
   }
   .py180 {
     @apply lg:py-[9.375vw] sm:py-[120px] py-[80px];
+  }
+  .pt180 {
+    @apply lg:pt-[9.375vw] sm:pt-[120px] pt-[80px];
   }
   .mt16 {
     @apply lg:mt-[0.83333333333vw] mt-[10px];

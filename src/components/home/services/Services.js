@@ -3,7 +3,7 @@ import LinkBtn from "@/components/common/LinkBtn";
 import React from "react";
 import ServicesSwiper from "./ServicesSwiper";
 
-const Services = ({ data, arabic }) => {
+const Services = ({ data, arabic, serviceItems }) => {
   return (
     <section className="relative z-[2]">
       <div className="container1680 flex flex-wrap justify-between items-end">
@@ -18,7 +18,7 @@ const Services = ({ data, arabic }) => {
           <LinkBtn link={data?.link} text={data?.link_text} arabic={arabic} />
         </div>
       </div>
-      <ServicesSwiper arabic={arabic} cards={data?.service_slider} />
+      <ServicesSwiper arabic={arabic} cards={serviceItems} />
     </section>
   );
 };

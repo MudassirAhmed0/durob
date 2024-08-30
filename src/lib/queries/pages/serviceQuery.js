@@ -27,27 +27,21 @@ export const serviceQuery = () => {
               src(width: 1920, height: 1080)
             }
           }
-          services_section {
-            services: s {
-              title
-              description
-              image {
-                src(width: 767, height: 767)
-              }
-              features {
-                icon {
-                  src: url
-                }
-                caption
-                caption_details
-              }
-            }
-          }
+
           form_section {
             title_heading
             short_description
             linked_form {
               handle
+              title
+              honeypot
+              fields {
+                display
+                type
+                handle
+                width
+                config
+              }
             }
           }
           seo_group {
@@ -57,6 +51,42 @@ export const serviceQuery = () => {
             seo_title
             seo_description
             seo_keywords
+          }
+        }
+      }
+      services_items: entries(
+        collection: "services"
+        site: $site
+        sort: "order"
+      ) {
+        data {
+          ... on Entry_Services_Service {
+            slug
+            url
+            title
+            description
+            image {
+              src(width: 1200, height: 628)
+            }
+            features {
+              icon {
+                src: url
+              }
+              caption
+              caption_details
+            }
+          }
+        }
+      }
+      formsFeedback: globalSet(handle: "forms_feedback", site: $site) {
+        ... on GlobalSet_FormsFeedback {
+          contact_us_form {
+            success
+            failure
+          }
+          career_form {
+            success
+            failure
           }
         }
       }

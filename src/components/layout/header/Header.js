@@ -56,23 +56,24 @@ const Header = ({ blackHeader, data, arabic }) => {
         <ul className="sideBar px-[20px] lg:px-[unset] absolute top-0 lrf1 lg:static h-[100vh] lg:h-[unset] w-full lg:w-[unset] lg:text28 mtext20 capitalize flex flex-col lg:flex-row gap-y-[30px] lg:gap-x-[1.66666666667vw] place-content-center lg:items-center">
           {data?.map(({ page }, index) => {
             const urlCondition = page.url == myPathName;
-            console.log(urlCondition, page.title);
-            return (
-              <li
-                key={index}
-                onClick={toggleSidebar}
-                className={urlCondition ? "active" : ""}
-              >
-                <Link className="whitespace-nowrap" href={`${page.url}`}>
-                  {page.title}
-                </Link>
-              </li>
-            );
+            if (page.published) {
+              return (
+                <li
+                  key={index}
+                  onClick={toggleSidebar}
+                  className={urlCondition ? "active" : ""}
+                >
+                  <Link className="whitespace-nowrap" href={`${page.url}`}>
+                    {page.title}
+                  </Link>
+                </li>
+              );
+            }
           })}
         </ul>
       </nav>
-      <div className="flex gap-x-[20px] items-center ltr:ml-[1.97916666667vw] rtl:mr-[1.97916666667vw]">
-        <button className="langSwitcher text-[#FFF] lg:text18 mtext14 capitalize relative">
+      <div className=" flex gap-x-[20px] items-center ltr:ml-[1.97916666667vw] rtl:mr-[1.97916666667vw]">
+        <button className="langSwitcher text-[#FFF] lg:text18 mtext14 capitalize relative opacity-0 pointer-events-none">
           <div
             onClick={() => {
               handleDropDown();

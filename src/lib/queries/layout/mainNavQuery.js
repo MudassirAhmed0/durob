@@ -21,6 +21,30 @@ export const mainNavQuery = () => {
             }
           }
           page {
+            ... on NavEntryPage_TopNavigation_Pages_Home {
+              published
+            }
+            ... on NavEntryPage_TopNavigation_Pages_News {
+              published
+            }
+            ... on NavEntryPage_TopNavigation_Pages_Aboutus {
+              published
+            }
+            ... on NavEntryPage_TopNavigation_Pages_Career {
+              published
+            }
+            ... on NavEntryPage_TopNavigation_Pages_Partners {
+              published
+            }
+            ... on NavEntryPage_TopNavigation_Pages_Contactus {
+              published
+            }
+            ... on NavEntryPage_TopNavigation_Pages_Page {
+              published
+            }
+            ... on NavEntryPage_TopNavigation_Pages_Service {
+              published
+            }
             id
             title
             url

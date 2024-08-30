@@ -209,7 +209,7 @@ const countryCodes = [
   { value: "+994", label: "+994" },
   { value: "+995", label: "+995" },
   { value: "+996", label: "+996" },
-  { value: "+998", label: "+998" },
+  { value: "+998", label: "+998" }
 ];
 const PhoneField = ({
   arabic,
@@ -222,7 +222,7 @@ const PhoneField = ({
 }) => {
   const [dropDownValue, setDropDownValue] = useState({
     value: "+966",
-    label: "+966",
+    label: "+966"
   });
 
   const handleInputChange = (event) => {
@@ -277,7 +277,7 @@ const PhoneField = ({
       {touched && error && (
         <p
           className={clsx(
-            "text-xs mt-1 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
+            "mtext16 lg:text20 mt-1  lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
             secondVarient ? "text-red-400" : "text-red-600"
           )}
         >

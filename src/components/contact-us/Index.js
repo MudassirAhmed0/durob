@@ -3,7 +3,7 @@ import Contact from "../common/contact/Contact";
 import SubPageHero from "../common/subpagehero/SubPageHero";
 import getFormattedFormData from "@/form/getFormatterFormData";
 
-const ContactUsPage = ({ data, arabic }) => {
+const ContactUsPage = ({ data, arabic, formFeedback }) => {
   const breadCrumbs = [];
   breadCrumbs.push({ text: data?.title });
   const formData = getFormattedFormData(
@@ -26,6 +26,7 @@ const ContactUsPage = ({ data, arabic }) => {
         endpoint={data?.form_section?.linked_form?.handle}
         formData={formData}
         arabic={arabic}
+        formFeedback={formFeedback}
       />
     </>
   );

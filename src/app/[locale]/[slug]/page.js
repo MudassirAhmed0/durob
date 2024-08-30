@@ -9,7 +9,7 @@ import ServicesPage from "@/components/services/Index";
 import getData from "@/lib/data-hooks/getData";
 import React, { Suspense } from "react";
 import Loading from "../loading";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import getMetaData from "@/utils/seo/getMetaData";
 import { locales } from "@/middleware";
 import { unstable_setRequestLocale } from "next-intl/server";
@@ -39,7 +39,9 @@ export async function generateMetadata({ params: { locale, slug } }, parent) {
 const page = async ({ params: { locale, slug } }) => {
   unstable_setRequestLocale(locale);
   const isAr = locale == "ar";
-
+  if (isAr) {
+    redirect(`/en`);
+  }
   const data = await getData(slug, isAr);
 
   // await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -61,7 +63,11 @@ const page = async ({ params: { locale, slug } }) => {
       return (
         <Suspense fallback={<Loading />}>
           <Layout arabic={isAr}>
-            <PartnersPage arabic={isAr} data={data?.page} />
+            <PartnersPage
+              arabic={isAr}
+              data={data?.page}
+              formFeedback={data?.formsFeedback?.contact_us_form}
+            />
           </Layout>
         </Suspense>
       );
@@ -77,7 +83,12 @@ const page = async ({ params: { locale, slug } }) => {
       return (
         <Suspense fallback={<Loading />}>
           <Layout arabic={isAr}>
-            <ServicesPage arabic={isAr} data={data?.page} />
+            <ServicesPage
+              arabic={isAr}
+              data={data?.page}
+              servicesItems={data?.services_items}
+              formFeedback={data?.formsFeedback?.contact_us_form}
+            />
           </Layout>
         </Suspense>
       );
@@ -85,7 +96,11 @@ const page = async ({ params: { locale, slug } }) => {
       return (
         <Suspense fallback={<Loading />}>
           <Layout arabic={isAr}>
-            <CareersPage arabic={isAr} data={data?.page} />
+            <CareersPage
+              arabic={isAr}
+              data={data?.page}
+              formFeedback={data?.formsFeedback?.career_form}
+            />
           </Layout>
         </Suspense>
       );
@@ -93,7 +108,11 @@ const page = async ({ params: { locale, slug } }) => {
       return (
         <Suspense fallback={<Loading />}>
           <Layout arabic={isAr}>
-            <ContactUsPage arabic={isAr} data={data?.page} />
+            <ContactUsPage
+              arabic={isAr}
+              data={data?.page}
+              formFeedback={data?.formsFeedback?.contact_us_form}
+            />
           </Layout>
         </Suspense>
       );

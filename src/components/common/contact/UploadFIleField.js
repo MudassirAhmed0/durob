@@ -12,7 +12,7 @@ const UploadFileField = ({
   setDragActive,
   secondVarient,
   handleDrag,
-  handleDrop,
+  handleDrop
 }) => {
   return (
     <>
@@ -20,7 +20,11 @@ const UploadFileField = ({
         htmlFor={id}
         className={clsx(
           "opacity_Hover cursor-pointer flex flex-col border-dashed text-center justify-center items-center lg:gap-y-[0.52083333333vw] gap-y-[10px]  border border20 w-full lg:py-[2.52604166667vw] lg:px-[1.04166666667vw] sm:p-[30px] p-[20px]",
-          dragActive ? "border-white border-2 !text-white" : file ? "border-white" : "border-[#94D4FF] "
+          dragActive
+            ? "border-white border-2 !text-white"
+            : file
+            ? "border-white"
+            : "border-[#94D4FF] "
         )}
         onDragEnter={handleDrag}
         onDragLeave={handleDrag}
@@ -58,7 +62,7 @@ const UploadFileField = ({
       {touched && error && (
         <p
           className={clsx(
-            "text-xs -mt-6 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
+            "mtext16 lg:text20 -mt-6  lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
             secondVarient ? "text-red-400" : "text-red-600"
           )}
         >

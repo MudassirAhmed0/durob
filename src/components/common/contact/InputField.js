@@ -21,7 +21,7 @@ const InputField = ({ secondVarient, touched, error, ...rest }) => {
       {touched && error && (
         <p
           className={clsx(
-            "text-xs mt-1 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
+            " mt-1 mtext16 lg:text20 lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
             secondVarient ? "text-red-400" : "text-red-600"
           )}
         >

@@ -3,6 +3,13 @@ import React, { useState } from "react";
 import BackGrounds from "./BackGrounds";
 import PlayVideo from "./PlayVideo";
 import MyLightBox from "@/components/common/MyLightBox/Index";
+function getYouTubeVideoId(url) {
+  const regex =
+    /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|embed|watch|v=)\/?|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/;
+
+  const match = url.match(regex);
+  return match ? match[1] : null;
+}
 const Hero = ({ data }) => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [showLightBox, setShowLightBox] = useState(false);
@@ -28,8 +35,8 @@ const Hero = ({ data }) => {
   const skipSection = () => {
     window.scroll(0, window.innerHeight);
   };
-  const idStart = String(data?.extra_video).indexOf("v=") + 2;
-  const videoId = data?.extra_video?.slice(idStart, idStart + 11);
+
+  const videoId = getYouTubeVideoId(data?.extra_video);
   return (
     <>
       <section className="h-screen w-full relative flex items-end py180 pt-[unset]">

@@ -8,7 +8,7 @@ const CaptchaField = ({
   handleRecaptchaExpire,
   captchaRef,
   arabic,
-  secondVarient,
+  secondVarient
 }) => {
   return (
     <div className="md:mt-[1vw] md:mb-0 mt-[15px] relative w-full">
@@ -22,7 +22,7 @@ const CaptchaField = ({
       {captchaError && (
         <span
           className={clsx(
-            "text-xs mt-1 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
+            "mtext16 lg:text20 mt-1   lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
             secondVarient ? "text-red-400" : "text-red-600"
           )}
         >

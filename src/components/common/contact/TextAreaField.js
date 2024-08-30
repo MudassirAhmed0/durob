@@ -8,7 +8,7 @@ const TextAreaField = ({ touched, error, ...props }) => {
         {...props}
       ></textarea>
       {touched && error && (
-        <p className="text-xs text-red-600 mt-1 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]">
+        <p className="mtext16 lg:text20 text-red-600 mt-1  lg:px-[1.5625vw] sm:px-[20px] px-[10px]">
           {error}
         </p>
       )}

@@ -28,6 +28,7 @@ export const careerQuery = () => {
             }
           }
           testimony_section {
+            hide
             title
             description
             image: picture {
@@ -35,7 +36,9 @@ export const careerQuery = () => {
             }
           }
           jobs_section {
+            fallback_message
             title_heading
+            fallback_message
             jobs {
               ... on Entry_Jobs_Job {
                 title
@@ -79,6 +82,18 @@ export const careerQuery = () => {
             seo_title
             seo_description
             seo_keywords
+          }
+        }
+      }
+      formsFeedback: globalSet(handle: "forms_feedback", site: $site) {
+        ... on GlobalSet_FormsFeedback {
+          contact_us_form {
+            success
+            failure
+          }
+          career_form {
+            success
+            failure
           }
         }
       }

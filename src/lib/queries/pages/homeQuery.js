@@ -46,12 +46,6 @@ export const homeQuery = () => {
             link_text
             link
             external_link
-            service_slider {
-              title_heading
-              image {
-                src(width: 518, height: 499, webp: true)
-              }
-            }
           }
           operation_section {
             title_heading
@@ -71,6 +65,7 @@ export const homeQuery = () => {
             }
           }
           news_section {
+            hide
             title_heading
             description
           }
@@ -122,6 +117,35 @@ export const homeQuery = () => {
               src(width: 775, height: 502)
             }
             content
+          }
+        }
+      }
+      service_slider: entries(
+        collection: "services"
+        site: $site
+        sort: "order"
+      ) {
+        data {
+          ... on Entry_Services_Service {
+            slug
+            url
+            title_heading: title
+            description
+            image {
+              src(width: 518, height: 499, webp: true)
+            }
+          }
+        }
+      }
+      formsFeedback: globalSet(handle: "forms_feedback", site: $site) {
+        ... on GlobalSet_FormsFeedback {
+          contact_us_form {
+            success
+            failure
+          }
+          career_form {
+            success
+            failure
           }
         }
       }

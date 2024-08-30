@@ -74,6 +74,18 @@ export const partnersQuery = () => {
           }
         }
       }
+      formsFeedback: globalSet(handle: "forms_feedback", site: $site) {
+        ... on GlobalSet_FormsFeedback {
+          contact_us_form {
+            success
+            failure
+          }
+          career_form {
+            success
+            failure
+          }
+        }
+      }
       fallbackSEO: globalSet(handle: "global_seo", site: $site) {
         title
         ... on GlobalSet_GlobalSeo {

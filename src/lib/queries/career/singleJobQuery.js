@@ -46,6 +46,18 @@ export const singleJobQuery = () => {
           config
         }
       }
+      formsFeedback: globalSet(handle: "forms_feedback", site: $site) {
+        ... on GlobalSet_FormsFeedback {
+          contact_us_form {
+            success
+            failure
+          }
+          career_form {
+            success
+            failure
+          }
+        }
+      }
       globalSet(handle: "global_seo", site: "english") {
         ... on GlobalSet_GlobalSeo {
           seo_title

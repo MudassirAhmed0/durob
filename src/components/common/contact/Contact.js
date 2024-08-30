@@ -66,7 +66,8 @@ const Contact = ({
   formData,
   endpoint,
   jobId,
-  jobSlug
+  jobSlug,
+  formFeedback
 }) => {
   const [additionalFields, setAdditionalFields] = useState(null);
   const [dragActive, setDragActive] = useState(false);
@@ -81,8 +82,7 @@ const Contact = ({
     return acc;
   }, {});
 
-  const validationSchema = getValidationSchema(formData);
-
+  const validationSchema = getValidationSchema(formData, arabic);
   const {
     values,
     setValues,
@@ -107,17 +107,25 @@ const Contact = ({
           { ...values, job_id: jobId, job_slug: jobSlug },
           endpoint
         );
+      } else if (jobSlug) {
+        res = await postForm({ ...values, job_slug: jobSlug }, endpoint);
       } else {
         res = await postForm(values, endpoint);
       }
       if (res?.status == 200) {
-        setSubmitSuccess("Your Form has been sucessfully submitted.");
+        setSubmitSuccess(
+          formFeedback?.success
+            ? formFeedback?.success
+            : "Thank You! Your Form has been sumbitted"
+        );
         setSubmitError(null);
         resetForm();
         setAdditionalFields({});
         captchaRef.current?.reset();
       } else {
-        setSubmitError("Internal server Error.");
+        setSubmitError(
+          success?.failure ? success?.failure : "Sorry ! Something went wrong."
+        );
         setSubmitSuccess(null);
         captchaRef.current?.reset();
       }
@@ -382,7 +390,7 @@ const Contact = ({
           {submitError && (
             <span
               className={clsx(
-                "text-xs font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
+                "mtext22 lg:text30   font-[600] lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
                 secondVarient ? "text-red-400" : "text-red-600"
               )}
             >
@@ -392,7 +400,7 @@ const Contact = ({
           {submitSuccess && (
             <span
               className={clsx(
-                "text-xs font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
+                "mtext22 lg:text30   font-[600] lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
                 secondVarient ? "text-green-400" : "text-green-600"
               )}
             >

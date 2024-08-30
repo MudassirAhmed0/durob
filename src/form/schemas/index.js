@@ -8,7 +8,7 @@ export const contactSchema = Yup.object({
     .matches(emailRegx, "Not a valid email address")
     .required("Email is required"),
   message_subject: Yup.string().notRequired(),
-  message: Yup.string().required("Message is required."),
+  message: Yup.string().required("Message is required.")
 });
 
 export const contactSecondVarientSchema = Yup.object({
@@ -19,7 +19,7 @@ export const contactSecondVarientSchema = Yup.object({
   email: Yup.string()
     .matches(emailRegx, "Not a valid email address")
     .required("Email is required"),
-  phone: Yup.string().min(10).required("Phone number is required"),
+  phone: Yup.string().min(10).required("Phone number is required")
 }).shape({
   file: Yup.mixed()
     .required("CV is required")
@@ -30,24 +30,28 @@ export const contactSecondVarientSchema = Yup.object({
     )
     .test("fileFormat", "Unsupported Format", (value) =>
       ["image/jpeg", "image/png", "application/pdf"].includes(value.type)
-    ),
+    )
 });
 
-export const getValidationSchema = (formData) => {
+export const getValidationSchema = (formData, arabic) => {
   const shape = {};
 
   formData?.forEach((field) => {
     let schema = Yup.string(); // default to string type
 
     if (field.required) {
-      schema = schema.required(`${field.placeholder} is required`);
+      schema = schema.required(
+        `${field.placeholder} ${arabic ? "مطلوب" : "is required"}`
+      );
     }
 
     switch (field.type) {
       case "select":
         // Handle select case, might need further customization based on options, etc.
         // schema = schema.oneOf(field.options.map(option => option.value));
-        schema = schema.required(`${field.placeholder} is required`);
+        schema = schema.required(
+          `${field.placeholder} ${arabic ? "مطلوب" : "is required"}`
+        );
         break;
       case "textarea":
         // textarea is treated similarly to text
@@ -58,27 +62,41 @@ export const getValidationSchema = (formData) => {
           field.id === "email" ||
           field.placeholder.toLowerCase().includes("email")
         ) {
-          schema = schema.matches(emailRegx, "Invalid email format");
+          schema = schema.matches(
+            emailRegx,
+            arabic ? "بريد الكتروني غير صحيح" : "Invalid email format"
+          );
         }
         break;
       case "number":
         break;
       case "files":
         schema = Yup.mixed()
-          .required(`${field.placeholder} is required`)
-          .test("fileSize", "File too large, Max 2MB ", (value) => {
-            // Ensure the value is defined and not null before checking the size
-            return value && value.size <= 2000000; // 2MB
-          })
-          .test("fileFormat", "Unsupported Format", (value) => {
-            // Ensure the value is defined and not null before checking the type
-            return (
-              value &&
-              ["image/jpeg", "image/jpg", "image/png", "application/pdf"].includes(
-                value.type
-              )
-            );
-          });
+          .required(`${field.placeholder} ${arabic ? "مطلوب" : "is required"}`)
+          .test(
+            "fileSize",
+            arabic ? "حجم الملف يتعدى 2 ميجابايت" : "File too large, Max 2MB ",
+            (value) => {
+              // Ensure the value is defined and not null before checking the size
+              return value && value.size <= 2000000; // 2MB
+            }
+          )
+          .test(
+            "fileFormat",
+            arabic ? "نمط غير مدعوم" : "Unsupported Format",
+            (value) => {
+              // Ensure the value is defined and not null before checking the type
+              return (
+                value &&
+                [
+                  "image/jpeg",
+                  "image/jpg",
+                  "image/png",
+                  "application/pdf"
+                ].includes(value.type)
+              );
+            }
+          );
         break;
       // Add more cases here for other input types
     }

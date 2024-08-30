@@ -6,12 +6,11 @@ import Image from "next/image";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import slugify from "slugify";
 
 const AllServices = ({ data }) => {
-  const services = data.services.map((item) => ({
+  const services = data?.map((item) => ({
     ...item,
-    id: slugify(item.title, { lower: true })
+    id: item?.slug
   }));
   const router = useRouter();
   const headerRef = useRef(null);
@@ -137,25 +136,27 @@ const AllServices = ({ data }) => {
                   </div>
                   <ul className="lg:mt-[3.125vw] sm:mt-[40px] mt-[30px] flex flex-wrap lg:gap-[6.04166666667vw] sm:gap-[40px] gap-[30px]">
                     {service?.features?.map((item) => {
-                      return (
-                        <li key={item?.caption}>
-                          <div className="lg:size-[3.4375vw] sm:size-[56px] size-[46px] border20 bg-[#94D4FF26] flex justify-center items-center">
-                            <div className="relative lg:size-[2.39583333333vw] size-[76%]">
-                              {item?.icon && (
-                                <Image fill alt="icon" src={item.icon?.src} />
-                              )}
+                      if (item?.caption || item?.caption_details) {
+                        return (
+                          <li key={item?.caption}>
+                            <div className="lg:size-[3.4375vw] sm:size-[56px] size-[46px] border20 bg-[#94D4FF26] flex justify-center items-center">
+                              <div className="relative lg:size-[2.39583333333vw] size-[76%]">
+                                {item?.icon && (
+                                  <Image fill alt="icon" src={item.icon?.src} />
+                                )}
+                              </div>
                             </div>
-                          </div>
-                          <div className="flex flex-col lg:mt-[1.04166666667vw] mt-[10px]">
-                            <span className="lg:text40 mtext28 f700 text-[#4964BF]">
-                              {item?.caption}
-                            </span>
-                            <span className="lg:text22 mtext16 lg:leading-[2.08333333333vw]">
-                              {item?.caption_details}
-                            </span>
-                          </div>
-                        </li>
-                      );
+                            <div className="flex flex-col lg:mt-[1.04166666667vw] mt-[10px]">
+                              <span className="lg:text40 mtext28 f700 text-[#4964BF]">
+                                {item?.caption}
+                              </span>
+                              <span className="lg:text22 mtext16 lg:leading-[2.08333333333vw]">
+                                {item?.caption_details}
+                              </span>
+                            </div>
+                          </li>
+                        );
+                      }
                     })}
                   </ul>
                 </div>

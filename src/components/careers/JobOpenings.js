@@ -8,8 +8,13 @@ const JobOpenings = ({ data, arabic }) => {
     <section>
       <div className="container1680 py180">
         <h2 data-aos="fade-up" className="text67 text-[#002B87] text-center">
-          {data?.title}
+          {data?.title_heading}
         </h2>
+        {data?.fallback_message && (
+          <p className="lg:text30 mtext20 text-center lg:mt-[2.16666666667vw] sm:mt-[40px] mt-[28px] lg:w-[70%] mx-auto">
+            {data?.fallback_message}
+          </p>
+        )}
         <div className="flex flex-col items-center lg:gap-y-[1.5625vw] gap-y-[20px] lg:w-[72.65625vw] w-full mx-auto lg:mt-[4.16666666667vw] sm:mt-[50px] mt-[40px]">
           {openings.map((opening, index) => (
             <Link

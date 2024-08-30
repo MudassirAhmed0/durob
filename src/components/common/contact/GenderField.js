@@ -13,12 +13,8 @@ const GenderField = ({
   const handleChange = (e) => {
     setGender(e.target.value);
   };
-  console.log(options);
   return (
-    <div
-      id={id}
-      className="w-full lg:h-[3.07291666667vw] h-[44px] genderInputField "
-    >
+    <div id={id} className="w-full  genderInputField ">
       <div className="lg:px-[1.5625vw] sm:px-[20px] px-[10px] flex items-center lg:gap-x-[1.40625vw] gap-x-[15px]">
         <span>{arabic ? "الجنس" : "Gender"}</span>
 
@@ -34,7 +30,7 @@ const GenderField = ({
                 id={optionsKey}
                 value={optionsKey}
                 onChange={handleChange}
-                className="appearance-none lg:size-[0.67708333333vw] sm:size-[10px] size-[10px] rounded-full border-2 border-white bg-[#D6D6D6]"
+                className="appearance-none lg:size-[1vw] sm:size-[10px] size-[10px] rounded-full border-2 border-white bg-[#D6D6D6]"
               />
               <span>{options[optionsKey]?.placeholder}</span>
             </label>
@@ -44,7 +40,7 @@ const GenderField = ({
       {touched && error && (
         <p
           className={clsx(
-            "text-xs mt-2 font-semibold lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
+            "mtext16 lg:text20 mt-2  lg:px-[1.5625vw] sm:px-[20px] px-[10px]",
             secondVarient ? "text-red-400" : "text-red-600"
           )}
         >

@@ -4,7 +4,7 @@ import AllServices from "./AllServices";
 import Contact from "../common/contact/Contact";
 import getFormattedFormData from "@/form/getFormatterFormData";
 
-const ServicesPage = ({ data, arabic }) => {
+const ServicesPage = ({ data, arabic, servicesItems, formFeedback }) => {
   const breadCrumbs = [];
   breadCrumbs.push({ text: data?.title });
   const formData = getFormattedFormData(
@@ -22,13 +22,14 @@ const ServicesPage = ({ data, arabic }) => {
         video={data?.hero_banner?.image ? false : true}
         arabic={arabic}
       />
-      <AllServices data={data?.services_section} arabic={arabic} />
+      <AllServices data={servicesItems?.data} arabic={arabic} />
       <Contact
         heading={data?.form_section?.title_heading}
         desc={data?.form_section?.short_description}
         formData={formData}
         endpoint={data?.form_section?.linked_form?.handle}
         arabic={arabic}
+        formFeedback={formFeedback}
       />
     </>
   );
