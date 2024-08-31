@@ -12,7 +12,7 @@ const Proof = ({ proof, index }) => {
         {proof?.title_heading || proof.text}
       </span>
       <div className="relative lg:w-[8.07291666667vw] lg:h-[7.5vw] sm:size-[110px] size-[80px]">
-        <Image fill alt="icon" src={proof?.icon?.permalink} />
+        <Image quality={100} fill alt="icon" src={proof?.icon?.permalink} />
       </div>
     </div>
   );

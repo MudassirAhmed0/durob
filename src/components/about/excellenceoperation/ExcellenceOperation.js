@@ -35,6 +35,7 @@ const ExcellenceOperation = ({ data }) => {
                   >
                     {partnerLogo?.src && (
                       <Image
+                        quality={100}
                         fill
                         alt="partner-log"
                         className="object-contain !relative"
@@ -49,6 +50,7 @@ const ExcellenceOperation = ({ data }) => {
               <div className="relative  p-[16px] lg:p-[1vw]  overflow-hidden border20 bg-[#4964BF66]  lg:w-[21.8854166667vw] sm:w-[320px] w-[260px] lg:h-[10.2083333333vw] sm:h-[120px] h-[90px]">
                 {partnerLogos[partnerLogos?.length - 1].src && (
                   <Image
+                    quality={100}
                     fill
                     alt="partner-log"
                     className="object-contain !relative"

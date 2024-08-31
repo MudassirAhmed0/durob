@@ -317,26 +317,34 @@ html {
   .ltr .list li {
     @apply lg:pl-[1.14583333333vw] pl-[15px];
   } */
-  ul.defaultList {
+  ul.defaultList,
+  .defaultList ul {
     @apply list-disc;
   }
-  ol.defaultList {
+  ol.defaultList,
+  .defaultList ol {
     @apply list-decimal;
   }
-  ol.defaultList li::marker {
+  ol.defaultList li::marker,
+  .defaultList ol li::marker {
     color: inherit;
     font-size: inherit;
   }
-  ul.defaultList li::marker {
+  ul.defaultList li::marker,
+  .defaultList ul li::marker {
     color: inherit;
     font-size: initial;
   }
   .ltr ul.defaultList,
-  .ltr ol.defaultList {
+  .ltr ol.defaultList,
+  .ltr .defaultList ul,
+  .ltr .defaultList ol {
     @apply lg:pl-[1.66666666667vw] pl-[25px];
   }
   .rtl ul.defaultList,
-  .rtl ol.defaultList {
+  .rtl ol.defaultList,
+  .rtl .defaultList ul,
+  .rtl .defaultList ol {
     @apply lg:pr-[1.66666666667vw] pr-[25px];
   }
 }
@@ -419,10 +427,20 @@ header.blackHeader .langSwitcher {
 
 .about_HeroOverlay {
   background: linear-gradient(
-    231deg,
-    rgba(28, 28, 28, 0.5) 40.29%,
-    rgba(28, 28, 28, 0.1) 50.84%,
-    rgba(33, 33, 33, 0.8) 71.31%
+    180deg,
+    rgba(33, 33, 33, 0.5) 8%,
+    rgba(33, 33, 33, 0.1) 33.08%,
+    rgba(33, 33, 33, 0.8) 100%
+  );
+}
+.aboutChairman_Overlay {
+  background: linear-gradient(180deg, #4964bf 0%, #4a64bf 100%);
+}
+.ceo_Overlay {
+  background: linear-gradient(
+    359deg,
+    #4964bf 5.51%,
+    rgba(73, 100, 191, 0) 98.64%
   );
 }
 .subPage_heroOverlay {

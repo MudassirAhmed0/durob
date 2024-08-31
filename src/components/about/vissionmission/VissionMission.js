@@ -15,7 +15,12 @@ const VissionMission = ({ vision, mission }) => {
         />
         <div className="lg:w-[29.4791666667vw] w-[90%] mx-[auto] relative z-[2] flex flex-col items-center text-center">
           <div className="relative lg:w-[4.46427083333vw] sm:w-[60px] w-[40px] lg:h-[6.25vw] sm:h-[100px] h-[70px]">
-            <Image fill alt="card-icon" src={vision?.icon?.permalink} />
+            <Image
+              quality={100}
+              fill
+              alt="card-icon"
+              src={vision?.icon?.permalink}
+            />
           </div>
           <div className="lg:mt-[3.125vw] sm:mt-[40px] mt-[30px]">
             <h5 className="text70 text-[#002B87] relative before:absolute before:left-[50%] before:translate-x-[-50%] before:lg:top-[-0.78125vw] before:top-[-8px] before:content-[''] before:lg:h-[0.26041666666vw] before:h-[3px] before:lg:w-[2.96875vw] before:w-[12%] before:bg-[#60A1E2]">
@@ -38,7 +43,12 @@ const VissionMission = ({ vision, mission }) => {
         />
         <div className="lg:w-[29.4791666667vw] w-[90%] mx-[auto] relative z-[2] flex flex-col items-center text-center">
           <div className="relative lg:w-[7.98140625vw] sm:w-[120px] w-[90px] lg:h-[6.25vw] sm:h-[100px] h-[70px]">
-            <Image fill alt="card-icon" src={mission?.icon?.permalink} />
+            <Image
+              quality={100}
+              fill
+              alt="card-icon"
+              src={mission?.icon?.permalink}
+            />
           </div>
           <div className="lg:mt-[3.125vw] sm:mt-[40px] mt-[30px]">
             <h5 className="text70 text-[#002B87] relative before:absolute before:left-[50%] before:translate-x-[-50%] before:lg:top-[-0.78125vw] before:top-[-8px] before:content-[''] before:lg:h-[0.26041666666vw] before:h-[3px] before:lg:w-[2.96875vw] before:w-[12%] before:bg-[#60A1E2]">

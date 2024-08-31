@@ -9,6 +9,7 @@ const ImageComponent = ({ src, alt, className, noLoading }) => {
       )}
       {src && (
         <Image
+          quality={100}
           fill
           src={src}
           alt={`${alt}`}

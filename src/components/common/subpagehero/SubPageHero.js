@@ -11,7 +11,7 @@ const SubPageHero = ({
   bannerSource,
   breadCrumbs,
   video,
-  chairmanImage
+  chairmanImage,
 }) => {
   return (
     <section
@@ -33,13 +33,14 @@ const SubPageHero = ({
             <h1 data-aos="fade-up" className="text-[#94D4FF] text90">
               {heading}
             </h1>
-            {desc && (
-              <div
-                dangerouslySetInnerHTML={{ __html: desc }}
-                data-aos="fade-down"
-                className="lg:text30 mtext18 lg:mt-[1.5625vw] mt16 text-[#DFDFDF]"
-              ></div>
-            )}
+            {fromAbout ||
+              (desc && (
+                <div
+                  dangerouslySetInnerHTML={{ __html: desc }}
+                  data-aos="fade-down"
+                  className="lg:text30 mtext18 lg:mt-[1.5625vw] mt16 text-[#DFDFDF]"
+                ></div>
+              ))}
           </div>
         </div>
       </div>

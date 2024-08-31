@@ -26,7 +26,12 @@ const Value = ({ arabic, value, values, index }) => {
             : "lg:right-[-1.30208333333vw] right-[-5%]"
         } group-hover:lg:translate-y-[1.04166666667vw] transition500 flipped absolute lg:bottom-[2.60416666667vw] sm:bottom-[40px] bottom-[30px] lg:size-[13.0208333333vw] sm:size-[180px] size-[90px]`}
       >
-        <Image fill alt={value?.title} src={value.icon?.permalink} />
+        <Image
+          quality={100}
+          fill
+          alt={value?.title}
+          src={value.icon?.permalink}
+        />
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ const Logo = ({ partnersLogo }) => {
           alt="partner-log"
           className="object-contain "
           src={partnersLogo.src}
+          quality={100}
         />
       )}
     </div>

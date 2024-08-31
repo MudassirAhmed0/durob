@@ -14,7 +14,7 @@ const Card = ({ aboutCard, index }) => {
       <ImageComponent
         alt="card-img"
         src={aboutCard.image.src}
-        className="object-cover z-[-1]"
+        className="object-cover z-[-1]" 
       />
       <span
         className="atwh_Full lrf1"

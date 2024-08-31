@@ -24,7 +24,7 @@ export const contactQuery = () => {
             title
             description
             image {
-              src(width: 1200, height: 628)
+              src(width: 1920, height: 1080)
             }
           }
           form_section {

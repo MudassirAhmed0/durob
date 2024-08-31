@@ -7,7 +7,7 @@ const BackGrounds = ({
   bannerSource,
   overlay,
   fromAbout,
-  chairmanImage
+  chairmanImage,
 }) => {
   return (
     <div className="atwh_Full lrf1 overflow-hidden">
@@ -30,7 +30,7 @@ const BackGrounds = ({
           overlay ? overlay : "subPage_heroOverlay"
         } atwh_Full lrf1`}
       ></span>
-      {fromAbout && (
+      {/* {fromAbout && (
         <div data-aos="fade" className="atwh_Full lrf1">
           <img
             src="/images/about/hero-pattern.png"
@@ -46,7 +46,7 @@ const BackGrounds = ({
             />
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

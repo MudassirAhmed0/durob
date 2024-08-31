@@ -10,6 +10,7 @@ const Logo = ({ partnersLogo, index }) => {
     >
       {partnersLogo?.src && (
         <Image
+          quality={100}
           fill
           alt="partner-logo"
           className="object-contain "

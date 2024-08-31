@@ -7,6 +7,7 @@ import OurTeam from "./ourteam/OurTeam";
 import ExcellenceOperation from "./excellenceoperation/ExcellenceOperation";
 import Contact from "../common/contact/Contact";
 import getFormattedFormData from "@/form/getFormatterFormData";
+import Chairman from "./Chairman";
 const AboutPage = ({ arabic, data, managementMembers, boardMembers }) => {
   const breadCrumbs = [];
   breadCrumbs.push({ text: data?.title });
@@ -21,7 +22,7 @@ const AboutPage = ({ arabic, data, managementMembers, boardMembers }) => {
       <SubPageHero
         heading={data?.hero_banner?.title}
         desc={data?.hero_banner?.description}
-        adjustContent={"lg:pb-[21.7592592593vh]"}
+        adjustContent={"lg:pb-[35.6481481481vh] pb-[250px]"}
         overlay="about_HeroOverlay"
         bannerSource={data?.hero_banner?.image?.src}
         breadCrumbs={breadCrumbs}
@@ -29,6 +30,7 @@ const AboutPage = ({ arabic, data, managementMembers, boardMembers }) => {
         fromAbout
         arabic={arabic}
       />
+      <Chairman />
       <VissionMission
         vision={data?.vision}
         mission={data?.mission}

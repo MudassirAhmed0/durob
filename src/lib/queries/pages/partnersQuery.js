@@ -24,7 +24,7 @@ export const partnersQuery = () => {
             title
             description
             image {
-              src(width: 1200, height: 628, webp: true)
+              src(width: 1920, height: 1080, webp: true)
             }
           }
           why_section {

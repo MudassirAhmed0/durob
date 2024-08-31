@@ -26,6 +26,7 @@ const Card = ({ setActivePopup, setPopupData, member, index, arabic }) => {
             alt={member?.title}
             src={member?.picture?.src}
             className="object-cover"
+            quality={100}
           />
         </div>
       </div>
@@ -41,7 +42,12 @@ const Card = ({ setActivePopup, setPopupData, member, index, arabic }) => {
           </span>
           <div className="flex items-center lg:gap-x-[0.36458333333vw] gap-x-[5px] lg:mt-[0.26041666666vw] mt-[5px]">
             <div className="relative lg:min-w-[0.78125vw] min-w-[12px] lg:size-[0.78125vw] size-[12px]">
-              <Image fill alt="icon" src="/images/icons/member-icon.svg" />
+              <Image
+                quality={100}
+                fill
+                alt="icon"
+                src="/images/icons/member-icon.svg"
+              />
             </div>
             <span className="lg:text20 mtext16 text-[#3D81D3] block">
               {member?.position}

@@ -66,7 +66,7 @@ export const serviceQuery = () => {
             title
             description
             image {
-              src(width: 1200, height: 628)
+              src(width: 767, height: 767)
             }
             features {
               icon {
