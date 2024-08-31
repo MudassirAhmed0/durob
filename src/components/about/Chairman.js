@@ -17,10 +17,10 @@ const Chairman = () => {
           utmost quality and reliability at every stage of your supply chain.
           <br />
           <br />
-          At Duroub, we are dedicated to supporting your business's growth while
-          safeguarding the integrity of your products from start to finish.
-          Thank you for placing your trust in Duroub Integrated Logistics. We
-          look forward to driving your success together.
+          At Duroub, we are dedicated to supporting your business&apos;s growth
+          while safeguarding the integrity of your products from start to
+          finish. Thank you for placing your trust in Duroub Integrated
+          Logistics. We look forward to driving your success together.
         </div>
         <div className="lg:w-[44.375vw] w-full lg:h-[calc(100%_+42.037037037vh)] absolute lrf2 lg:top-[-42.037037037vh] top-[-20%] lg:mx-[2.03125vw]">
           <div className=" w-full lg:sticky top-0 lrf2">
