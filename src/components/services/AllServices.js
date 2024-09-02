@@ -10,7 +10,7 @@ import Link from "next/link";
 const AllServices = ({ data }) => {
   const services = data?.map((item) => ({
     ...item,
-    id: item?.slug
+    id: item?.slug,
   }));
   const router = useRouter();
   const headerRef = useRef(null);
@@ -33,7 +33,7 @@ const AllServices = ({ data }) => {
               )?.offsetLeft;
               headerRef.current?.scroll({
                 left: leftOffset,
-                behavior: "smooth"
+                behavior: "smooth",
               });
             }, 1000);
           } else {
@@ -106,7 +106,9 @@ const AllServices = ({ data }) => {
               <img
                 src="/images/services/container/pattern1.png"
                 alt="pattern"
-                className="absolute bottom-0 lrf1 lg:w-[24.53125vw] w-[20%] flipped"
+                className={`${
+                  index % 2 == 0 ? "lrf2 noflipped" : "lrf1 flipped"
+                } absolute bottom-0  lg:w-[24.53125vw] w-[20%] `}
               />
               <div className="relative z-[2] flex flex-wrap justify-center items-center lg:gap-[4.42708333333vw] sm:gap-[50px] gap-[40px] container1680">
                 <div
@@ -128,17 +130,17 @@ const AllServices = ({ data }) => {
                       // </Markdown>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: service?.description
+                          __html: service?.description,
                         }}
                         className="lg:text26 mtext16 mt16 lg:mt-[1.04166666667vw]"
                       ></div>
                     )}
                   </div>
                   <ul className="lg:mt-[3.125vw] sm:mt-[40px] mt-[30px] flex flex-wrap lg:gap-[6.04166666667vw] sm:gap-[40px] gap-[30px]">
-                    {service?.features?.map((item) => {
+                    {service?.features?.map((item, index) => {
                       if (item?.caption || item?.caption_details) {
                         return (
-                          <li key={item?.caption}>
+                          <li key={index}>
                             <div className="lg:size-[3.4375vw] sm:size-[56px] size-[46px] border20 bg-[#94D4FF26] flex justify-center items-center">
                               <div className="relative lg:size-[2.39583333333vw] size-[76%]">
                                 {item?.icon && (

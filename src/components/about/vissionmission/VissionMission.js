@@ -39,7 +39,7 @@ const VissionMission = ({ vision, mission }) => {
         <img
           src="/images/about/vsms/pattern.png"
           alt="pattern"
-          className="absolute bottom-0 lrf1 lg:w-[22.5vw] w-[70%] scale-x-[-1] noflipped"
+          className="absolute bottom-0 lrf1 lg:w-[22.5vw] w-[70%]  noflipped"
         />
         <div className="lg:w-[29.4791666667vw] w-[90%] mx-[auto] relative z-[2] flex flex-col items-center text-center">
           <div className="relative lg:w-[7.98140625vw] sm:w-[120px] w-[90px] lg:h-[6.25vw] sm:h-[100px] h-[70px]">
