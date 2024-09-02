@@ -10,7 +10,7 @@ import Link from "next/link";
 const AllServices = ({ data }) => {
   const services = data?.map((item) => ({
     ...item,
-    id: item?.slug,
+    id: item?.slug
   }));
   const router = useRouter();
   const headerRef = useRef(null);
@@ -33,7 +33,7 @@ const AllServices = ({ data }) => {
               )?.offsetLeft;
               headerRef.current?.scroll({
                 left: leftOffset,
-                behavior: "smooth",
+                behavior: "smooth"
               });
             }, 1000);
           } else {
@@ -103,13 +103,27 @@ const AllServices = ({ data }) => {
               id={service.id}
               className="relative scroll-mt-[20vw] lg:scroll-mt-[8vw]"
             >
-              <img
-                src="/images/services/container/pattern1.png"
-                alt="pattern"
-                className={`${
-                  index % 2 == 0 ? "lrf2 noflipped" : "lrf1 flipped"
-                } absolute bottom-0  lg:w-[24.53125vw] w-[20%] `}
-              />
+              {index == 1 && (
+                <img
+                  src="/images/services/container/pattern1.png"
+                  alt="pattern"
+                  className={`lrf1 flipped absolute bottom-[-35vw]  lg:w-[24.53125vw] w-[20%] hidden lg:block `}
+                />
+              )}
+              {index == services?.length - 1 && (
+                <img
+                  src="/images/services/container/pattern1.png"
+                  alt="pattern"
+                  className={`lrf1 flipped absolute bottom-[-20vw]  lg:w-[24.53125vw] w-[20%] hidden lg:block `}
+                />
+              )}
+              {index == 3 && (
+                <img
+                  src="/images/services/container/pattern1.png"
+                  alt="pattern"
+                  className={`lrf2 noflipped absolute bottom-[-20vw]  lg:w-[24.53125vw] w-[20%] hidden lg:block `}
+                />
+              )}
               <div className="relative z-[2] flex flex-wrap justify-center items-center lg:gap-[4.42708333333vw] sm:gap-[50px] gap-[40px] container1680">
                 <div
                   className={clsx(
@@ -117,12 +131,15 @@ const AllServices = ({ data }) => {
                     index % 2 !== 0 ? "lg:order-last" : ""
                   )}
                 >
-                  <ImageComponent alt={"banner-img"} src={service.image.src} />
+                  <ImageComponent
+                    alt={"banner-img"}
+                    src={service?.image?.src}
+                  />
                 </div>
                 <div className="lg:w-[39.1666666667vw] w-full">
                   <div>
                     <h5 className="text70 !f600 text-[#002B87] relative before:absolute before:lrf1 before:lg:top-[-0.78125vw] before:top-[-8px] before:content-[''] before:lg:h-[0.26041666666vw] before:h-[3px] before:lg:w-[2.96875vw] before:w-[12%] before:bg-[#60A1E2]">
-                      {service.title}
+                      {service?.title}
                     </h5>
                     {service?.description && (
                       // <Markdown className="prose prose-headings:p-0 prose-headings:mb-2 prose-img:rounded-lg prose-a:no-underline prose-a:text-blue-500">
@@ -130,7 +147,7 @@ const AllServices = ({ data }) => {
                       // </Markdown>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: service?.description,
+                          __html: service?.description
                         }}
                         className="lg:text26 mtext16 mt16 lg:mt-[1.04166666667vw]"
                       ></div>
@@ -144,7 +161,11 @@ const AllServices = ({ data }) => {
                             <div className="lg:size-[3.4375vw] sm:size-[56px] size-[46px] border20 bg-[#94D4FF26] flex justify-center items-center">
                               <div className="relative lg:size-[2.39583333333vw] size-[76%]">
                                 {item?.icon && (
-                                  <Image fill alt="icon" src={item.icon?.src} />
+                                  <Image
+                                    fill
+                                    alt="icon"
+                                    src={item?.icon?.src}
+                                  />
                                 )}
                               </div>
                             </div>
