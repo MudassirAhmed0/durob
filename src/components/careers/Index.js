@@ -6,7 +6,7 @@ import JobOpenings from "./JobOpenings";
 import getFormattedFormData from "@/form/getFormatterFormData";
 const breadCrumbs = [{ text: "Careers" }];
 
-const CareersPage = ({ data, arabic, formFeedback }) => {
+const CareersPage = ({ data, arabic, formFeedback, contactUsData }) => {
   const formData = getFormattedFormData(
     data?.formlink_section?.linked_form,
     arabic
@@ -34,6 +34,7 @@ const CareersPage = ({ data, arabic, formFeedback }) => {
         arabic={arabic}
         formFeedback={formFeedback}
         jobSlug={"General"}
+        contactUsData={contactUsData}
       />
     </>
   );

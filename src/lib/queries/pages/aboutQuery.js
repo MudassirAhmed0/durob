@@ -21,13 +21,15 @@ export const aboutQuery = () => {
         ... on Entry_Pages_Aboutus {
           hero_banner: hero_banner_section {
             title
-            description
+            description: chairman_message_content
             image {
               src(width: 1920, height: 1080)
             }
             ceo_picture {
               src
             }
+            chairman_name
+            chairman_title
           }
           vision {
             title

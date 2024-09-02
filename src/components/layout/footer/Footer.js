@@ -82,7 +82,8 @@ const Footer = ({ arabic, navigation, data }) => {
               ))}
             </ul>
           </nav>
-          <div className="flex flex-wrap flex-col lg:flex-row lg:gap-[1.5625vw] gap-[10px] sm:gap-[15px] items-start">
+          {/* //uncomment later osman */}
+          {/* <div className="flex flex-wrap flex-col lg:flex-row lg:gap-[1.5625vw] gap-[10px] sm:gap-[15px] items-start">
             <h6 className="lg:text22 mtext18 f600 text-[#002B87] capitalize">
               Follow Us
             </h6>
@@ -105,7 +106,7 @@ const Footer = ({ arabic, navigation, data }) => {
                 )
               )}
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="relative z-[2] bg-[#4964BF] lg:py-[0.88541666666vw] py-[20px] text-center">

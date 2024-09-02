@@ -10,7 +10,7 @@ const PrivacyTermsContainer = ({ privacyTerms }) => {
       >
         <div
           dangerouslySetInnerHTML={{ __html: checkIfExist(privacyTerms) }}
-          className="lg:w-[59.1666666667vw] w-full PrivacyTerms defaultList"
+          className="lg:w- [59.1666666667vw] w-full PrivacyTerms defaultList"
         ></div>
       </div>
     </section>

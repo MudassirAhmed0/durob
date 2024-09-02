@@ -5,7 +5,7 @@ import Partners from "./partners/Partners";
 import Contact from "../common/contact/Contact";
 import getFormattedFormData from "@/form/getFormatterFormData";
 
-const PartnersPage = ({ data, arabic, formFeedback }) => {
+const PartnersPage = ({ data, arabic, formFeedback, contactUsData }) => {
   const breadCrumbs = [];
   breadCrumbs.push({ text: data?.title });
   const formData = getFormattedFormData(
@@ -31,6 +31,7 @@ const PartnersPage = ({ data, arabic, formFeedback }) => {
         endpoint={data?.contact_us_section?.linked_form?.handle}
         arabic={arabic}
         formFeedback={formFeedback}
+        contactUsData={contactUsData}
       />
     </>
   );

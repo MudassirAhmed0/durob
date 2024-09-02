@@ -30,7 +30,12 @@ const AboutPage = ({ arabic, data, managementMembers, boardMembers }) => {
         fromAbout
         arabic={arabic}
       />
-      <Chairman />
+      <Chairman
+        chairmanImage={data?.hero_banner?.ceo_picture?.src}
+        desc={data?.hero_banner?.description}
+        chairmanName={data?.hero_banner?.chairman_name}
+        chairmanTitle={data?.hero_banner?.chairman_title}
+      />
       <VissionMission
         vision={data?.vision}
         mission={data?.mission}

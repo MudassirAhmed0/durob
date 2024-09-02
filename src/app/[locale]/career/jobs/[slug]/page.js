@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Index";
 import SingleCareerPage from "@/components/single-career-page/Index";
 import getSingleJobData from "@/lib/data-hooks/career/getSingleJobData";
+import getFooterData from "@/lib/data-hooks/layout/getFooterData";
 import getMetaData from "@/utils/seo/getMetaData";
 import { redirect } from "next/navigation";
 
@@ -23,6 +24,7 @@ export default async function Index({ params: { locale, slug } }) {
     redirect(`/en`);
   }
   const data = await getSingleJobData(slug, isAr);
+  const footerData = await getFooterData(isAr);
   return (
     <>
       <Layout arabic={isAr} blackHeader>
@@ -31,6 +33,7 @@ export default async function Index({ params: { locale, slug } }) {
           data={data?.page}
           form={data?.form}
           formFeedback={data?.formsFeedback?.career_form}
+          contactUsData={footerData?.FooterData?.contact_us_data}
         />
       </Layout>
     </>

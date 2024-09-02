@@ -13,6 +13,7 @@ import { notFound, redirect } from "next/navigation";
 import getMetaData from "@/utils/seo/getMetaData";
 import { locales } from "@/middleware";
 import { unstable_setRequestLocale } from "next-intl/server";
+import getFooterData from "@/lib/data-hooks/layout/getFooterData";
 
 export const dynamic = "force-static";
 
@@ -43,6 +44,7 @@ const page = async ({ params: { locale, slug } }) => {
     redirect(`/en`);
   }
   const data = await getData(slug, isAr);
+  const footerData = await getFooterData(isAr);
 
   // await new Promise((resolve) => setTimeout(resolve, 1000));
   switch (data?.page?.blueprint) {
@@ -67,6 +69,7 @@ const page = async ({ params: { locale, slug } }) => {
               arabic={isAr}
               data={data?.page}
               formFeedback={data?.formsFeedback?.contact_us_form}
+              contactUsData={footerData?.FooterData?.contact_us_data}
             />
           </Layout>
         </Suspense>
@@ -88,6 +91,7 @@ const page = async ({ params: { locale, slug } }) => {
               data={data?.page}
               servicesItems={data?.services_items}
               formFeedback={data?.formsFeedback?.contact_us_form}
+              contactUsData={footerData?.FooterData?.contact_us_data}
             />
           </Layout>
         </Suspense>
@@ -100,6 +104,7 @@ const page = async ({ params: { locale, slug } }) => {
               arabic={isAr}
               data={data?.page}
               formFeedback={data?.formsFeedback?.career_form}
+              contactUsData={footerData?.FooterData?.contact_us_data}
             />
           </Layout>
         </Suspense>
@@ -112,6 +117,7 @@ const page = async ({ params: { locale, slug } }) => {
               arabic={isAr}
               data={data?.page}
               formFeedback={data?.formsFeedback?.contact_us_form}
+              contactUsData={footerData?.FooterData?.contact_us_data}
             />
           </Layout>
         </Suspense>

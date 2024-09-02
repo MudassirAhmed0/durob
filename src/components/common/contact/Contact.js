@@ -67,7 +67,8 @@ const Contact = ({
   endpoint,
   jobId,
   jobSlug,
-  formFeedback
+  formFeedback,
+  contactUsData
 }) => {
   const [additionalFields, setAdditionalFields] = useState(null);
   const [dragActive, setDragActive] = useState(false);
@@ -220,31 +221,76 @@ const Contact = ({
             desc={desc}
             classes={`lg:w-[36.9791666667vw] ${secondVarient ? "white" : ""}`}
           />
-          {secondVarient || (
+          {contactUsData?.address && (
             <>
-              <ul className="lg:mt-[2.08333333333vw] sm:mt-[30px] mt-[20px] flex flex-col flex-wrap lg:gap-y-[1.04166666667vw] gap-y-[15px] ">
-                {contactLinks.map((contactLink, index) => (
-                  <li
-                    data-aos="fade"
-                    data-aos-delay={index * 100}
-                    key={contactLink.text}
+              <ul
+                className={` ${
+                  secondVarient ? "text-white" : ""
+                }  lg:mt-[2.08333333333vw] sm:mt-[30px] mt-[20px] flex flex-col flex-wrap lg:gap-y-[1.04166666667vw] gap-y-[15px] `}
+              >
+                <li data-aos="fade">
+                  <Link
+                    href={`${contactUsData?.phone}`}
+                    target={`_self`}
+                    className="opacity_Hover flex lg:gap-x-[0.52083333333vw] gap-x-[6px] items-start"
                   >
-                    <Link
-                      href={`${contactLink.link}`}
-                      target={`${contactLink.taget ? "_blank" : "_self"}`}
-                      className="opacity_Hover flex lg:gap-x-[0.52083333333vw] gap-x-[6px] items-start"
-                    >
-                      <div className="relative lg:min-w-[2.08333333333vw] sm:min-w-[30px] min-w-[20px] lg:size-[2.08333333333vw] sm:size-[30px] size-[20px]">
-                        <Image fill alt="social-icon" src={contactLink.img} />
-                      </div>
-                      <span className="lg:text24 mtext18">
-                        {contactLink.text}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
+                    <div className="relative lg:min-w-[2.08333333333vw] sm:min-w-[30px] min-w-[20px] lg:size-[2.08333333333vw] sm:size-[30px] size-[20px]">
+                      <Image
+                        fill
+                        alt="social-icon"
+                        src={`/images/icons/contact/phone${
+                          secondVarient ? "-white" : ""
+                        }.svg`}
+                      />
+                    </div>
+                    <span className="lg:text24 mtext18">
+                      {contactUsData?.phone}
+                    </span>
+                  </Link>
+                </li>
+                <li data-aos="fade">
+                  <Link
+                    href={`${contactUsData?.email}`}
+                    target={`_self`}
+                    className="opacity_Hover flex lg:gap-x-[0.52083333333vw] gap-x-[6px] items-start"
+                  >
+                    <div className="relative lg:min-w-[2.08333333333vw] sm:min-w-[30px] min-w-[20px] lg:size-[2.08333333333vw] sm:size-[30px] size-[20px]">
+                      <Image
+                        fill
+                        alt="social-icon"
+                        src={`/images/icons/contact/mail${
+                          secondVarient ? "-white" : ""
+                        }.svg`}
+                      />
+                    </div>
+                    <span className="lg:text24 mtext18">
+                      {contactUsData?.email}
+                    </span>
+                  </Link>
+                </li>
+                <li data-aos="fade">
+                  <div
+                    // href={`${contactLink.link}`}
+                    // target={`${contactLink.taget ? "_blank" : "_self"}`}
+                    className="opacity_Hover flex lg:gap-x-[0.52083333333vw] gap-x-[6px] items-start"
+                  >
+                    <div className="relative lg:min-w-[2.08333333333vw] sm:min-w-[30px] min-w-[20px] lg:size-[2.08333333333vw] sm:size-[30px] size-[20px]">
+                      <Image
+                        fill
+                        alt="social-icon"
+                        src={`/images/icons/contact/location${
+                          secondVarient ? "-white" : ""
+                        }.svg`}
+                      />
+                    </div>
+                    <span className="lg:text24 mtext18">
+                      {contactUsData?.address}
+                    </span>
+                  </div>
+                </li>
               </ul>
-              {fromContactPage && (
+              {/* //uncomment later osman */}
+              {/* {fromContactPage && (
                 <div className="flex justify-between items-center flex-wrap gap-[15px] lg:mt-[2.65625vw] sm:mt-[30px] mt-[20px] lg:pt-[2.65625vw] sm:pt-[30px] pt-[20px] border-t border-[#4964BF4D]">
                   <span data-aos="fade-up" className="lg:text24 mtext18 f600">
                     Our Accounts
@@ -265,7 +311,7 @@ const Contact = ({
                     ))}
                   </ul>
                 </div>
-              )}
+              )} */}
             </>
           )}
         </div>
@@ -407,7 +453,11 @@ const Contact = ({
               {submitSuccess}
             </span>
           )}
-          <SubmitBtn arabic={arabic} disabled={isSubmitting} />
+          <SubmitBtn
+            arabic={arabic}
+            disabled={isSubmitting}
+            isLoading={isSubmitting}
+          />
         </form>
       </div>
     </section>

@@ -5,7 +5,13 @@ import Content from "./Content";
 import Breifs from "./Breifs";
 import getFormattedFormData from "@/form/getFormatterFormData";
 
-const SingleCareerPage = ({ data, arabic, form, formFeedback }) => {
+const SingleCareerPage = ({
+  data,
+  arabic,
+  form,
+  formFeedback,
+  contactUsData
+}) => {
   const breadCrumbs = [{ text: "Careers", link: "/career" }];
   const formData = getFormattedFormData(form, arabic);
   return (
@@ -36,6 +42,7 @@ const SingleCareerPage = ({ data, arabic, form, formFeedback }) => {
         jobSlug={data?.slug}
         arabic={arabic}
         formFeedback={formFeedback}
+        contactUsData={contactUsData}
       />
     </>
   );

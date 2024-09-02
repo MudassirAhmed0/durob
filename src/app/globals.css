@@ -159,7 +159,10 @@ html {
     @apply lg:text22 mtext16 lg:leading-[1.66666666667vw] text-[#3B3B3B] text-opacity-[0.9];
   }
   .PrivacyTerms h5 {
-    @apply f700 text-[#1C1C1C] text-opacity-[0.9];
+    @apply f700 text-[#002b87] text-opacity-[0.9];
+  }
+  .PrivacyTerms a {
+    @apply text-[#002b87] underline;
   }
   /* PrivacyTerms
    */
@@ -218,7 +221,7 @@ html {
     @apply text-[#002B87];
   }
   form.v2 .submit_Btn {
-    @apply text-white justify-center;
+    @apply text-white;
   }
   form .submit_Btn .chevron rect {
     @apply stroke-[#002B87];
@@ -243,7 +246,9 @@ html {
     border-bottom: 1px solid #94d4ff !important;
     box-shadow: unset !important;
     border-radius: unset !important;
+    min-height: unset !important;
   }
+
   form .phoneField .css-1dimb5e-singleValue {
     color: #94d4ff !important;
   }
@@ -576,6 +581,18 @@ header.blackHeader .langSwitcher {
   form .phoneField .css-tj5bde-Svg {
     width: 1.25vw !important;
     height: 1.25vw !important;
+  }
+  form .phoneField .css-19bb58m {
+    padding-top: unset !important;
+    padding-bottom: unset !important;
+    margin-top: unset !important;
+    margin-bottom: unset !important;
+  }
+  form .phoneField .css-hlgwow {
+    padding-top: 0.364vw;
+    padding-bottom: 0.364vw;
+    margin-top: unset !important;
+    margin-bottom: unset !important;
   }
 }
 @media (max-width: 1024px) {

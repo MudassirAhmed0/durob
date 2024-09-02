@@ -20,7 +20,7 @@ export const privacyQuery = () => {
         locale
         ... on Entry_Pages_Page {
           title
-          content
+          page_content
         }
       }
       fallbackSEO: globalSet(handle: "global_seo", site: $site) {

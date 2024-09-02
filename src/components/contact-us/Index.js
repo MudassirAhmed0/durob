@@ -3,7 +3,7 @@ import Contact from "../common/contact/Contact";
 import SubPageHero from "../common/subpagehero/SubPageHero";
 import getFormattedFormData from "@/form/getFormatterFormData";
 
-const ContactUsPage = ({ data, arabic, formFeedback }) => {
+const ContactUsPage = ({ data, arabic, formFeedback, contactUsData }) => {
   const breadCrumbs = [];
   breadCrumbs.push({ text: data?.title });
   const formData = getFormattedFormData(
@@ -21,12 +21,13 @@ const ContactUsPage = ({ data, arabic, formFeedback }) => {
       />
       <Contact
         heading={data?.form_section?.title_heading}
-        desc="Reach out for inquiries and support. We offer specialized logistics services to meet your unique needs"
+        desc={data?.form_section?.short_description}
         fromContactPage
         endpoint={data?.form_section?.linked_form?.handle}
         formData={formData}
         arabic={arabic}
         formFeedback={formFeedback}
+        contactUsData={contactUsData}
       />
     </>
   );

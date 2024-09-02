@@ -7,6 +7,7 @@ import { locales } from "@/middleware";
 import getMetaData from "@/utils/seo/getMetaData";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { redirect } from "next/navigation";
+import getFooterData from "@/lib/data-hooks/layout/getFooterData";
 export const revalidate = 172800;
 
 export function generateStaticParams() {
@@ -24,6 +25,7 @@ export default async function Index({ params: { locale } }) {
     redirect(`/en`);
   }
   const data = await getData("home", isAr);
+  const footerData = await getFooterData(isAr);
   return (
     <>
       <Layout arabic={isAr}>
@@ -33,6 +35,7 @@ export default async function Index({ params: { locale } }) {
           recentNews={data?.recentNews.data}
           serviceItems={data?.service_slider}
           formFeedback={data?.formsFeedback?.contact_us_form}
+          contactUsData={footerData?.FooterData?.contact_us_data}
         />
       </Layout>
     </>

@@ -132,7 +132,7 @@ export const homeQuery = () => {
             title_heading: title
             description
             image {
-              src(width: 518, height: 499, webp: true)
+              src(webp: true)
             }
           }
         }

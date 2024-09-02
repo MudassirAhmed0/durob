@@ -7,7 +7,7 @@ const PrivacyPolicyPage = ({ data }) => {
   return (
     <>
       <SubPageHeroV2 heading={data?.title} breadCrumbs={breadCrumbs} />
-      <PrivacyTermsContainer privacyTerms={data?.content} />
+      <PrivacyTermsContainer privacyTerms={data?.page_content} />
     </>
   );
 };

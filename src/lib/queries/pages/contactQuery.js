@@ -24,11 +24,12 @@ export const contactQuery = () => {
             title
             description
             image {
-              src(width: 1920, height: 1080)
+              src(width: 1920, height: 1080, webp: true)
             }
           }
           form_section {
             title_heading
+            short_description
             linked_form {
               handle
               title

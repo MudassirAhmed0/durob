@@ -24,7 +24,7 @@ export const careerQuery = () => {
             title
             description
             image {
-              src(width: 1920, height: 1080)
+              src(webp: true)
             }
           }
           testimony_section {

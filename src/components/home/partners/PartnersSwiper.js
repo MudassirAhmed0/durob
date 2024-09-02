@@ -80,7 +80,7 @@ const PartnersSwiper = ({ arabic, data }) => {
         {chunkedSwiperImages?.map((partnerSlide, index) => (
           <SwiperSlide
             key={index}
-            className="flex justify-center items-center flex-wrap lg:gap-[2.60416666667vw] sm:gap-[30px] gap-[20px] w-full"
+            className="flex justify-center items-center flex-wrap lg:gap-[2.60416666667vw] sm:gap-[30px] gap-[20px] w-full "
           >
             {partnerSlide?.map((partnersLogo, ind) => (
               <Logo key={ind} partnersLogo={partnersLogo} />

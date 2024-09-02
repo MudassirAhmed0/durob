@@ -24,7 +24,7 @@ export const serviceQuery = () => {
             title
             description
             image {
-              src(width: 1920, height: 1080)
+              src(width: 1920, height: 1080, webp: true)
             }
           }
 
@@ -66,7 +66,7 @@ export const serviceQuery = () => {
             title
             description
             image {
-              src(width: 767, height: 767)
+              src(webp: true)
             }
             features {
               icon {

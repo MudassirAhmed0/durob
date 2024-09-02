@@ -9,7 +9,14 @@ import Partners from "./partners/Partners";
 import Contact from "../common/contact/Contact";
 import getFormattedFormData from "@/form/getFormatterFormData";
 
-const HomePage = ({ data, recentNews, arabic, serviceItems, formFeedback }) => {
+const HomePage = ({
+  data,
+  recentNews,
+  arabic,
+  serviceItems,
+  formFeedback,
+  contactUsData
+}) => {
   const formData = getFormattedFormData(
     data?.contact_us_form_section?.linked_form,
     arabic
@@ -44,6 +51,7 @@ const HomePage = ({ data, recentNews, arabic, serviceItems, formFeedback }) => {
         endpoint={data?.contact_us_form_section?.linked_form?.handle}
         arabic={arabic}
         formFeedback={formFeedback}
+        contactUsData={contactUsData}
       />
     </>
   );

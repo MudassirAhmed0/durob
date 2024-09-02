@@ -7,11 +7,12 @@ import { getMessages } from "next-intl/server";
 import getStaticMetaData from "@/utils/seo/getStaticMetaData";
 import Loading from "./loading";
 import { Suspense } from "react";
+import GoogleAnalytics from "./GoogleAnalytics";
 
 export const metadata = getStaticMetaData({
   title: "Durob || Home Page",
   description: "Experience the Future of Logistics",
-  isRobotFollow: false
+  isRobotFollow: true
 });
 
 export default async function LocaleLayout({ children, params: { locale } }) {
@@ -22,6 +23,7 @@ export default async function LocaleLayout({ children, params: { locale } }) {
   return (
     <html lang={locale} dir={locale == "ar" ? "rtl" : "ltr"}>
       <body>
+        <GoogleAnalytics />
         <NextIntlClientProvider messages={messages}>
           <Suspense fallback={<Loading />}>{children}</Suspense>
         </NextIntlClientProvider>

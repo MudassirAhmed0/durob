@@ -54,7 +54,13 @@ const Card = ({ setActivePopup, setPopupData, member, index, arabic }) => {
             </span>
           </div>
         </div>
+        {/* //uncomment later osman */}
+        {member.content ? 
         <LinkBtnV2 text={"read more"} tag={"button"} arabic={arabic} />
+        :
+        null
+        }
+        
       </div>
     </div>
   );

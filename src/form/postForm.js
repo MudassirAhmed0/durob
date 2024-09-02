@@ -10,7 +10,7 @@ const postForm = async (values, endpoint) => {
       method: "post",
       maxBodyLength: Infinity,
       url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/!/forms/${endpoint}`,
-      //   url: `https://barakah.brackets-tech.com/!/forms/career_form`,
+        // url: `https://barakah.brackets-tech.com/!/forms/form_career`,
       headers: {
         "X-Requested-With": "XMLHttpRequest"
       },

@@ -4,7 +4,13 @@ import AllServices from "./AllServices";
 import Contact from "../common/contact/Contact";
 import getFormattedFormData from "@/form/getFormatterFormData";
 
-const ServicesPage = ({ data, arabic, servicesItems, formFeedback }) => {
+const ServicesPage = ({
+  data,
+  arabic,
+  servicesItems,
+  formFeedback,
+  contactUsData
+}) => {
   const breadCrumbs = [];
   breadCrumbs.push({ text: data?.title });
   const formData = getFormattedFormData(
@@ -30,6 +36,7 @@ const ServicesPage = ({ data, arabic, servicesItems, formFeedback }) => {
         endpoint={data?.form_section?.linked_form?.handle}
         arabic={arabic}
         formFeedback={formFeedback}
+        contactUsData={contactUsData}
       />
     </>
   );
